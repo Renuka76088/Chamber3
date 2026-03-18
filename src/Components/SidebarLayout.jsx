@@ -80,12 +80,12 @@ const SidebarLayout = () => {
       `}>
         
         {/* Sidebar Header - Ultra Bold */}
-        <div className="hidden md:block p-10 border-b border-slate-200 bg-slate-900 text-white">
-          <h2 className="text-3xl font-black uppercase tracking-tighter italic leading-none">
-            Parekh <br />
-            <span className="text-amber-500 text-xl">Chamber</span>
+        <div className="hidden md:block p-10 border-b border-slate-200 bg-white text-slate-900">
+          <h2 className="text-3xl font-black uppercase tracking-tighter leading-none">
+            Parekh Chamber<br />
+           
           </h2>
-          <div className="h-1.5 w-16 bg-amber-500 mt-5"></div>
+          
           <p className="text-[11px] text-slate-400 font-bold uppercase tracking-[0.4em] mt-5">Management Portal</p>
         </div>
 
