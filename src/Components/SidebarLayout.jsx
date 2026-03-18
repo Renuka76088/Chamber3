@@ -23,7 +23,7 @@ import BlogPage from "../Pages/BlogPage";
 import AppointmentPage from "../Pages/AppointmentPage";
 import NoticeBoard from "../Pages/NoticeBoard";
 import MediaGallery from "../Pages/MediaGallery";
-import Associates from "../Pages/associates";
+import Associates from "../Pages/Associates";
 
 // Icons mapping for better UI
 const menuConfig = [
