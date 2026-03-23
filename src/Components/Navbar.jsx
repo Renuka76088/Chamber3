@@ -52,9 +52,7 @@ const Navbar = () => {
             <button className="bg-slate-950 text-white px-5 py-2 font-bold uppercase text-[10px] tracking-widest hover:bg-amber-600 transition-all">
               Join Now
             </button>
-            <button className="md:hidden p-2 text-slate-900 border border-slate-200 rounded" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          
           </div>
         </div>
       </nav>

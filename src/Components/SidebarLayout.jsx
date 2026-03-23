@@ -95,26 +95,29 @@ const SidebarLayout = () => {
         </div>
 
         {/* NAVIGATION LIST */}
-        <nav className="flex-1 overflow-y-auto no-scrollbar py-2">
-          <ul className="space-y-0.5">
-            {menuConfig.map((item) => (
-              <li
-                key={item.name}
-                onClick={() => handlePageChange(item.name)}
-                className={`cursor-pointer px-8 py-5 font-black text-sm lg:text-[15px] uppercase tracking-wider transition-all duration-300 flex items-center gap-5 group border-b border-slate-100 ${
-                  activePage === item.name 
-                    ? "bg-slate-900 text-amber-500 border-l-[12px] border-amber-500 shadow-2xl" 
-                    : "text-slate-500 hover:bg-slate-200 hover:text-slate-900 border-l-[12px] border-transparent"
-                }`}
-              >
-                <span className={`${activePage === item.name ? "text-amber-500" : "text-slate-400 group-hover:text-slate-900"}`}>
-                  {item.icon}
-                </span>
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </nav>
+     <nav className="flex-1 h-full overflow-y-auto overscroll-contain no-scrollbar py-4 pb-20">
+  <ul className="space-y-0.5">
+    {menuConfig.map((item) => (
+      <li
+        key={item.name}
+        onClick={() => {
+          handlePageChange(item.name);
+          if(window.innerWidth < 768) setIsSidebarOpen(false); // Mobile auto-close
+        }}
+        className={`cursor-pointer px-8 py-5 font-black text-sm lg:text-[15px] uppercase tracking-wider transition-all duration-300 flex items-center gap-5 group border-b border-slate-100 ${
+          activePage === item.name 
+            ? "bg-slate-900 text-amber-500 border-l-[12px] border-amber-500 shadow-2xl" 
+            : "text-slate-500 hover:bg-slate-200 hover:text-slate-900 border-l-[12px] border-transparent"
+        }`}
+      >
+        <span className={`${activePage === item.name ? "text-amber-500" : "text-slate-400 group-hover:text-slate-900"}`}>
+          {item.icon}
+        </span>
+        {item.name}
+      </li>
+    ))}
+  </ul>
+</nav>
 
         {/* Sidebar Footer */}
         <div className="p-8 bg-slate-100 border-t border-slate-200 text-[11px] font-black text-slate-400 uppercase tracking-widest hidden md:block">
