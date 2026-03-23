@@ -144,10 +144,7 @@ const SidebarLayout = () => {
         </div>
 
         {/* WHATSAPP */}
-        <a href="https://wa.me/91731404XXXX" target="_blank" rel="noreferrer" 
-           className="fixed bottom-10 right-10 z-50 bg-[#25D366] text-white p-5 rounded-full shadow-[0_15px_50px_rgba(37,211,102,0.5)] hover:scale-110 active:scale-90 transition-all">
-          <FaWhatsapp className="w-9 h-9" />
-        </a>
+       
       </main>
     </div>
   );

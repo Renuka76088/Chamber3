@@ -26,7 +26,7 @@ const Career = () => {
             Join Our <span className="text-amber-500">Team</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Explore opportunities to grow with us. Hum ek aisi team bana rahe hain jo innovation aur excellence mein vishwas rakhti hai.
+        "Explore opportunities to grow with us. We are building a team that believes in innovation and excellence."
           </p>
         </div>
       </section>
@@ -126,7 +126,7 @@ const Career = () => {
               <div className="grid lg:grid-cols-3 gap-12 mb-12">
                 <div className="lg:col-span-2 space-y-6">
                   <p className="text-xl text-slate-700 leading-relaxed font-medium border-l-4 border-slate-200 pl-6">
-                    Hum experienced influencers ko invite karte hain hamare tangible aur intangible products ki online advertisement ke liye.
+                  "We invite experienced influencers to collaborate with us for the online advertisement of our tangible and intangible products."
                   </p>
                   
                   <div className="grid grid-cols-2 gap-4">

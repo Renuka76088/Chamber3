@@ -50,7 +50,7 @@ const CircularsPage = () => {
               </div>
               <h1 className="text-4xl md:text-6xl font-black mb-6">Circulars & <span className="text-amber-500">Notices</span></h1>
               <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl border-l-4 border-slate-700 pl-6">
-                Chamber ke sabhi latest updates, policies, aur official notifications yahan dekhein. Hum transparency aur timely communication mein vishwas rakhte hain.
+           "Find all the latest Chamber updates, policies, and official notifications here. We believe in transparency and timely communication."
               </p>
             </div>
             
@@ -89,7 +89,7 @@ const CircularsPage = () => {
           <div className="bg-amber-600 text-white p-6">
             <Info className="w-8 h-8 mb-4" />
             <p className="text-lg font-bold leading-tight mb-4">Subscribe for Email Alerts</p>
-            <p className="text-sm opacity-90 mb-6 font-medium">Koi bhi important update miss na karein. Humein apna email dein.</p>
+            <p className="text-sm opacity-90 mb-6 font-medium">"Don't miss any important updates. Subscribe with your email."</p>
             <button className="w-full bg-slate-900 text-white py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-slate-800 transition-all">
                 Subscribe Now
             </button>

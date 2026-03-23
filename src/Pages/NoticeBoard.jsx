@@ -53,7 +53,7 @@ const NoticeBoard = () => {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">Digital <span className="text-amber-500">Notice Board</span></h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
-              Parekh Chamber ki sabhi latest updates, official orders aur upcoming events ki jaankari yahan dekhein. 
+"Access all the latest Parekh Chamber updates, official orders, and information on upcoming events here."
             </p>
           </div>
           
@@ -123,7 +123,7 @@ const NoticeBoard = () => {
             <div className="md:col-span-2 bg-amber-600 p-8 rounded text-white flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl">
                 <div>
                     <h3 className="text-2xl font-bold">Sign Up for Instant SMS Alerts</h3>
-                    <p className="text-amber-100 mt-1">Koi bhi urgent notice miss na karein.</p>
+                    <p className="text-amber-100 mt-1">"Don't miss any urgent notices."</p>
                 </div>
                 <button className="bg-slate-950 text-white px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-slate-800 transition-all border-2 border-slate-900">
                     Subscribe

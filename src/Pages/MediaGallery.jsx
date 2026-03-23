@@ -75,7 +75,7 @@ const MediaGallery = () => {
               Media <span className="text-amber-500">Gallery</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 border-l-4 border-amber-600 pl-6 max-w-2xl mx-auto md:mx-0">
-              Visual journey of the Parekh Chamber. Hamari heritage, modern technology aur events ki ek jhalak.
+              "A visual journey of the Parekh Chamber. Glimpse our rich heritage, advanced technology, and key events."
             </p>
           </div>
           <div className="flex gap-4">

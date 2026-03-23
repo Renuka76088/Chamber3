@@ -125,7 +125,7 @@ const HomePage = () => {
 
       {/* 5. SIMPLE FOOTER */}
       <footer className="py-8 bg-slate-900 text-white text-center text-sm">
-        <p>© 2026 Textile Chamber. Offices in Indore & Mohali. All Rights Reserved.</p>
+        <p>© 2026 Textile Chamber. All Rights Reserved.</p>
       </footer>
     </div>
   );

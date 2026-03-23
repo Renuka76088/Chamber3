@@ -5,7 +5,7 @@ const BlogPage = () => {
   const posts = [
     {
       title: "Indore's Cotton Legacy: From Chanderi to Modern Looms",
-      excerpt: "Ek safar Indore ki textile history ka, kaise humne traditional handloom se nikal kar modern industrial power banna sikha.",
+      excerpt: "A journey through Indore's textile history: How we evolved from traditional handlooms to become a modern industrial powerhouse.",
       author: "Prakash Agrawal",
       date: "18 March, 2026",
       readTime: "7 min read",
@@ -14,7 +14,7 @@ const BlogPage = () => {
     },
     {
       title: "How AI is Revolutionizing Fabric Quality Control",
-      excerpt: "LabelzAI ke sath milkar Parekh Chamber kaise smart data annotation use kar raha hai defects ko zero karne ke liye.",
+      excerpt: "How Parekh Chamber is partnering with LabelzAI to use smart data annotation for achieving zero defects.",
       author: "Tech Cell",
       date: "12 March, 2026",
       readTime: "5 min read",
@@ -23,7 +23,7 @@ const BlogPage = () => {
     },
     {
       title: "Export Guidelines for Small Scale Weavers (2026)",
-      excerpt: "Naye government norms aur MSME benefits jo Indore aur Mohali ke textile manufacturers ko global markets mein madad karenge.",
+      excerpt:"New government norms and MSME benefits designed to empower textile manufacturers in Indore and Mohali for global market success.",
       author: "Legal Dept",
       date: "05 March, 2026",
       readTime: "10 min read",
@@ -41,7 +41,7 @@ const BlogPage = () => {
           <div className="md:w-2/3">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">Chamber <span className="text-amber-500">Insights</span></h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
-              Parekh Chamber of Textile ka official blog. Yahan hum share karte hain industry trends, success stories aur technical updates.
+"The official blog of the HC Parekh Chamber of Textile. This is where we share industry trends, success stories, and technical updates."
             </p>
           </div>
           <div className="w-full md:w-80 relative">
@@ -117,7 +117,7 @@ const BlogPage = () => {
           </div>
           <div className="bg-slate-900 p-8 text-white rounded">
             <h3 className="text-xl font-bold mb-2">Weekly Newsletter</h3>
-            <p className="text-slate-400 text-sm mb-6 font-medium">Textile industry ki naye updates apne email par paayein.</p>
+            <p className="text-slate-400 text-sm mb-6 font-medium">"Get the latest textile industry updates delivered to your inbox."</p>
             <div className="flex gap-2">
               <input type="email" placeholder="Your Email" className="flex-1 bg-slate-800 border border-slate-700 px-4 py-2 text-sm focus:outline-none focus:border-amber-500" />
               <button className="bg-amber-600 text-white px-6 py-2 font-bold uppercase text-[10px] tracking-widest hover:bg-amber-500 transition-all">Join</button>
@@ -131,7 +131,7 @@ const BlogPage = () => {
         <div className="max-w-6xl mx-auto bg-amber-600 p-8 rounded text-white flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <h2 className="text-2xl font-bold uppercase tracking-tight text-white">Share Your Success Story</h2>
-            <p className="text-amber-100 mt-1">Kya aapke paas koi interesting textile project hai? Humein batayein.</p>
+            <p className="text-amber-100 mt-1">"Do you have an interesting textile project in mind? Tell us about it."</p>
           </div>
           <button className="bg-slate-950 text-white px-10 py-3 font-bold uppercase text-xs tracking-widest hover:bg-slate-800 transition-all border-2 border-slate-900 shadow-lg">
             Submit Post
@@ -141,7 +141,7 @@ const BlogPage = () => {
 
       {/* Footer */}
       <footer className="py-6 border-t border-slate-200 text-center text-slate-500 text-xs">
-        © 2026 Parekh Chamber Insights. Indore | Mohali. All Rights Reserved.
+        © 2026 Parekh Chamber Insights. All Rights Reserved.
       </footer>
     </div>
   );

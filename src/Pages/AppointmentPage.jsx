@@ -20,8 +20,7 @@ const AppointmentPage = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">Book an <span className="text-amber-500">Appointment</span></h1>
           <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
-            Parekh Chamber ke experts ke saath consultation schedule karein. Business registration ho ya legal advice, hum yahan madad ke liye hain.
-          </p>
+"Schedule a consultation with Parekh Chamber experts. From business registration to legal advice, we are here to help."          </p>
         </div>
         <Calendar className="absolute right-[-5%] top-[-10%] opacity-5 w-80 h-80 text-white" strokeWidth={0.5} />
       </section>
@@ -38,21 +37,21 @@ const AppointmentPage = () => {
                 <div className="bg-amber-100 p-2 text-amber-600 font-bold text-xs uppercase">01</div>
                 <div>
                   <p className="font-bold text-lg leading-tight">Prior Confirmation</p>
-                  <p className="text-slate-600 text-sm mt-1">Sabhi appointments ko 24 ghante pehle confirm karna zaroori hai.</p>
+                  <p className="text-slate-600 text-sm mt-1">"All appointments must be confirmed 24 hours in advance."</p>
                 </div>
               </li>
               <li className="flex gap-4 items-start">
                 <div className="bg-amber-100 p-2 text-amber-600 font-bold text-xs uppercase">02</div>
                 <div>
                   <p className="font-bold text-lg leading-tight">Document Readiness</p>
-                  <p className="text-slate-600 text-sm mt-1">Apne business documents ya ID proof saath laana na bhulein.</p>
+                  <p className="text-slate-600 text-sm mt-1">"It is mandatory to carry your business documents and a valid ID proof for verification."</p>
                 </div>
               </li>
               <li className="flex gap-4 items-start">
                 <div className="bg-amber-100 p-2 text-amber-600 font-bold text-xs uppercase">03</div>
                 <div>
                   <p className="font-bold text-lg leading-tight">Virtual Option</p>
-                  <p className="text-slate-600 text-sm mt-1">Aap Zoom ya Google Meet ke zariye online meeting bhi select kar sakte hain.</p>
+                  <p className="text-slate-600 text-sm mt-1">"You can also select an online meeting via Zoom or Google Meet."</p>
                 </div>
               </li>
             </ul>
@@ -62,7 +61,7 @@ const AppointmentPage = () => {
             <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
               <Phone className="w-5 h-5 text-amber-500" /> Quick Support
             </h3>
-            <p className="text-slate-400 text-sm mb-6">Agar form bharne mein koi dikkat ho, toh turant sampark karein:</p>
+            <p className="text-slate-400 text-sm mb-6">"If you encounter any issues while filling out the form, please contact us immediately."</p>
             <div className="space-y-2 font-mono text-amber-500 font-bold">
                 <p>+91 98XXX-XXXXX</p>
                 <p>support@parekhchamber.com</p>

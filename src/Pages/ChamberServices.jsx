@@ -132,7 +132,7 @@ const ChamberServices = () => {
 
       {/* Simple Footer */}
       <footer className="py-8 border-t border-slate-200 text-center text-slate-500 text-xs bg-white">
-        © 2026 Textile Chamber. Indore | Mohali. All Rights Reserved.
+        © 2026 Textile Chamber.  All Rights Reserved.
       </footer>
     </div>
   );

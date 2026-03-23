@@ -25,7 +25,7 @@ const Associates = () => {
             Our Textile <span className="text-amber-500">Associates</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-400 border-l-4 border-amber-600 pl-6 max-w-3xl">
-            HC Parekh & Associates ki mazboot upasthiti poore Bharat mein. Humne desh bhar mein textile excellence ke kendra sthapit kiye hain.
+          "A pan-India footprint for HC Parekh & Associates. We are proud to have established centers of textile excellence throughout the country."
           </p>
         </div>
         <Globe className="absolute right-[-10%] top-[-20%] opacity-10 w-96 h-96 text-amber-500" strokeWidth={0.5} />
@@ -110,7 +110,7 @@ const Associates = () => {
           <div>
             <h2 className="text-3xl font-black uppercase tracking-tight mb-6">Our Expansion <span className="text-amber-600 underline decoration-4 underline-offset-8">Strategy</span></h2>
             <p className="text-slate-600 leading-relaxed mb-8">
-              HC Parekh & Associates Bharat ke textile landscape ko badalne ke liye pratibadh hai. Hum Rajasthan ke cotton hubs se lekar South ke polyfabric units tak, har jagah quality aur trust deliver karte hain.
+             "HC Parekh & Associates is committed to transforming India’s textile landscape. From the cotton hubs of Rajasthan to the polyfabric units of the South, we deliver quality and trust everywhere."
             </p>
             <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white p-4 shadow-sm border-l-4 border-amber-600">
@@ -128,7 +128,7 @@ const Associates = () => {
                 <Building2 className="w-5 h-5 text-amber-500" /> Regional Partnership
             </h3>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              Kya aap hamare kisi unit ke saath associate hona chahte hain? Hamare trade enquiry portal par register karein.
+             "Interested in associating with one of our units? Register now through our Trade Enquiry Portal."
             </p>
             <button className="w-full bg-amber-600 py-4 font-bold uppercase text-xs tracking-widest hover:bg-amber-500 transition-all flex items-center justify-center gap-2">
                 Official Enquiry <ExternalLink className="w-4 h-4" />
