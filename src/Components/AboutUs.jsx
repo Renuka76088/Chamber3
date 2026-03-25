@@ -9,7 +9,7 @@ const AboutUs = () => {
       <section className="bg-slate-900 text-white py-12 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-2/3">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">The PAREKH CHAMBER</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">The PAREKH CHAMBER OF TEXTILE  </h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4">
               Providing a unified platform for weavers, manufacturers, and textile professionals since 1974. We bridge the gap between traditional craft and global markets.
             </p>

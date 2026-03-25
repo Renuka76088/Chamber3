@@ -128,7 +128,7 @@ const EQuotationForm = () => {
       </div>
       
       <footer className="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-widest">
-        Official Digital Document — Parekh Chamber of Textile
+        Official Digital Document — PAREKH CHAMBER OF TEXTILE 
       </footer>
     </div>
   );

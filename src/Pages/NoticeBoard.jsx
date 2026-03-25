@@ -53,7 +53,7 @@ const NoticeBoard = () => {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">Digital <span className="text-amber-500">Notice Board</span></h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
-"Access all the latest Parekh Chamber updates, official orders, and information on upcoming events here."
+"Access all the latest Parekh Chamber Of Textile updates, official orders, and information on upcoming events here."
             </p>
           </div>
           

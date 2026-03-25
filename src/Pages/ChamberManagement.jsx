@@ -11,7 +11,7 @@ const ChamberManagement = () => {
           <div className="md:w-2/3">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Chamber Management</h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4">
-              Understanding how The PAREKH CHAMBER operates, structures its governance, and manages its association of textile professionals for collective growth.
+              Understanding how The PAREKH CHAMBER OF TEXTILE  operates, structures its governance, and manages its association of textile professionals for collective growth.
             </p>
           </div>
           <div className="md:w-1/3 text-center md:text-right">

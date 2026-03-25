@@ -140,7 +140,7 @@ const CircularsPage = () => {
       <section className="max-w-7xl mx-auto px-6 mt-20">
           <div className="bg-slate-100 p-8 text-center rounded-sm">
             <p className="text-lg text-slate-500 italic max-w-3xl mx-auto">
-              "Official Circulars issued by the Parekh Chamber are legally binding for all registered members. Please ensure you are logged in to access confidential documents."
+              "Official Circulars issued by the Parekh Chamber of textile are legally binding for all registered members. Please ensure you are logged in to access confidential documents."
             </p>
           </div>
       </section>

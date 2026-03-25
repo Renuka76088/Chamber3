@@ -75,7 +75,7 @@ const MediaGallery = () => {
               Media <span className="text-amber-500">Gallery</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 border-l-4 border-amber-600 pl-6 max-w-2xl mx-auto md:mx-0">
-              "A visual journey of the Parekh Chamber. Glimpse our rich heritage, advanced technology, and key events."
+              "A visual journey of the Parekh Chamber Of Textile. Glimpse our rich heritage, advanced technology, and key events."
             </p>
           </div>
           <div className="flex gap-4">
@@ -169,7 +169,7 @@ const MediaGallery = () => {
       {/* Footer Disclaimer */}
       <footer className="mt-20 py-10 border-t border-slate-100 text-center">
         <p className="text-[10px] text-slate-400 uppercase tracking-widest">
-           Parekh Chamber Media Archives — Indore Central Unit © 2026.
+           Parekh Chamber Of Textile Media Archives — Gujrat Central Unit © 2026.
         </p>
       </footer>
 

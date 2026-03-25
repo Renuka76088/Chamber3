@@ -6,6 +6,7 @@ import {
   Image, Map, MessageSquare 
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import logo from '../assets/logo.png'
 
 // Component Imports (Wahi rahenge jo aapne diye hain)
 import HomePage from "./HomePage";
@@ -32,9 +33,9 @@ const menuConfig = [
   { name: "Contact Us", icon: <Phone size={20} /> },
   { name: "Our Chamber Service", icon: <Settings size={20} /> },
   { name: "Our Chamber Management", icon: <Briefcase size={20} /> },
-  { name: "Trade Enquiry (e-Form)", icon: <MessageSquare size={20} /> },
-  { name: "e-Quotation (e-Form)", icon: <FileText size={20} /> },
-  { name: "e-Auction (e-Form)", icon: <BarChart3 size={20} /> },
+  { name: "Trade Enquiry", icon: <MessageSquare size={20} /> },
+  { name: "e-Quotation", icon: <FileText size={20} /> },
+  { name: "e-Auction", icon: <BarChart3 size={20} /> },
   { name: "Tender & Contract", icon: <Gavel size={20} /> },
   { name: "Career Page", icon: <UserPlus size={20} /> },
   { name: "Circular", icon: <Bell size={20} /> },
@@ -64,10 +65,13 @@ const SidebarLayout = () => {
       `}</style>
       
       {/* MOBILE TRIGGER */}
-      <div className="md:hidden bg-slate-900 text-white p-5 flex justify-between items-center z-50 shadow-xl">
-        <h2 className="font-black uppercase tracking-tighter text-lg italic">
-          Parekh <span className="text-amber-500">Chamber</span>
-        </h2>
+      <div className="md:hidden bg-white text-white p-5 flex justify-between items-center z-50 shadow-xl">
+      
+          <div className="flex items-center">
+              {/* h-8 ya h-10 ko apne logo ke hisaab se adjust karein */}
+              <img src={logo} alt="Logo" className="h-8 md:h-15 w-auto object-contain" />
+            </div>
+      
         <button onClick={() => setIsSidebarOpen(true)} className="p-2 bg-slate-800 rounded-lg">
           <Menu className="w-7 h-7" />
         </button>
@@ -81,12 +85,13 @@ const SidebarLayout = () => {
         
         {/* Sidebar Header - Ultra Bold */}
         <div className="hidden md:block p-10 border-b border-slate-200 bg-white text-slate-900">
-          <h2 className="text-3xl font-black uppercase tracking-tighter leading-none">
-            Parekh Chamber<br />
-           
-          </h2>
+           <div className="flex items-center">
+             {/* h-8 ya h-10 ko apne logo ke hisaab se adjust karein */}
+             <img src={logo} alt="Logo" className="h-8 md:h-15 w-auto object-contain" />
+           </div>
           
-          <p className="text-[11px] text-slate-400 font-bold uppercase tracking-[0.4em] mt-5">Management Portal</p>
+          <p className="text-[11px] text-slate-400 font-bold uppercase tracking-[0.4em] mt-5">BENGALURU, KA
+</p>
         </div>
 
         {/* Mobile Header for Drawer */}
@@ -133,9 +138,9 @@ const SidebarLayout = () => {
             {activePage === "Contact Us" && <ContactUs />}
             {activePage === "Our Chamber Management" && <ChamberManagement />}
             {activePage === "Our Chamber Service" && <ChamberServices />}
-            {activePage === "Trade Enquiry (e-Form)" && <TradeEnquiryForm />}
-            {activePage === "e-Quotation (e-Form)" && <EQuotationForm />}
-            {activePage === "e-Auction (e-Form)" && <EAuctionForm />}
+            {activePage === "Trade Enquiry" && <TradeEnquiryForm />}
+            {activePage === "e-Quotation" && <EQuotationForm />}
+            {activePage === "e-Auction" && <EAuctionForm />}
             {activePage === "Tender & Contract" && <TenderContract />}
             {activePage === "Career Page" && <Career />}
             {activePage === "Circular" && <CircularsPage />}

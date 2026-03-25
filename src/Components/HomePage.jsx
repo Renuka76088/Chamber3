@@ -10,7 +10,7 @@ const HomePage = () => {
         <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-10 items-center">
           <div className="text-white space-y-6">
             <div className="inline-block px-3 py-1 bg-amber-600 text-white text-xs font-bold uppercase tracking-widest">
-              Official PAREKH CHAMBER
+              Official PAREKH CHAMBER OF TEXTILE 
 
             </div>
             <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight">

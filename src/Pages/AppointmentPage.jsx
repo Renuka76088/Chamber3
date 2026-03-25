@@ -20,7 +20,7 @@ const AppointmentPage = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">Book an <span className="text-amber-500">Appointment</span></h1>
           <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
-"Schedule a consultation with Parekh Chamber experts. From business registration to legal advice, we are here to help."          </p>
+"Schedule a consultation with PAREKH CHAMBER OF TEXTILE  experts. From business registration to legal advice, we are here to help."          </p>
         </div>
         <Calendar className="absolute right-[-5%] top-[-10%] opacity-5 w-80 h-80 text-white" strokeWidth={0.5} />
       </section>
@@ -64,7 +64,7 @@ const AppointmentPage = () => {
             <p className="text-slate-400 text-sm mb-6">"If you encounter any issues while filling out the form, please contact us immediately."</p>
             <div className="space-y-2 font-mono text-amber-500 font-bold">
                 <p>+91 98XXX-XXXXX</p>
-                <p>support@parekhchamber.com</p>
+                <p>support@parekhchamberoftextile.com</p>
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@ const AppointmentPage = () => {
       {/* Footer Disclaimer */}
       <footer className="mt-20 py-10 border-t border-slate-100 text-center">
         <p className="text-[10px] text-slate-400 uppercase tracking-widest">
-           Parekh Chamber Consultation Services © 2026. Indore HQ.
+          PAREKH CHAMBER OF TEXTILE  Consultation Services © 2026. Indore HQ.
         </p>
       </footer>
 

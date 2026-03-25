@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, MessageSquare, Send, Bot, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ const Navbar = () => {
   // Chatbot States
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'bot', text: 'Hello! Welcome to HC Parekh Chamber. How can I help you today?' }
+    { role: 'bot', text: 'Hello! Welcome to PAREKH CHAMBER OF TEXTILE . How can I help you today?' }
   ]);
   const [input, setInput] = useState('');
   const chatEndRef = useRef(null);
@@ -38,24 +39,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Existing Navbar Structure */}
-      <nav className="bg-white border-b-2 border-slate-200 sticky top-0 z-[100] w-full shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:px-12">
-          <div className="flex items-center gap-10">
-            <h1 className="text-2xl font-bold text-slate-950 tracking-tight">
-              Parekh<span className="text-amber-600 italic">Chamber</span>
-            </h1>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button className="hidden sm:block text-slate-600 font-bold hover:text-black">Log in</button>
-            <button className="bg-slate-950 text-white px-5 py-2 font-bold uppercase text-[10px] tracking-widest hover:bg-amber-600 transition-all">
-              Join Now
-            </button>
-          
-          </div>
-        </div>
-      </nav>
 
       {/* --- FLOATING ACTION BUTTONS (Bottom Right) --- */}
       <div className="fixed bottom-6 right-6 z-[999] flex flex-col items-end gap-4">

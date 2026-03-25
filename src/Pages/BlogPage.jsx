@@ -14,7 +14,7 @@ const BlogPage = () => {
     },
     {
       title: "How AI is Revolutionizing Fabric Quality Control",
-      excerpt: "How Parekh Chamber is partnering with LabelzAI to use smart data annotation for achieving zero defects.",
+      excerpt: "How Parekh Chamber of Textile is partnering with LabelzAI to use smart data annotation for achieving zero defects.",
       author: "Tech Cell",
       date: "12 March, 2026",
       readTime: "5 min read",
@@ -41,7 +41,7 @@ const BlogPage = () => {
           <div className="md:w-2/3">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">Chamber <span className="text-amber-500">Insights</span></h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
-"The official blog of the HC Parekh Chamber of Textile. This is where we share industry trends, success stories, and technical updates."
+"The official blog of the  Parekh Chamber of Textile. This is where we share industry trends, success stories, and technical updates."
             </p>
           </div>
           <div className="w-full md:w-80 relative">
@@ -141,7 +141,7 @@ const BlogPage = () => {
 
       {/* Footer */}
       <footer className="py-6 border-t border-slate-200 text-center text-slate-500 text-xs">
-        © 2026 Parekh Chamber Insights. All Rights Reserved.
+        © 2026 PAREKH CHAMBER OF TEXTILE  Insights. All Rights Reserved.
       </footer>
     </div>
   );
