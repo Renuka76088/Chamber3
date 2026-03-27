@@ -169,7 +169,7 @@ const MediaGallery = () => {
       {/* Footer Disclaimer */}
       <footer className="mt-20 py-10 border-t border-slate-100 text-center">
         <p className="text-[10px] text-slate-400 uppercase tracking-widest">
-           Parekh Chamber Of Textile Media Archives — Gujrat Central Unit © 2026.
+           Parekh Chamber Of Textile Media Archives — BENGALURU, KA Central Unit © 2026.
         </p>
       </footer>
 
