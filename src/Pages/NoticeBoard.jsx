@@ -19,7 +19,7 @@ const NoticeBoard = () => {
       title: "Annual General Meeting (AGM) - April 2026",
       date: "March 18, 2026",
       tag: "Event",
-      desc: "All registered members are invited to attend the AGM at the Indore Corporate Office to discuss the 2026-27 roadmap.",
+      desc: "All registered members are invited to attend the AGM at the BENGALURU Corporate Office to discuss the 2026-27 roadmap.",
       priority: "High"
     },
     {
@@ -136,7 +136,7 @@ const NoticeBoard = () => {
                 </h4>
                 <div className="space-y-2 text-sm font-bold">
                     <a href="#" className="flex items-center justify-between border-b py-2 hover:text-amber-600">Download Directory <ChevronRight className="w-4 h-4" /></a>
-                    <a href="#" className="flex items-center justify-between border-b py-2 hover:text-amber-600">Membership e-Form <ChevronRight className="w-4 h-4" /></a>
+                    <a href="#" className="flex items-center justify-between border-b py-2 hover:text-amber-600">Membership <ChevronRight className="w-4 h-4" /></a>
                 </div>
             </div>
         </section>

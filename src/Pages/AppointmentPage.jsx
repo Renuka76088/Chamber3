@@ -152,7 +152,7 @@ const AppointmentPage = () => {
       {/* Footer Disclaimer */}
       <footer className="mt-20 py-10 border-t border-slate-100 text-center">
         <p className="text-[10px] text-slate-400 uppercase tracking-widest">
-          PAREKH CHAMBER OF TEXTILE  Consultation Services © 2026. Indore HQ.
+          PAREKH CHAMBER OF TEXTILE  Consultation Services © 2026. BENGALURU HQ.
         </p>
       </footer>
 

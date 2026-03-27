@@ -20,7 +20,7 @@ const MediaGallery = () => {
       id: 1,
       type: 'image',
       category: 'Exhibitions',
-      title: 'Indore Textile Expo 2026',
+      title: 'BENGALURU Textile Expo 2026',
       url: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800'
     },
     {

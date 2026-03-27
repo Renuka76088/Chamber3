@@ -4,8 +4,8 @@ import { Clock, User, ArrowRight, Search, Tag, TrendingUp, Calendar, BookOpen } 
 const BlogPage = () => {
   const posts = [
     {
-      title: "Indore's Cotton Legacy: From Chanderi to Modern Looms",
-      excerpt: "A journey through Indore's textile history: How we evolved from traditional handlooms to become a modern industrial powerhouse.",
+      title: "BENGALURU's Cotton Legacy: From Chanderi to Modern Looms",
+      excerpt: "A journey through BENGALURU's textile history: How we evolved from traditional handlooms to become a modern industrial powerhouse.",
       author: "Prakash Agrawal",
       date: "18 March, 2026",
       readTime: "7 min read",
@@ -23,7 +23,7 @@ const BlogPage = () => {
     },
     {
       title: "Export Guidelines for Small Scale Weavers (2026)",
-      excerpt:"New government norms and MSME benefits designed to empower textile manufacturers in Indore and Mohali for global market success.",
+      excerpt:"New government norms and MSME benefits designed to empower textile manufacturers in BENGALURU and Mohali for global market success.",
       author: "Legal Dept",
       date: "05 March, 2026",
       readTime: "10 min read",
@@ -108,7 +108,7 @@ const BlogPage = () => {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">Industry Focus Areas</h2>
             <div className="flex flex-wrap gap-2">
-              {["Organic Cotton", "Smart Textiles", "Indore Handloom", "Export Tech", "Garment Manufacturing", "B2B Trading"].map((tag) => (
+              {["Organic Cotton", "Smart Textiles", "BENGALURU Handloom", "Export Tech", "Garment Manufacturing", "B2B Trading"].map((tag) => (
                 <span key={tag} className="bg-white border border-slate-200 px-4 py-2 text-xs font-bold text-slate-600 cursor-pointer hover:bg-slate-900 hover:text-white transition-all">
                   #{tag}
                 </span>

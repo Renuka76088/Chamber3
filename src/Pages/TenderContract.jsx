@@ -61,7 +61,7 @@ const TenderContract = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Contracts.</span>
               </h1>
               <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-10">
-                Parekh Chamber of Textile provides a unified, secure, and transparent environment for industrial bidding and high-value textile contracts across the Indore region.
+                Parekh Chamber of Textile provides a unified, secure, and transparent environment for industrial bidding and high-value textile contracts across the BENGALURU region.
               </p>
               <div className="flex flex-wrap gap-5">
                 <button className="bg-amber-600 hover:bg-amber-500 text-white px-10 py-5 font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-3 group">

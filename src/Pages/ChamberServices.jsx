@@ -98,7 +98,7 @@ const ChamberServices = () => {
           <div className="md:w-1/2 space-y-6">
             <h2 className="text-3xl font-bold text-slate-900 italic">"Advancing Tradition with Technology"</h2>
             <p className="text-slate-700 leading-relaxed">
-              Beyond commercial services, we provide dedicated support for <strong>Handloom Revival</strong>. This includes digital archiving of traditional patterns and providing GI-Tagging assistance to authentic weavers in the Indore and regional textile clusters.
+              Beyond commercial services, we provide dedicated support for <strong>Handloom Revival</strong>. This includes digital archiving of traditional patterns and providing GI-Tagging assistance to authentic weavers in the BENGALURU and regional textile clusters.
             </p>
             <div className="space-y-4">
                 <div className="flex gap-4 p-4 bg-white border-l-4 border-slate-900 shadow-sm">

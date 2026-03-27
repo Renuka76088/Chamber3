@@ -9,7 +9,7 @@ const TradeEnquiryForm = () => {
       <section className="bg-slate-900 text-white py-12 px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Apply for Membership</h1>
-          <p className="text-amber-500 font-medium tracking-wide uppercase text-sm">e-Form Submission Portal</p>
+          <p className="text-amber-500 font-medium tracking-wide uppercase text-sm">Enquiry Submission Portal</p>
         </div>
       </section>
 

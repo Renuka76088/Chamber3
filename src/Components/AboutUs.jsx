@@ -11,7 +11,7 @@ const AboutUs = () => {
           <div className="md:w-2/3">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">The PAREKH CHAMBER OF TEXTILE  </h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4">
-              Providing a unified platform for weavers, manufacturers, and textile professionals since 1974. We bridge the gap between traditional craft and global markets.
+              Providing a unified platform for weavers, manufacturers, and textile professionals since 2007. We bridge the gap between traditional craft and global markets.
             </p>
           </div>
           <div className="md:w-1/3 text-center md:text-right">

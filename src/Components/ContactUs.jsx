@@ -28,7 +28,7 @@ const ContactUs = () => {
               </h2>
               
               <div className="space-y-8 mt-6">
-                {/* Indore Office */}
+                {/* BENGALURU Office */}
                 <div className="flex gap-4">
                   <div className="mt-1">
                     <MapPin className="w-6 h-6 text-amber-600" />

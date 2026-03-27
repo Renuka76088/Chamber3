@@ -43,7 +43,7 @@ const menuConfig = [
   { name: "Visit with Appointment", icon: <Calendar size={20} /> },
   { name: "Notice Board", icon: <Bell size={20} /> },
   { name: "Media Gallery", icon: <Image size={20} /> },
-  { name: "Our Textile Associates (India Map)", icon: <Map size={20} /> },
+  { name: "Our Textile Associates", icon: <Map size={20} /> },
 ];
 
 const SidebarLayout = () => {
@@ -109,7 +109,7 @@ const SidebarLayout = () => {
           handlePageChange(item.name);
           if(window.innerWidth < 768) setIsSidebarOpen(false); // Mobile auto-close
         }}
-        className={`cursor-pointer px-8 py-5 font-black text-sm lg:text-[15px] uppercase tracking-wider transition-all duration-300 flex items-center gap-5 group border-b border-slate-100 ${
+        className={`cursor-pointer px-8 py-5 font-black text-sm lg:text-[15px] tracking-wider transition-all duration-300 flex items-center gap-5 group border-b border-slate-100 ${
           activePage === item.name 
             ? "bg-slate-900 text-amber-500 border-l-[12px] border-amber-500 shadow-2xl" 
             : "text-slate-500 hover:bg-slate-200 hover:text-slate-900 border-l-[12px] border-transparent"
@@ -126,7 +126,7 @@ const SidebarLayout = () => {
 
         {/* Sidebar Footer */}
         <div className="p-8 bg-slate-100 border-t border-slate-200 text-[11px] font-black text-slate-400 uppercase tracking-widest hidden md:block">
-           Official Tech Unit | Indore, MP
+           Official Tech Unit |BENGALURU, KA
         </div>
       </aside>
 
@@ -148,7 +148,7 @@ const SidebarLayout = () => {
             {activePage === "Visit with Appointment" && < AppointmentPage/>}
             {activePage === "Notice Board" && < NoticeBoard/>}
             {activePage === "Media Gallery" && < MediaGallery/>}
-            {activePage === "Our Textile Associates (India Map)" && < Associates/>}
+            {activePage === "Our Textile Associates" && < Associates/>}
         </div>
 
         {/* WHATSAPP */}

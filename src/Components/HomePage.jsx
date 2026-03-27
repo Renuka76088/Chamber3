@@ -18,7 +18,7 @@ const HomePage = () => {
             </h1>
             <p className="text-lg text-slate-300 max-w-lg leading-relaxed border-l-4 border-amber-600 pl-4">
               Leading the global textile evolution by connecting artisans, 
-              manufacturers, and designers since 1974.
+              manufacturers, and designers since 2007.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <button className="bg-white text-slate-900 px-8 py-4 font-bold uppercase text-sm hover:bg-amber-500 hover:text-white transition-all shadow-md">
@@ -116,8 +116,8 @@ const HomePage = () => {
            <div className="bg-slate-100 p-8 border-l-8 border-slate-900">
               <h4 className="text-xl font-bold mb-4">Direct Contact for Members</h4>
               <p className="text-slate-600 mb-6 text-sm">Need immediate assistance with registration or trade queries? Our helpdesk is available from 10 AM to 6 PM.</p>
-              <a href="tel:+919876543210" className="flex items-center gap-4 text-2xl font-bold text-slate-900">
-                <Phone className="w-6 h-6 text-amber-600" /> +91 98765 43210
+              <a href="tel:+9111111 11111" className="flex items-center gap-4 text-2xl font-bold text-slate-900">
+                <Phone className="w-6 h-6 text-amber-600" /> +91 11111 11111
               </a>
            </div>
         </div>

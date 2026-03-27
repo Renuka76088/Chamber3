@@ -30,7 +30,7 @@ const CircularsPage = () => {
     {
       id: "PC/2026/CIR-035",
       date: "02 March, 2026",
-      title: "Upcoming Export Fair in Indore - Exhibitor Guidelines",
+      title: "Upcoming Export Fair in BENGALURU - Exhibitor Guidelines",
       category: "Events",
       priority: "Urgent"
     }
