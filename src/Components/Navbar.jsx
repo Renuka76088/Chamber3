@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 import logo from '../assets/logo.png'
 
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   
@@ -39,71 +40,112 @@ const Navbar = () => {
 
   return (
     <>
+<header className="hidden md:flex w-full bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
+  
+  {/* LEFT SIDE: Logo Section */}
+  <div className="flex items-center">
 
-      {/* --- FLOATING ACTION BUTTONS (Bottom Right) --- */}
-      <div className="fixed bottom-6 right-6 z-[999] flex flex-col items-end gap-4">
+    <Link to='/' className="flex items-center gap-3">
+    <img
+      src={logo}
+      alt="logo"
+      className="h-10 w-auto object-contain hover:opacity-90 transition-opacity" 
+    />
+    
+    </Link>
+  </div>
+
+  {/* RIGHT SIDE: Info & Action */}
+  <div className="flex items-center gap-6">
+    
+    {/* Status Badge */}
+    <div className="flex items-center gap-2 bg-gray-50 border border-gray-100 text-[13px] font-medium text-gray-600 px-4 py-1.5 rounded-full shadow-sm">
+      <span className="text-blue-500 animate-pulse">●</span>
+      <span>BENGALURU, KA</span>
+    </div>
+
+    {/* CTA Button */}
+    <button className="group relative overflow-hidden bg-[#0d1b2a] text-white px-7 py-2.5 rounded-full text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300 active:scale-95">
+      <span className="relative z-10 flex items-center gap-2">
+        <Link to="/trade-enquiry" className="flex items-center gap-2">
         
-        {/* 1. WhatsApp Button (Direct Link) */}
-        <a 
-          href="https://wa.me/919827098270" // Apna number yahan change karein
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group relative"
-          title="Chat on WhatsApp"
-        >
-          <FaWhatsapp size={28} fill="currentColor" />
-          {/* Tooltip on Hover */}
-          <span className="absolute right-16 bg-white text-slate-800 text-xs font-bold px-3 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-100">
-            WhatsApp Us
-          </span>
-        </a>
+        Get Inquiry
+        <span className="group-hover:translate-x-1 transition-transform">→</span>
+        
+        </Link>
+      </span>
+    </button>
+  </div>
 
-        {/* 2. AI Chatbot Window */}
-        {isChatOpen && (
-          <div className="bg-white w-[350px] sm:w-[400px] h-[500px] shadow-2xl rounded-2xl border border-slate-200 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
-            <div className="bg-slate-950 p-4 flex justify-between items-center">
-              <div className="flex items-center gap-3">
-                <div className="bg-amber-600 p-2 rounded-full text-white"><Bot size={20} /></div>
-                <div>
-                  <p className="text-white font-bold text-sm">AI Assistant</p>
-                  <p className="text-amber-400 text-[10px] uppercase font-bold tracking-wider">Online</p>
-                </div>
-              </div>
-              <button onClick={() => setIsChatOpen(false)} className="text-slate-400 hover:text-white"><X size={20} /></button>
-            </div>
+</header>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
-              {messages.map((msg, index) => (
-                <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === 'user' ? 'bg-amber-600 text-white rounded-tr-none' : 'bg-white border border-slate-200 text-slate-800 rounded-tl-none shadow-sm'}`}>
-                    {msg.text}
-                  </div>
-                </div>
-              ))}
-              <div ref={chatEndRef} />
-            </div>
+<div className="fixed bottom-6 right-6 z-[999] flex flex-col items-end gap-4">
+  {/* Logo Section - Properly Aligned */}
 
-            <form onSubmit={handleSendMessage} className="p-4 bg-white border-t border-slate-200 flex gap-2">
-              <input 
-                type="text" 
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask anything..."
-                className="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
-              />
-              <button type="submit" className="bg-slate-950 text-white p-2 rounded-full hover:bg-amber-600 transition-colors"><Send size={18} /></button>
-            </form>
+
+  
+  {/* 1. WhatsApp Button (Direct Link) */}
+  <a 
+    href="https://wa.me/919827098270" // Apna number yahan change karein
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group relative"
+    title="Chat on WhatsApp"
+  >
+    <FaWhatsapp size={28} fill="currentColor" />
+    
+    {/* Tooltip on Hover */}
+    <span className="absolute right-16 bg-white text-slate-800 text-xs font-bold px-3 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-100">
+      WhatsApp Us
+    </span>
+  </a>
+
+  {/* 2. AI Chatbot Window */}
+  {isChatOpen && (
+    <div className="bg-white w-[350px] sm:w-[400px] h-[500px] shadow-2xl rounded-2xl border border-slate-200 flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
+      <div className="bg-slate-950 p-4 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <div className="bg-amber-600 p-2 rounded-full text-white"><Bot size={20} /></div>
+          <div>
+            <p className="text-white font-bold text-sm">AI Assistant</p>
+            <p className="text-amber-400 text-[10px] uppercase font-bold tracking-wider">Online</p>
           </div>
-        )}
-
-        {/* 3. AI Chatbot Toggle Button */}
-        <button 
-          onClick={() => setIsChatOpen(!isChatOpen)}
-          className={`${isChatOpen ? 'bg-slate-800 rotate-90' : 'bg-slate-950'} text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center`}
-        >
-          {isChatOpen ? <X size={28} /> : <MessageSquare size={28} />}
-        </button>
+        </div>
+        <button onClick={() => setIsChatOpen(false)} className="text-slate-400 hover:text-white"><X size={20} /></button>
       </div>
+
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
+        {messages.map((msg, index) => (
+          <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === 'user' ? 'bg-amber-600 text-white rounded-tr-none' : 'bg-white border border-slate-200 text-slate-800 rounded-tl-none shadow-sm'}`}>
+              {msg.text}
+            </div>
+          </div>
+        ))}
+        <div ref={chatEndRef} />
+      </div>
+
+      <form onSubmit={handleSendMessage} className="p-4 bg-white border-t border-slate-200 flex gap-2">
+        <input 
+          type="text" 
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Ask anything..."
+          className="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
+        />
+        <button type="submit" className="bg-slate-950 text-white p-2 rounded-full hover:bg-amber-600 transition-colors"><Send size={18} /></button>
+      </form>
+    </div>
+  )}
+
+  {/* 3. AI Chatbot Toggle Button */}
+  <button 
+    onClick={() => setIsChatOpen(!isChatOpen)}
+    className={`${isChatOpen ? 'bg-slate-800 rotate-90' : 'bg-slate-950'} text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center`}
+  >
+    {isChatOpen ? <X size={28} /> : <MessageSquare size={28} />}
+  </button>
+</div>
     </>
   );
 };

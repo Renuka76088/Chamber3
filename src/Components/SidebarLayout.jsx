@@ -25,6 +25,7 @@ import AppointmentPage from "../Pages/AppointmentPage";
 import NoticeBoard from "../Pages/NoticeBoard";
 import MediaGallery from "../Pages/MediaGallery";
 import Associates from "../Pages/Associates";
+import Navbar from "./Navbar";
 
 // Icons mapping for better UI
 const menuConfig = [
@@ -59,10 +60,7 @@ const SidebarLayout = () => {
     <div className="flex flex-col md:flex-row h-screen bg-white overflow-hidden font-sans">
       
       {/* GLOBAL CSS FOR NO-SCROLLBAR */}
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
+    
       
       {/* MOBILE TRIGGER */}
       <div className="md:hidden bg-white text-white p-5 flex justify-between items-center z-50 shadow-xl">
@@ -84,15 +82,7 @@ const SidebarLayout = () => {
       `}>
         
         {/* Sidebar Header - Ultra Bold */}
-        <div className="hidden md:block p-10 border-b border-slate-200 bg-white text-slate-900">
-           <div className="flex items-center">
-             {/* h-8 ya h-10 ko apne logo ke hisaab se adjust karein */}
-             <img src={logo} alt="Logo" className="h-8 md:h-15 w-auto object-contain" />
-           </div>
-          
-          <p className="text-[11px] text-slate-400 font-bold uppercase tracking-[0.4em] mt-5">BENGALURU, KA
-</p>
-        </div>
+    
 
         {/* Mobile Header for Drawer */}
         <div className="flex justify-between items-center p-8 border-b md:hidden bg-slate-900 text-white text-2xl font-black italic">
