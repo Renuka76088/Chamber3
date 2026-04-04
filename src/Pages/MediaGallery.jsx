@@ -21,42 +21,42 @@ const MediaGallery = () => {
       type: 'image',
       category: 'Exhibitions',
       title: 'BENGALURU Textile Expo 2026',
-      url: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800'
+      url: 'https://img.freepik.com/premium-photo/indian-saris_163782-4521.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80'
     },
     {
       id: 2,
       type: 'video',
       category: 'Manufacturing',
       title: 'Modern Looms in Action',
-      url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800'
+      url: 'https://img.freepik.com/premium-photo/draped-orange-tweed-wool-fabric-as-background-texture_492824-2611.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80'
     },
     {
       id: 3,
       type: 'image',
       category: 'Events',
       title: 'Annual Members Meet',
-      url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=800'
+      url: 'https://img.freepik.com/premium-photo/colorful-rolled-fabrics-displayed-market-sunset_868797-52239.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80'
     },
     {
       id: 4,
       type: 'image',
       category: 'Awards',
       title: 'Best Exporter Award 2025',
-      url: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=800'
+      url: 'https://img.freepik.com/free-photo/realistic-satin-silk-red-color-ai-generated-image_511042-663.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80'
     },
     {
       id: 5,
       type: 'image',
       category: 'Manufacturing',
       title: 'Quality Control Lab',
-      url: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800'
+      url: 'https://media.istockphoto.com/id/105680592/photo/indian-scarves-in-many-colors-for-display.jpg?s=612x612&w=0&k=20&c=eGIl-xZv6K7miZSCQjvezFqSoas3H6uVZ4OR7cAhDxs='
     },
     {
       id: 6,
       type: 'video',
       category: 'Exhibitions',
       title: 'Showcase: Traditional Chanderi',
-      url: 'https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&q=80&w=800'
+      url: 'https://media.istockphoto.com/id/131399882/photo/sewing-background.jpg?s=612x612&w=0&k=20&c=LB0OtfNMK6IJxblacckKDkpSbLvtMCk_MCS7kmqYLkI='
     }
   ];
 

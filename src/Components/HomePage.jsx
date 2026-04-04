@@ -32,7 +32,7 @@ const HomePage = () => {
           
           <div className="hidden md:block">
              <img 
-                src="https://images.unsplash.com/photo-1636986056375-184676d8ca14?w=600&auto=format&fit=crop" 
+                src="https://img.freepik.com/premium-photo/colorful-fabric-rainbow-is-popular-choice_1106493-249311.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80" 
                 className="w-full h-[400px] object-cover rounded-lg border-8 border-slate-800 shadow-2xl"
                 alt="Textile Industry"
              />

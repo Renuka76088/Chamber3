@@ -66,7 +66,7 @@ const AboutUs = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           <div>
             <img 
-              src="https://media.istockphoto.com/id/171583308/photo/denim-textile-industry-big-weaving-room-hdr.webp?a=1&b=1&s=612x612&w=0&k=20&c=Twkye7uE4XNG9Qg5XkF_hLYsW3aGzM8WVrnRTTsgXkw=" 
+              src="https://img.freepik.com/premium-photo/person-working-embroidery-workshop_862994-169582.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80" 
               alt="Textile Facility" 
               className="w-full h-80 object-cover rounded shadow-md"
             />

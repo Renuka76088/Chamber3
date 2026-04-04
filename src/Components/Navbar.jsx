@@ -40,32 +40,47 @@ const Navbar = () => {
 
   return (
     <>
-<header className="hidden md:flex w-full bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
+<header className="hidden md:flex w-full bg-[#0d1b2a] backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
   
   {/* LEFT SIDE: Logo Section */}
-  <div className="flex items-center">
-
-    <Link to='/' className="flex items-center gap-3">
-    <img
-      src={logo}
-      alt="logo"
-      className="h-10 w-auto object-contain hover:opacity-90 transition-opacity" 
-    />
-    
+<div className="flex items-center">
+    {/* Logo Link Container */}
+    <Link to='/' className="flex items-center gap-4 hover:opacity-95 transition-all group">
+        
+        {/* 1. Icon Part: Bada aur Mota Rounded Box */}
+        <div className="flex items-center justify-center h-12 w-12 bg-[#FF6A3D] rounded-[12px] shadow-md group-hover:scale-105 transition-transform">
+            <span className="text-white text-3xl font-black font-sans italic">P</span>
+        </div>
+        
+        {/* 2. Text Part: Company Name (Bada Size) */}
+        <div className="flex flex-col gap-0">
+            
+            {/* Main Name: Extra Bold aur Large */}
+            <div className="flex items-baseline gap-2 font-sans">
+                <span className="text-[#ffff] text-xl md:text-2xl font-black tracking-tighter">
+                    PAREKH
+                </span>
+                <span className="text-[#FF6A3D] text-xl md:text-2xl font-black tracking-tighter">
+                    CHAMBER OF TEXTILE
+                </span>
+            </div>
+            
+            {/* Location Part: Isse bhi thoda clear aur bold kiya hai */}
+            <div className="text-[#ffff] text-[11px] font-bold tracking-[0.2em] font-sans uppercase opacity-90">
+                BENGALURU, KA, INDIA
+            </div>
+        </div>
+        
     </Link>
-  </div>
+</div>
 
   {/* RIGHT SIDE: Info & Action */}
   <div className="flex items-center gap-6">
     
-    {/* Status Badge */}
-    <div className="flex items-center gap-2 bg-gray-50 border border-gray-100 text-[13px] font-medium text-gray-600 px-4 py-1.5 rounded-full shadow-sm">
-      <span className="text-blue-500 animate-pulse">●</span>
-      <span>BENGALURU, KA</span>
-    </div>
+    
 
     {/* CTA Button */}
-    <button className="group relative overflow-hidden bg-[#0d1b2a] text-white px-7 py-2.5 rounded-full text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300 active:scale-95">
+    <button className="group relative overflow-hidden bg-[#fff] text-[#0d1b2a] px-7 py-2.5 rounded-full text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300 active:scale-95">
       <span className="relative z-10 flex items-center gap-2">
         <Link to="/trade-enquiry" className="flex items-center gap-2">
         

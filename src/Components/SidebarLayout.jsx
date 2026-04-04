@@ -26,6 +26,7 @@ import NoticeBoard from "../Pages/NoticeBoard";
 import MediaGallery from "../Pages/MediaGallery";
 import Associates from "../Pages/Associates";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 // Icons mapping for better UI
 const menuConfig = [
@@ -63,18 +64,52 @@ const SidebarLayout = () => {
     
       
       {/* MOBILE TRIGGER */}
-      <div className="md:hidden bg-white text-white p-5 flex justify-between items-center z-50 shadow-xl">
-      
-          <div className="flex items-center">
-              {/* h-8 ya h-10 ko apne logo ke hisaab se adjust karein */}
-              <img src={logo} alt="Logo" className="h-8 md:h-15 w-auto object-contain" />
+<div className="md:hidden bg-white p-4 flex justify-between items-center z-50 shadow-xl border-b border-slate-100">
+    
+    {/* Logo Container */}
+    <div className="flex items-center">
+        <Link to='/' className="flex items-center gap-3 hover:opacity-95 transition-all group">
+            
+            {/* 1. Icon Part: Isse 20% bada kiya hai (h-12 w-12) */}
+            <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 bg-[#FF6A3D] rounded-[12px] shadow-lg group-hover:scale-105 transition-transform">
+                <span className="text-white text-3xl font-black font-sans italic">P</span>
             </div>
-      
-        <button onClick={() => setIsSidebarOpen(true)} className="p-2 bg-slate-800 rounded-lg">
-          <Menu className="w-7 h-7" />
-        </button>
-      </div>
+            
+            {/* 2. Text Part */}
+            <div className="flex flex-col leading-[1.1]">
+                {/* Main Name: font-black (sabse mota weight) aur size bada kiya hai */}
+                <div className="flex flex-col font-sans">
+                    <span className="text-slate-900 text-[18px] font-black tracking-tighter leading-none">
+                        PAREKH
+                    </span>
+                    <div className="flex items-center gap-1">
+                        <span className="text-[#FF6A3D] text-[15px] font-black tracking-tighter leading-none">
+                            CHAMBER
+                        </span>
+                        <span className="text-[#FF6A3D] text-[15px] font-black tracking-tighter leading-none">
+                               OF TEXTILE
+                        </span>
+                      
+                    </div>
+                </div>
+                
+                {/* Location Part: Isse thoda bold aur clear kiya hai */}
+                <div className="text-slate-500 text-[9px] font-extrabold tracking-[0.12em] font-sans uppercase mt-0.5">
+                    BENGALURU, KA, INDIA
+                </div>
+            </div>
+            
+        </Link>
+    </div>
 
+    {/* Menu Button: Dark aur Sharp look */}
+    <button 
+        onClick={() => setIsSidebarOpen(true)} 
+        className="flex-shrink-0 p-2.5 bg-slate-900 text-white rounded-xl active:scale-95 transition-all shadow-md ml-2"
+    >
+        <Menu className="w-7 h-7" />
+    </button>
+</div>
       {/* SIDEBAR CONTAINER */}
       <aside className={`
         ${isSidebarOpen ? "fixed inset-0 z-[60] bg-white p-0" : "hidden md:flex"} 
@@ -116,7 +151,7 @@ const SidebarLayout = () => {
 
         {/* Sidebar Footer */}
         <div className="p-8 bg-slate-100 border-t border-slate-200 text-[11px] font-black text-slate-400 uppercase tracking-widest hidden md:block">
-           Official Tech Unit |BENGALURU, KA
+           
         </div>
       </aside>
 

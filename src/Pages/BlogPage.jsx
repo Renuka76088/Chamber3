@@ -10,7 +10,7 @@ const BlogPage = () => {
       date: "18 March, 2026",
       readTime: "7 min read",
       category: "Heritage",
-      image: "https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&q=80&w=800"
+      image: "https://img.freepik.com/free-photo/realistic-satin-silk-red-color-ai-generated-image_511042-663.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80"
     },
     {
       title: "How AI is Revolutionizing Fabric Quality Control",
@@ -19,7 +19,7 @@ const BlogPage = () => {
       date: "12 March, 2026",
       readTime: "5 min read",
       category: "Innovation",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+      image: "https://img.freepik.com/premium-photo/fabric-samples-curtains-blue-light-blue-colors-fabric-threads-sewing-curtains_718727-916.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80"
     },
     {
       title: "Export Guidelines for Small Scale Weavers (2026)",
@@ -28,7 +28,7 @@ const BlogPage = () => {
       date: "05 March, 2026",
       readTime: "10 min read",
       category: "Compliance",
-      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800"
+      image: "https://img.freepik.com/premium-photo/colorful-rolled-fabrics-displayed-market-sunset_868797-52239.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80"
     }
   ];
 

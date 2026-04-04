@@ -90,7 +90,7 @@ const ChamberServices = () => {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2">
             <img 
-              src="https://media.istockphoto.com/id/2264022885/photo/traditional-rug-weaver-in-jodhpur-india.jpg?s=612x612&w=0&k=20&c=dgyQgo3Ez_cugs8jWt1QoSSdqxS6sgkr_jk7BtA3NRU=" 
+              src="https://img.freepik.com/free-photo/line-hanging-textured-fabrics-different-colors-shades_181624-5610.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80" 
               alt="Handloom Artisan" 
               className="w-full h-96 object-cover shadow-2xl rounded-sm"
             />
