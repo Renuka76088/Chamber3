@@ -49,7 +49,7 @@ const Career = () => {
                   <span className="bg-slate-100 text-slate-600 px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Management | Full Time</span>
                   <h3 className="text-3xl md:text-4xl font-black text-slate-900">HR Manager</h3>
                   <p className="flex items-center gap-2 text-lg text-slate-500 font-medium">
-                    <MapPin className="w-5 h-5 text-amber-600" /> Bengaluru, Karnataka
+                    <MapPin className="w-5 h-5 text-amber-600" /> Bengaluru, Ka, India
                   </p>
                 </div>
                 <div className="text-left md:text-right bg-slate-50 p-4 border-l-4 md:border-l-0 md:border-r-4 border-amber-500">

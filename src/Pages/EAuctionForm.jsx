@@ -12,7 +12,7 @@ const EAuctionForm = () => {
             <Gavel className="w-8 h-8 text-amber-500" />
             <h1 className="text-3xl font-bold">Auction Listing Form</h1>
           </div>
-          <p className="text-slate-400 text-sm uppercase tracking-widest">Register your textile lot for the upcoming e-Auction</p>
+          <p className="text-slate-400 text-sm  tracking-widest">Register your textile lot for the upcoming e-Auction</p>
         </div>
       </section>
 

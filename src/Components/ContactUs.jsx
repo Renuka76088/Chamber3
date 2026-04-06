@@ -34,7 +34,7 @@ const ContactUs = () => {
                     <MapPin className="w-6 h-6 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold">BENGALURU, KA</h3>
+                    <h3 className="text-lg font-bold">BENGALURU, KA, INDIA</h3>
                     <p className="text-slate-600 mt-1 leading-relaxed">
                      
                     </p>
