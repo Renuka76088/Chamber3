@@ -49,12 +49,9 @@ const ContactUs = () => {
             <div className="pt-6 space-y-4 border-t border-slate-100">
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-slate-400" />
-                <span className="text-lg font-medium">+91 1111 1111</span>
+                <span className="text-lg font-medium">6353778329</span>
               </div>
-              <div className="flex items-center gap-4">
-                <Mail className="w-5 h-5 text-slate-400" />
-                <span className="text-lg font-medium">info@textilechamber.in</span>
-              </div>
+             
             </div>
           </div>
 
@@ -98,10 +95,7 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Footer Disclaimer */}
-      <footer className="py-10 bg-slate-100 text-center text-slate-500 text-sm">
-        <p>© 2026 Textile Chamber. All Rights Reserved.</p>
-      </footer>
+    
     </div>
   );
 };

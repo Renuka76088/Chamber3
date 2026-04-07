@@ -117,7 +117,7 @@ const HomePage = () => {
               <h4 className="text-xl font-bold mb-4">Direct Contact for Members</h4>
               <p className="text-slate-600 mb-6 text-sm">Need immediate assistance with registration or trade queries? Our helpdesk is available from 10 AM to 6 PM.</p>
               <a href="tel:+9111111 11111" className="flex items-center gap-4 text-2xl font-bold text-slate-900">
-                <Phone className="w-6 h-6 text-amber-600" /> +91 11111 11111
+                <Phone className="w-6 h-6 text-amber-600" /> 6353778329
               </a>
            </div>
         </div>

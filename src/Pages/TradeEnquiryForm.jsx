@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FileText, Upload, Send, Eye, ShieldCheck, Info } from 'lucide-react';
+import React from 'react';
+import { FileText, Upload, Send, Eye, ShieldCheck, Info, MapPin, Hash, Mail, Phone, Building2 } from 'lucide-react';
 
 const TradeEnquiryForm = () => {
   return (
@@ -8,8 +8,8 @@ const TradeEnquiryForm = () => {
       {/* Header Section */}
       <section className="bg-slate-900 text-white py-12 px-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Apply for Membership</h1>
-          <p className="text-amber-500 font-medium tracking-wide uppercase text-sm">Enquiry Submission Portal</p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Trade Enquiry</h1>
+          <p className="text-amber-500 font-medium tracking-wide uppercase text-sm">Parekh Chamber of Textile • Digital Portal</p>
         </div>
       </section>
 
@@ -20,91 +20,81 @@ const TradeEnquiryForm = () => {
           <div className="p-8">
             <form className="space-y-8">
               
-              {/* 1. Internal Office Section */}
-              <div className="bg-slate-50 p-6 border-l-4 border-slate-900 space-y-4">
-                <div className="flex items-center gap-2 mb-2 text-slate-500">
-                  <Info className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase tracking-wider">Office Use Only</span>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold uppercase mb-2 text-slate-700">Authorized Official Name</label>
-                    <input type="text" className="w-full border-b-2 border-slate-200 p-2 focus:border-amber-500 outline-none transition-colors bg-transparent" placeholder="Name of Official" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase mb-2 text-slate-700">Chamber Code No.</label>
-                    <input type="text" className="w-full border-b-2 border-slate-200 p-2 focus:border-amber-500 outline-none transition-colors bg-transparent" placeholder="Enter Code" />
-                  </div>
-                </div>
-              </div>
-
-              {/* 2. Applicant Details */}
+            
+              {/* 2. Business & Trader Details */}
               <div className="space-y-6">
                 <h3 className="text-xl font-bold border-b pb-2 flex items-center gap-2">
-                  <FileText className="text-amber-600 w-5 h-5" /> Applicant Information
+                  <FileText className="text-amber-600 w-5 h-5" /> Trader Information
                 </h3>
                 
                 <div className="grid md:grid-cols-2 gap-8">
+                  {/* Name of the Trader */}
                   <div className="col-span-2 md:col-span-1">
-                    <label className="block text-xs font-bold uppercase mb-2">Name of the Applicant</label>
-                    <input type="text" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" required />
+                    <label className="block text-xs font-bold uppercase mb-2">Name of the Trader</label>
+                    <div className="relative">
+                       <input type="text" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" placeholder="Enter full name" required />
+                    </div>
                   </div>
+
+                  {/* Business Name */}
                   <div className="col-span-2 md:col-span-1">
-                    <label className="block text-xs font-bold uppercase mb-2">Title of Textile Business</label>
-                    <input type="text" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" placeholder="Company Name" />
+                    <label className="block text-xs font-bold uppercase mb-2">Business Name</label>
+                    <input type="text" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" placeholder="Legal Entity Name" required />
                   </div>
+
+                  {/* Business Address with Pin code */}
                   <div className="col-span-2">
-                    <label className="block text-xs font-bold uppercase mb-2">Address of the Business</label>
-                    <textarea className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none h-24" />
+                    <label className="block text-xs font-bold uppercase mb-2">Business Address with Pin code</label>
+                    <textarea className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none h-24" placeholder="Complete address including state and PIN" required />
                   </div>
+
+                  {/* GST No. */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase mb-2 flex items-center gap-1">GST No. <span className="text-slate-400 font-normal">(Optional)</span></label>
+                    <input type="text" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" placeholder="22AAAAA0000A1Z5" />
+                  </div>
+
+                  {/* Mobile No. */}
                   <div>
                     <label className="block text-xs font-bold uppercase mb-2">Mobile No.</label>
-                    <input type="tel" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" />
+                    <input type="tel" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" placeholder="+91 00000-00000" required />
                   </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase mb-2">Email Id</label>
-                    <input type="email" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" />
-                  </div>
+
+                  {/* Email Id */}
                   <div className="col-span-2">
-                    <label className="block text-xs font-bold uppercase mb-2">URL (Website if any)</label>
-                    <input type="url" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" placeholder="https://..." />
+                    <label className="block text-xs font-bold uppercase mb-2">Email Id</label>
+                    <input type="email" className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none" placeholder="contact@business.com" />
                   </div>
                 </div>
               </div>
 
-              {/* 3. Classification Section */}
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <label className="block text-xs font-bold uppercase mb-3">Nature of Business</label>
-                  <select className="w-full border border-slate-200 p-3 rounded-sm outline-none bg-white">
-                    <option>Retailer</option>
-                    <option>Wholesaler</option>
-                    <option>Manufacturer</option>
-                    <option>Exporter</option>
+              {/* 3. Options (Roll-down mode) */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold border-b pb-2 flex items-center gap-2">
+                  <Building2 className="text-amber-600 w-5 h-5" /> Enquiry Category
+                </h3>
+                <div className="w-full">
+                  <label className="block text-xs font-bold uppercase mb-3">Please Select Purpose of Enquiry</label>
+                  <select className="w-full border border-slate-200 p-4 rounded-sm outline-none bg-white font-medium focus:border-amber-500 cursor-pointer">
+                    <option value="" disabled selected>Choose an option...</option>
+                    <option>For New Membership</option>
+                    <option>For Finance & Investment</option>
+                    <option>For Manufacturing Support</option>
+                    <option>For Textile Retail and Supply Support</option>
+                    <option>For Textile Consultancy</option>
                     <option>Others</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase mb-3">Category of Business</label>
-                  <select className="w-full border border-slate-200 p-3 rounded-sm outline-none bg-white">
-                    <option>Proprietorship</option>
-                    <option>Partnership</option>
-                    <option>LLP</option>
-                    <option>Private Limited</option>
-                    <option>Limited (Ltd.)</option>
-                    <option>Other</option>
-                  </select>
-                </div>
               </div>
 
-              {/* 4. Document Upload Section */}
-              <div className="border-2 border-dashed border-slate-200 p-8 text-center rounded-sm hover:border-amber-500 transition-colors">
+              {/* 4. Document Upload Section (GST Certificate) */}
+              <div className="border-2 border-dashed border-slate-200 p-8 text-center rounded-sm hover:border-amber-500 transition-colors bg-slate-50/50">
                 <Upload className="w-10 h-10 text-slate-300 mx-auto mb-4" />
-                <h4 className="font-bold text-sm uppercase mb-2">Upload Supporting Documents</h4>
-                <p className="text-xs text-slate-500 mb-4">Attach GST, MSME, Trade License, or CIN (PDF or JPEG)</p>
-                <input type="file" className="hidden" id="fileUpload" multiple />
-                <label htmlFor="fileUpload" className="bg-slate-900 text-white px-6 py-2 text-xs font-bold cursor-pointer hover:bg-slate-800 transition-all">
-                  Browse Files
+                <h4 className="font-bold text-sm uppercase mb-2">Upload GST Certificate</h4>
+                <p className="text-xs text-slate-500 mb-4">Please attach your GST registration document (PDF or JPEG)</p>
+                <input type="file" className="hidden" id="fileUpload" />
+                <label htmlFor="fileUpload" className="bg-slate-900 text-white px-8 py-2.5 text-xs font-bold cursor-pointer hover:bg-slate-800 transition-all shadow-md">
+                  CHOOSE FILE
                 </label>
               </div>
 
@@ -118,8 +108,8 @@ const TradeEnquiryForm = () => {
                       "I have read the Terms & Conditions of subscription for the membership in the Chamber of Textile. All the information provided by me and the documents uploaded thereof are true and authentic to the best of my knowledge and belief."
                     </p>
                     <div className="mt-4 flex items-center gap-2">
-                        <input type="checkbox" id="agree" className="accent-amber-600" />
-                        <label htmlFor="agree" className="text-xs font-bold text-slate-600">I AGREE TO THE TERMS</label>
+                        <input type="checkbox" id="agree" className="accent-amber-600 w-4 h-4" />
+                        <label htmlFor="agree" className="text-xs font-bold text-slate-600 cursor-pointer">I AGREE TO THE TERMS</label>
                     </div>
                   </div>
                 </div>
@@ -128,10 +118,10 @@ const TradeEnquiryForm = () => {
               {/* 6. Action Buttons */}
               <div className="flex flex-col md:flex-row gap-4 pt-6">
                 <button type="button" className="flex-1 flex items-center justify-center gap-2 border-2 border-slate-900 px-8 py-4 font-bold uppercase text-xs tracking-widest hover:bg-slate-50 transition-all">
-                  <Eye className="w-4 h-4" /> Preview Application
+                  <Eye className="w-4 h-4" /> Preview
                 </button>
                 <button type="submit" className="flex-1 flex items-center justify-center gap-2 bg-amber-600 text-white px-8 py-4 font-bold uppercase text-xs tracking-widest hover:bg-amber-500 shadow-lg transition-all">
-                  <Send className="w-4 h-4" /> Submit Form
+                  <Send className="w-4 h-4" /> Submit Enquiry
                 </button>
               </div>
 
@@ -139,7 +129,7 @@ const TradeEnquiryForm = () => {
           </div>
           
           <footer className="bg-slate-900 py-4 px-8 text-center">
-            <p className="text-slate-500 text-[10px] uppercase tracking-tighter">Secure 256-bit Encrypted Membership Gateway</p>
+            <p className="text-slate-500 text-[10px] uppercase tracking-tighter">Official Portal of Parekh Chamber of Textile • Verified Business Gateway</p>
           </footer>
         </div>
       </div>

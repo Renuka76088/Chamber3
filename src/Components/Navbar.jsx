@@ -40,10 +40,10 @@ const Navbar = () => {
 
   return (
     <>
-<header className="hidden md:flex w-full bg-[#0d1b2a] backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
+<header className=" md:flex w-full bg-[#0d1b2a] backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
   
   {/* LEFT SIDE: Logo Section */}
-<div className="flex items-center">
+<div className="flex items-center hidden md:flex gap-4">
     {/* Logo Link Container */}
     <Link to='/' className="flex items-center gap-4 hover:opacity-95 transition-all group">
         
@@ -82,9 +82,9 @@ const Navbar = () => {
     {/* CTA Button */}
     <button className="group relative overflow-hidden bg-[#fff] text-[#0d1b2a] px-7 py-2.5 rounded-full text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300 active:scale-95">
       <span className="relative z-10 flex items-center gap-2">
-        <Link to="/trade-enquiry" className="flex items-center gap-2">
+        <Link to="/membership-enquiry" className="flex items-center gap-2">
         
-        Get Inquiry
+        Get Membership Inquiry
         <span className="group-hover:translate-x-1 transition-transform">→</span>
         
         </Link>

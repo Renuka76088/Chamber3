@@ -41,7 +41,9 @@ const BlogPage = () => {
           <div className="md:w-2/3">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">Chamber <span className="text-amber-500">Insights</span></h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
-"The official blog of the  Parekh Chamber of Textile. This is where we share industry trends, success stories, and technical updates."
+              “Join and participate in our nation-wide campaign to digitalize the Textile
+Sector, one of the largest sectors of India”.
+
             </p>
           </div>
           <div className="w-full md:w-80 relative">
@@ -102,47 +104,9 @@ const BlogPage = () => {
         </div>
       </section>
 
-      {/* 3. Special Sector Tags (Matches UI theme) */}
-      <section className="py-12 px-6 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold">Industry Focus Areas</h2>
-            <div className="flex flex-wrap gap-2">
-              {["Organic Cotton", "Smart Textiles", "BENGALURU Handloom", "Export Tech", "Garment Manufacturing", "B2B Trading"].map((tag) => (
-                <span key={tag} className="bg-white border border-slate-200 px-4 py-2 text-xs font-bold text-slate-600 cursor-pointer hover:bg-slate-900 hover:text-white transition-all">
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="bg-slate-900 p-8 text-white rounded">
-            <h3 className="text-xl font-bold mb-2">Weekly Newsletter</h3>
-            <p className="text-slate-400 text-sm mb-6 font-medium">"Get the latest textile industry updates delivered to your inbox."</p>
-            <div className="flex gap-2">
-              <input type="email" placeholder="Your Email" className="flex-1 bg-slate-800 border border-slate-700 px-4 py-2 text-sm focus:outline-none focus:border-amber-500" />
-              <button className="bg-amber-600 text-white px-6 py-2 font-bold uppercase text-[10px] tracking-widest hover:bg-amber-500 transition-all">Join</button>
-            </div>
-          </div>
-        </div>
-      </section>
+ 
 
-      {/* 4. Contact Box (Matches About Us CTA) */}
-      <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto bg-amber-600 p-8 rounded text-white flex flex-col md:flex-row justify-between items-center gap-6">
-          <div>
-            <h2 className="text-2xl font-bold uppercase tracking-tight text-white">Share Your Success Story</h2>
-            <p className="text-amber-100 mt-1">"Do you have an interesting textile project in mind? Tell us about it."</p>
-          </div>
-          <button className="bg-slate-950 text-white px-10 py-3 font-bold uppercase text-xs tracking-widest hover:bg-slate-800 transition-all border-2 border-slate-900 shadow-lg">
-            Submit Post
-          </button>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="py-6 border-t border-slate-200 text-center text-slate-500 text-xs">
-        © 2026 PAREKH CHAMBER OF TEXTILE  Insights. All Rights Reserved.
-      </footer>
     </div>
   );
 };
