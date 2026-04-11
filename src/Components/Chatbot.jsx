@@ -150,7 +150,7 @@ const Chatbot = () => {
                 <div className="space-y-4">
                   <div className="bg-slate-50 p-4 border border-slate-100">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Etrade Support Email</p>
-                    <p className="text-xs font-bold text-amber-600 uppercase">etrade@parekhtextile.com</p>
+                    <p className="text-xs font-bold text-amber-600">trade-enquiry@parekhchamber.com</p>
                   </div>
                   <div className="bg-slate-50 p-4 border border-slate-100">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Business Hours</p>
