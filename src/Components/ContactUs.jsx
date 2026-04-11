@@ -82,10 +82,8 @@ const ContactUs = () => {
               <div className="flex gap-4">
                 <MapPin className="w-6 h-6 text-amber-600 mt-1" />
                 <div>
-                  <h3 className="text-lg font-bold">BENGALURU, INDIA</h3>
-                  <p className="text-slate-600">
-                    Karnataka, India
-                  </p>
+                  <h3 className="text-lg font-bold">BENGALURU,KA, INDIA</h3>
+
                 </div>
               </div>
             </div>
