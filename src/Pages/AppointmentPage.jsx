@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { 
-  Calendar, 
-  Clock, 
-  MapPin, 
-  User, 
-  Building2, 
-  CheckCircle2, 
+import {
+  Calendar,
+  Clock,
+  MapPin,
+  User,
+  Building2,
+  CheckCircle2,
   AlertCircle,
   Phone,
   Mail,
@@ -15,9 +15,11 @@ import {
   Send,
   Loader2,
   Upload,
-  ShieldCheck
+  ShieldCheck,
+  Eye
 } from 'lucide-react';
 import { appointmentApi } from '../utils/api';
+import PreviewModal from '../Components/PreviewModal';
 
 const AppointmentPage = () => {
   const [formData, setFormData] = useState({
@@ -29,6 +31,7 @@ const AppointmentPage = () => {
     proofType: 'Aadhard Card',
     reasonForVisit: '',
   });
+  const [showPreview, setShowPreview] = useState(false);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -57,6 +60,7 @@ const AppointmentPage = () => {
       const res = await appointmentApi.submit(data);
       if (res.data.success) {
         setIsSubmitted(true);
+        setShowPreview(false);
       }
     } catch (error) {
       console.error("Submission Error:", error);
@@ -65,6 +69,16 @@ const AppointmentPage = () => {
       setLoading(false);
     }
   };
+
+  const previewFields = [
+    { key: 'visitorName', label: 'Visitor Name' },
+    { key: 'businessName', label: 'Business Name' },
+    { key: 'mobileNo', label: 'Mobile No.' },
+    { key: 'email', label: 'Email ID' },
+    { key: 'visitorAddress', label: 'Visitor Address' },
+    { key: 'proofType', label: 'Identity Document' },
+    { key: 'reasonForVisit', label: 'Reason for Visit' },
+  ];
 
   const requirements = [
     "Valid ID Proof (Aadhaar/ECI/DL/GST)",
@@ -77,20 +91,20 @@ const AppointmentPage = () => {
     return (
       <div className="bg-slate-50 min-h-screen flex items-center justify-center p-6">
         <div className="bg-white p-12 text-center shadow-2xl border border-amber-100 max-w-xl">
-           <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 size={40} />
-           </div>
-           <h2 className="text-3xl font-black uppercase tracking-tighter text-slate-900 mb-4">Visit Confirmed!</h2>
-           <p className="text-slate-500 font-medium leading-relaxed mb-8">
-              Your appointment for <strong>{formData.visitorName}</strong> has been successfully scheduled. 
-              Our team will contact you on <strong>{formData.mobileNo}</strong> to confirm the exact time and date.
-           </p>
-           <button 
+          <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 size={40} />
+          </div>
+          <h2 className="text-3xl font-black uppercase tracking-tighter text-slate-900 mb-4">Visit Confirmed!</h2>
+          <p className="text-slate-500 font-medium leading-relaxed mb-8">
+            Your appointment for <strong>{formData.visitorName}</strong> has been successfully scheduled.
+            Our team will contact you on <strong>{formData.mobileNo}</strong> to confirm the exact time and date.
+          </p>
+          <button
             onClick={() => window.location.reload()}
             className="bg-slate-900 text-white px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-amber-600 transition-all"
-           >
-             Book Another Visit
-           </button>
+          >
+            Book Another Visit
+          </button>
         </div>
       </div>
     );
@@ -98,29 +112,29 @@ const AppointmentPage = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans text-slate-900">
-      
+
       {/* Dynamic Header */}
       <section className="bg-slate-900 text-white py-16 px-6 border-b-8 border-amber-500 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
           <div className="text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">
-              Visit with <br/><span className="text-amber-500">Appointment</span>
+              Visit with <br /><span className="text-amber-500">Appointment</span>
             </h1>
             <p className="text-slate-400 text-sm max-w-md font-medium uppercase tracking-[0.2em]">
               Digital Entry Management Portal • Parekh Chamber
             </p>
           </div>
           <div className="bg-slate-800/50 backdrop-blur-sm p-6 border border-slate-700 flex flex-col items-center justify-center">
-             <Calendar className="w-8 h-8 text-amber-500 mb-2" />
-             <p className="text-2xl font-mono font-bold">2026</p>
-             <p className="text-[10px] uppercase font-black text-slate-500">Official Access</p>
+            <Calendar className="w-8 h-8 text-amber-500 mb-2" />
+            <p className="text-2xl font-mono font-bold">2026</p>
+            <p className="text-[10px] uppercase font-black text-slate-500">Official Access</p>
           </div>
         </div>
       </section>
 
       <main className="max-w-6xl mx-auto mt-12 px-6 grid lg:grid-cols-12 gap-12">
-        
+
         {/* Left Side: Visit Guidelines */}
         <div className="lg:col-span-5 space-y-8">
           <div className="bg-slate-50 p-8 border border-slate-200">
@@ -156,8 +170,8 @@ const AppointmentPage = () => {
             </h3>
             <p className="text-slate-400 text-sm mb-6">"If you encounter any issues while filling out the form, please contact our support team."</p>
             <div className="space-y-2 font-mono text-amber-500 font-bold">
-                <p>6353778329</p>
-                <p></p>
+              <p>6353778329</p>
+              <p></p>
             </div>
           </div>
         </div>
@@ -166,20 +180,20 @@ const AppointmentPage = () => {
         <div className="lg:col-span-7">
           <form onSubmit={handleSubmit} className="bg-white border border-slate-200 shadow-2xl p-8 md:p-12 space-y-8">
             <h2 className="text-3xl font-black text-slate-900 border-b pb-4">Visitor <span className="text-amber-600">Details</span></h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               {/* Name of the Visitor */}
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
                   <User className="w-4 h-4 text-amber-600" /> Name of the Visitor
                 </label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="visitorName"
                   value={formData.visitorName}
                   onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all" 
-                  placeholder="Enter Full Name" 
+                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+                  placeholder="Enter Full Name"
                   required
                 />
               </div>
@@ -189,13 +203,13 @@ const AppointmentPage = () => {
                 <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-amber-600" /> Name of the Business
                 </label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="businessName"
                   value={formData.businessName}
                   onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all" 
-                  placeholder="Company Name" 
+                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+                  placeholder="Company Name"
                   required
                 />
               </div>
@@ -205,13 +219,13 @@ const AppointmentPage = () => {
                 <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
                   <Phone className="w-4 h-4 text-amber-600" /> Mobile No.
                 </label>
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   name="mobileNo"
                   value={formData.mobileNo}
                   onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all" 
-                  placeholder="+91" 
+                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+                  placeholder="+91"
                   required
                 />
               </div>
@@ -221,13 +235,13 @@ const AppointmentPage = () => {
                 <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
                   <Mail className="w-4 h-4 text-amber-600" /> Email ID
                 </label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all" 
-                  placeholder="example@mail.com" 
+                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+                  placeholder="example@mail.com"
                   required
                 />
               </div>
@@ -237,18 +251,18 @@ const AppointmentPage = () => {
                 <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-amber-600" /> Visitor’s Address with Pin code
                 </label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="visitorAddress"
                   value={formData.visitorAddress}
                   onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all" 
-                  placeholder="Full Address & PIN" 
+                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+                  placeholder="Full Address & PIN"
                   required
                 />
               </div>
 
-              {/* Identity Options (Roll-down mode) */}
+              {/* Identity Options */}
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
                   <FileText className="w-4 h-4 text-amber-600" /> Identity Document
@@ -285,26 +299,47 @@ const AppointmentPage = () => {
               <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
                 <MessageSquare className="w-4 h-4 text-amber-600" /> Reason for Visit
               </label>
-              <textarea 
+              <textarea
                 name="reasonForVisit"
                 value={formData.reasonForVisit}
                 onChange={handleInputChange}
-                className="w-full bg-slate-50 border-2 border-slate-100 p-4 text-lg focus:border-amber-600 outline-none min-h-[120px]" 
-                placeholder="Briefly describe the purpose of your visit..." 
+                className="w-full bg-slate-50 border-2 border-slate-100 p-4 text-lg focus:border-amber-600 outline-none min-h-[120px]"
+                placeholder="Briefly describe the purpose of your visit..."
                 required
               />
             </div>
 
-            {/* Submit Button */}
-            <div className="pt-6">
-                <button type="submit" disabled={loading} className="w-full bg-slate-900 text-white py-5 font-bold uppercase text-xs tracking-[0.3em] hover:bg-amber-600 shadow-2xl transition-all flex items-center justify-center gap-3 group disabled:opacity-70">
-                  {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Confirm Visit"}
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                </button>
-                <p className="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-6 flex items-center justify-center gap-2">
-                   <ShieldCheck className="w-3 h-3 text-green-500" /> Data Protected by PCT Security
-                </p>
+            {/* Action Buttons */}
+            <div className="flex flex-col md:flex-row gap-4 pt-6">
+              <button 
+                type="button" 
+                onClick={() => setShowPreview(true)}
+                className="flex-[1] border-2 border-slate-900 py-5 font-bold uppercase text-xs tracking-[0.3em] hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+              >
+                <Eye className="w-4 h-4" /> Preview
+              </button>
+              <button 
+                type="submit" 
+                disabled={loading} 
+                className="flex-[2] bg-slate-900 text-white py-5 font-bold uppercase text-xs tracking-[0.3em] hover:bg-amber-600 shadow-2xl transition-all flex items-center justify-center gap-3 group disabled:opacity-70"
+              >
+                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Confirm Visit"}
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              </button>
             </div>
+
+            <PreviewModal 
+              isOpen={showPreview}
+              onClose={() => setShowPreview(false)}
+              data={formData}
+              fields={previewFields}
+              onConfirm={handleSubmit}
+              loading={loading}
+              title="Official Visit Appointment Review"
+            />
+            <p className="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-6 flex items-center justify-center gap-2">
+              <ShieldCheck className="w-3 h-3 text-green-500" /> Data Protected by PCT Security
+            </p>
           </form>
         </div>
       </main>

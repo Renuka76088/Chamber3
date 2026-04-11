@@ -13,7 +13,7 @@ export default function Loader() {
       <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
 
       <div className="text-center relative z-10 px-6">
-        
+
         {/* 1. ICON BOX (Navbar Style) */}
         <motion.div
           initial={{ scale: 0, rotate: -10 }}
@@ -39,7 +39,7 @@ export default function Loader() {
               CHAMBER OF TEXTILE
             </span>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
@@ -52,7 +52,7 @@ export default function Loader() {
 
         {/* 3. PROGRESS TRACK (Orange Accent) */}
         <div className="w-64 h-[2px] bg-white/10 mx-auto mt-12 rounded-full overflow-hidden relative">
-          <motion.div 
+          <motion.div
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -60,18 +60,11 @@ export default function Loader() {
           />
         </div>
 
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="text-[9px] font-black uppercase tracking-[0.2em] text-[#FF6A3D] mt-8 opacity-80"
-        >
-          Connecting Textile Excellence
-        </motion.p>
+
       </div>
 
       {/* 4. BOTTOM ACCENT LINE */}
-      <motion.div 
+      <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ delay: 0.2, duration: 1 }}

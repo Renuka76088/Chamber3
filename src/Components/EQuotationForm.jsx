@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FileSpreadsheet, Send, Calculator, ClipboardCheck, Building2, Upload, MessageSquare, Loader2, CheckCircle2 } from 'lucide-react';
 import { quotationApi } from '../utils/api';
+import PreviewModal from '../Components/PreviewModal';
+import { Eye } from 'lucide-react';
 
 const EQuotationForm = () => {
   const [formData, setFormData] = useState({
@@ -10,9 +12,10 @@ const EQuotationForm = () => {
     gstNo: '',
     mobileNo: '',
     email: '',
-    quotationType: '',
+    quotationType: 'Quotation for Textile Raw Materials',
     particulars: '',
   });
+  const [showPreview, setShowPreview] = useState(false);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -45,6 +48,7 @@ const EQuotationForm = () => {
       const res = await quotationApi.submit(data);
       if (res.data.success) {
         setIsSubmitted(true);
+        setShowPreview(false);
       }
     } catch (error) {
       console.error("Submission Error:", error);
@@ -53,6 +57,17 @@ const EQuotationForm = () => {
       setLoading(false);
     }
   };
+
+  const previewFields = [
+    { key: 'traderName', label: 'Name of the Trader' },
+    { key: 'businessName', label: 'Business Name' },
+    { key: 'businessAddress', label: 'Business Address' },
+    { key: 'gstNo', label: 'GST No.' },
+    { key: 'mobileNo', label: 'Mobile No.' },
+    { key: 'email', label: 'Email Id' },
+    { key: 'quotationType', label: 'Quotation Type' },
+    { key: 'particulars', label: 'Scope of Work' },
+  ];
 
   if (isSubmitted) {
     return (
@@ -252,8 +267,12 @@ const EQuotationForm = () => {
 
             {/* 6. Submission Buttons */}
             <div className="flex flex-col md:flex-row gap-4 pt-4">
-              <button type="button" className="flex-1 border-2 border-slate-900 py-4 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
-                <Calculator className="w-4 h-4" /> Save as Draft
+              <button 
+                type="button" 
+                onClick={() => setShowPreview(true)}
+                className="flex-1 border-2 border-slate-900 py-4 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-2 hover:bg-slate-50 transition-all text-slate-900"
+              >
+                <Eye className="w-4 h-4" /> Preview
               </button>
               <button 
                 type="submit" 
@@ -264,6 +283,16 @@ const EQuotationForm = () => {
                 Final Submission
               </button>
             </div>
+
+            <PreviewModal 
+              isOpen={showPreview}
+              onClose={() => setShowPreview(false)}
+              data={formData}
+              fields={previewFields}
+              onConfirm={handleSubmit}
+              loading={loading}
+              title="e-Quotation Submission Review"
+            />
 
           </form>
 

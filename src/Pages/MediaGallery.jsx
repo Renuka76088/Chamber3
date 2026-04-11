@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { 
-  Image as ImageIcon, 
-  PlayCircle, 
-  Maximize2, 
-  Filter, 
-  Download, 
+import {
+  Image as ImageIcon,
+  PlayCircle,
+  Maximize2,
+  Filter,
+  Download,
   ChevronRight,
   Camera,
   Film,
@@ -83,23 +83,23 @@ const MediaGallery = () => {
   }, []);
 
   // Use backend data if available, otherwise use mock data
-  const mediaItems = backendMedia.length > 0 
+  const mediaItems = backendMedia.length > 0
     ? backendMedia.map(item => ({
-        id: item._id,
-        type: item.type || 'image',
-        category: item.category,
-        title: item.title,
-        url: `http://localhost:5000/${item.image}`
-      }))
+      id: item._id,
+      type: item.type || 'image',
+      category: item.category,
+      title: item.title,
+      url: `http://localhost:5000/${item.image}`
+    }))
     : mockMediaItems;
 
-  const filteredMedia = activeFilter === 'All' 
-    ? mediaItems 
+  const filteredMedia = activeFilter === 'All'
+    ? mediaItems
     : mediaItems.filter(item => item.category === activeFilter);
 
   return (
     <div className="bg-white min-h-screen font-sans text-slate-900 pb-20">
-      
+
       {/* 1. Header Section */}
       <section className="bg-slate-900 text-white py-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -112,10 +112,10 @@ const MediaGallery = () => {
             </p>
           </div>
           <div className="flex gap-4">
-             <div className="bg-slate-800 p-6 border border-slate-700 text-center">
-                <span className="text-amber-500 text-3xl font-bold block">{backendMedia.length > 0 ? backendMedia.length : '1.2k+'}</span>
-                <span className="text-[10px] uppercase font-bold tracking-widest">{backendMedia.length > 0 ? 'Events Added' : 'Media Files'}</span>
-             </div>
+            <div className="bg-slate-800 p-6 border border-slate-700 text-center">
+              <span className="text-amber-500 text-3xl font-bold block">{backendMedia.length > 0 ? backendMedia.length : '1.2k+'}</span>
+              <span className="text-[10px] uppercase font-bold tracking-widest">{backendMedia.length > 0 ? 'Events Added' : 'Media Files'}</span>
+            </div>
           </div>
         </div>
       </section>
@@ -128,11 +128,10 @@ const MediaGallery = () => {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest transition-all ${
-                  activeFilter === cat 
-                  ? 'bg-amber-600 text-white' 
+                className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest transition-all ${activeFilter === cat
+                  ? 'bg-amber-600 text-white'
                   : 'bg-slate-50 text-slate-400 hover:bg-slate-900 hover:text-white'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -155,14 +154,14 @@ const MediaGallery = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredMedia.map((item) => (
               <div key={item.id} className="group relative overflow-hidden bg-slate-100 aspect-[4/3] cursor-pointer shadow-lg">
-                
+
                 {/* Media Content */}
-                <img 
-                  src={item.url} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
+                <img
+                  src={item.url}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                   <div className="flex justify-between items-end">
@@ -187,34 +186,17 @@ const MediaGallery = () => {
 
         {/* 4. Load More / View More */}
         <div className="mt-20 text-center">
-            <button className="border-2 border-slate-900 px-12 py-5 font-bold uppercase text-xs tracking-[0.3em] hover:bg-slate-900 hover:text-white transition-all flex items-center gap-4 mx-auto">
-              Load More Media <ChevronRight className="w-4 h-4" />
-            </button>
+          <button className="border-2 border-slate-900 px-12 py-5 font-bold uppercase text-xs tracking-[0.3em] hover:bg-slate-900 hover:text-white transition-all flex items-center gap-4 mx-auto">
+            Load More Media <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </main>
 
-      {/* 5. Highlight Section */}
-      <section className="mt-24 px-6">
-        <div className="max-w-5xl mx-auto bg-amber-600 p-10 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
-          <div className="text-white text-center md:text-left">
-            <h2 className="text-3xl font-black uppercase tracking-tight">Need High-Res Press Kit?</h2>
-            <p className="text-amber-100 mt-2">Media professionals can download our official branding and asset kit here.</p>
-          </div>
-          <button className="bg-slate-950 text-white px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-slate-800 transition-all border-2 border-slate-900 flex items-center gap-2">
-            <Download className="w-4 h-4" /> Download Kit
-          </button>
-        </div>
-      </section>
 
-      {/* Footer Disclaimer */}
-      <footer className="mt-20 py-10 border-t border-slate-100 text-center">
-        <p className="text-[10px] text-slate-400 uppercase tracking-widest">
-           Parekh Chamber Of Textile Media Archives — BENGALURU, KA, INDIA.
-        </p>
-      </footer>
+
 
     </div>
   );
 };
 
-export default MediaGallery;
+export default MediaGallery;

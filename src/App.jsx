@@ -14,10 +14,11 @@ import HomePage from './Components/HomePage'
 import AboutUs from './Components/AboutUs'
 import ContactUs from './Components/ContactUs'
 import EQuotationForm from './Components/EQuotationForm'
+import Chatbot from './Components/Chatbot'
 
 import TradeEnquiryForm from './Pages/TradeEnquiryForm'
-import MembershipPage from './Pages/MembershipPage'
-import EAuctionForm from './Pages/EAuctionForm'
+import MembershipPage from './Pages/MembershipPage.jsx'
+import EAuctionForm from './Pages/EAuctionForm.jsx'
 import AppointmentPage from './Pages/AppointmentPage'
 import ChamberManagement from './Pages/ChamberManagement'
 import ChamberServices from './Pages/ChamberServices'
@@ -66,6 +67,7 @@ function App() {
             <Route path='/membership-enquiry' element={<MembershipPage />} />
           </Route>
         </Routes>
+        <Chatbot />
       </BrowserRouter>
     </>
   )
