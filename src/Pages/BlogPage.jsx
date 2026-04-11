@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Clock, User, ArrowRight, Search, Tag, TrendingUp, Calendar, BookOpen, Quote, Info } from 'lucide-react';
+import { Clock, User, ArrowRight, Search, Tag, TrendingUp, Calendar, BookOpen, Quote, } from 'lucide-react';
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -137,9 +137,7 @@ const BlogPage = () => {
                     <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">India</p>
                   </div>
 
-                  <div className="mt-12 flex items-center gap-2 text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-                    <Info className="w-3 h-3" /> Currently updating our digital archives
-                  </div>
+
                 </div>
               </div>
             </div>
