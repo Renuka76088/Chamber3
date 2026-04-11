@@ -1,101 +1,112 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const ContactUs = () => {
   return (
     <div className="bg-white min-h-screen font-sans text-slate-800">
-      
-      {/* 1. Page Header - Bilkul Saaf aur Bada */}
+
+      {/* Header */}
       <section className="bg-slate-50 py-16 px-6 border-b border-slate-200">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Contact Us
           </h1>
           <p className="text-xl text-slate-600">
-         "Get in touch with us to join the Textile Chamber or for any inquiries."
+            Get in touch with us for any enquiries or support.
           </p>
         </div>
       </section>
 
+      {/* Main Section */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-          
-          {/* Left: Contact Details (Office Addresses) */}
+
+          {/* Left Side - Contact Details */}
           <div className="space-y-10">
+
             <div>
               <h2 className="text-2xl font-bold mb-6 text-slate-900 border-b-2 border-amber-500 pb-2 inline-block">
-              Visit Our Office
+                Contact Information
               </h2>
-              
-              <div className="space-y-8 mt-6">
-                {/* BENGALURU Office */}
-                <div className="flex gap-4">
-                  <div className="mt-1">
-                    <MapPin className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">BENGALURU, KA, INDIA</h3>
-                    <p className="text-slate-600 mt-1 leading-relaxed">
-                     
-                    </p>
+
+              <div className="space-y-6 mt-6">
+
+                {/* Phone */}
+                <div className="flex items-center gap-4">
+                  <Phone className="w-5 h-5 text-amber-600" />
+                  <span className="text-lg font-medium">6353778329</span>
+                </div>
+
+                {/* Trade Enquiry */}
+                <div>
+                  <p className="text-sm font-semibold text-slate-500">Trade Enquiry</p>
+                  <div className="flex items-center gap-3 mt-1">
+                    <Mail className="w-5 h-5 text-amber-600" />
+                    <a href="mailto:trade-enquiry@parekhchamber.com" className="hover:underline">
+                      trade-enquiry@parekhchamber.com
+                    </a>
                   </div>
                 </div>
 
-                {/* Mohali Office */}
-              
+                {/* Customer Care */}
+                <div>
+                  <p className="text-sm font-semibold text-slate-500">Customer Care</p>
+                  <div className="flex items-center gap-3 mt-1">
+                    <Mail className="w-5 h-5 text-amber-600" />
+                    <a href="mailto:customer-care@parekhchamber.com" className="hover:underline">
+                      customer-care@parekhchamber.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Services */}
+                <div>
+                  <p className="text-sm font-semibold text-slate-500">Services</p>
+                  <div className="flex items-center gap-3 mt-1">
+                    <Mail className="w-5 h-5 text-amber-600" />
+                    <a href="mailto:services@parekhchamber.com" className="hover:underline">
+                      services@parekhchamber.com
+                    </a>
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <div className="pt-6 space-y-4 border-t border-slate-100">
-              <div className="flex items-center gap-4">
-                <Phone className="w-5 h-5 text-slate-400" />
-                <span className="text-lg font-medium">6353778329</span>
+            {/* Office Location */}
+            <div>
+              <h2 className="text-2xl font-bold mb-6 text-slate-900 border-b-2 border-amber-500 pb-2 inline-block">
+                Our Location
+              </h2>
+
+              <div className="flex gap-4">
+                <MapPin className="w-6 h-6 text-amber-600 mt-1" />
+                <div>
+                  <h3 className="text-lg font-bold">BENGALURU, INDIA</h3>
+                  <p className="text-slate-600">
+                    Karnataka, India
+                  </p>
+                </div>
               </div>
-             
             </div>
+
           </div>
 
-          {/* Right: Message Form - Simple Inputs */}
-         <div className="bg-slate-50 p-8 rounded-lg border border-slate-200">
-  <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
-  <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-    <div>
-      <label className="block text-sm font-bold text-slate-700 mb-2">Your Name</label>
-      <input 
-        type="text" 
-        className="w-full border-2 border-slate-300 p-3 rounded focus:border-amber-500 outline-none text-lg"
-        placeholder="Enter your name here"
-      />
-    </div>
-
-    <div>
-      <label className="block text-sm font-bold text-slate-700 mb-2">Mobile Number or Email</label>
-      <input 
-        type="text" 
-        className="w-full border-2 border-slate-300 p-3 rounded focus:border-amber-500 outline-none text-lg"
-        placeholder="Enter your mobile number or email"
-      />
-    </div>
-
-    <div>
-      <label className="block text-sm font-bold text-slate-700 mb-2">Your Question / Message</label>
-      <textarea 
-        rows={4} 
-        className="w-full border-2 border-slate-300 p-3 rounded focus:border-amber-500 outline-none text-lg"
-        placeholder="What would you like to ask?"
-      ></textarea>
-    </div>
-
-    <button className="w-full bg-slate-900 text-white py-4 rounded font-bold text-lg hover:bg-slate-800 flex items-center justify-center gap-3 transition-colors">
-      Send Message <Send className="w-5 h-5" />
-    </button>
-  </form>
-</div>
+          {/* Right Side - Google Map */}
+          <div className="w-full h-[400px] rounded-lg overflow-hidden border">
+            <iframe
+              title="Bangalore Location"
+              src="https://www.google.com/maps?q=Bangalore%20India&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
 
         </div>
       </section>
-
-    
     </div>
   );
 };

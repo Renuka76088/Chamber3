@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { 
   Image as ImageIcon, 
   PlayCircle, 
@@ -7,15 +8,19 @@ import {
   Download, 
   ChevronRight,
   Camera,
-  Film
+  Film,
+  Loader2
 } from 'lucide-react';
 
 const MediaGallery = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [backendMedia, setBackendMedia] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const siteId = "ParekhChamberofTextile01";
 
   const categories = ['All', 'Exhibitions', 'Manufacturing', 'Events', 'Awards'];
 
-  const mediaItems = [
+  const mockMediaItems = [
     {
       id: 1,
       type: 'image',
@@ -60,6 +65,34 @@ const MediaGallery = () => {
     }
   ];
 
+  useEffect(() => {
+    const fetchMedia = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/media-events?siteId=${siteId}`);
+        if (response.data.success) {
+          setBackendMedia(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching media events:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMedia();
+  }, []);
+
+  // Use backend data if available, otherwise use mock data
+  const mediaItems = backendMedia.length > 0 
+    ? backendMedia.map(item => ({
+        id: item._id,
+        type: item.type || 'image',
+        category: item.category,
+        title: item.title,
+        url: `http://localhost:5000/${item.image}`
+      }))
+    : mockMediaItems;
+
   const filteredMedia = activeFilter === 'All' 
     ? mediaItems 
     : mediaItems.filter(item => item.category === activeFilter);
@@ -67,7 +100,7 @@ const MediaGallery = () => {
   return (
     <div className="bg-white min-h-screen font-sans text-slate-900 pb-20">
       
-      {/* 1. Header Section (Matches Site Theme) */}
+      {/* 1. Header Section */}
       <section className="bg-slate-900 text-white py-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="md:w-2/3 text-center md:text-left">
@@ -80,14 +113,14 @@ const MediaGallery = () => {
           </div>
           <div className="flex gap-4">
              <div className="bg-slate-800 p-6 border border-slate-700 text-center">
-                <span className="text-amber-500 text-3xl font-bold block">1.2k+</span>
-                <span className="text-[10px] uppercase font-bold tracking-widest">Media Files</span>
+                <span className="text-amber-500 text-3xl font-bold block">{backendMedia.length > 0 ? backendMedia.length : '1.2k+'}</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest">{backendMedia.length > 0 ? 'Events Added' : 'Media Files'}</span>
              </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Filter Bar (Modern & Sticky) */}
+      {/* 2. Filter Bar */}
       <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-wrap justify-center gap-2">
@@ -106,44 +139,51 @@ const MediaGallery = () => {
             ))}
           </div>
           <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest">
-            <Filter className="w-4 h-4" /> Filter By Sector
+            <Filter className="w-4 h-4" /> {backendMedia.length > 0 ? 'Live Content Available' : 'Showing Default Gallery'}
           </div>
         </div>
       </div>
 
       {/* 3. Media Grid */}
       <main className="max-w-7xl mx-auto mt-12 px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredMedia.map((item) => (
-            <div key={item.id} className="group relative overflow-hidden bg-slate-100 aspect-[4/3] cursor-pointer shadow-lg">
-              
-              {/* Media Content */}
-              <img 
-                src={item.url} 
-                alt={item.title} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
-              />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                <div className="flex justify-between items-end">
-                  <div className="space-y-1">
-                    <span className="text-amber-500 text-[10px] font-black uppercase tracking-widest">{item.category}</span>
-                    <h3 className="text-white text-xl font-bold">{item.title}</h3>
-                  </div>
-                  <div className="bg-white p-3 rounded-full text-slate-900 hover:bg-amber-500 hover:text-white transition-colors">
-                    {item.type === 'video' ? <PlayCircle className="w-6 h-6" /> : <Maximize2 className="w-6 h-6" />}
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-20">
+            <Loader2 className="w-12 h-12 text-amber-500 animate-spin mb-4" />
+            <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-xs">Aesthetically loading media...</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredMedia.map((item) => (
+              <div key={item.id} className="group relative overflow-hidden bg-slate-100 aspect-[4/3] cursor-pointer shadow-lg">
+                
+                {/* Media Content */}
+                <img 
+                  src={item.url} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
+                />
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                  <div className="flex justify-between items-end">
+                    <div className="space-y-1">
+                      <span className="text-amber-500 text-[10px] font-black uppercase tracking-widest">{item.category}</span>
+                      <h3 className="text-white text-xl font-bold">{item.title}</h3>
+                    </div>
+                    <div className="bg-white p-3 rounded-full text-slate-900 hover:bg-amber-500 hover:text-white transition-colors">
+                      {item.type === 'video' ? <PlayCircle className="w-6 h-6" /> : <Maximize2 className="w-6 h-6" />}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Type Badge (Visible always) */}
-              <div className="absolute top-4 right-4 bg-slate-900/50 backdrop-blur-md p-2 text-white">
-                {item.type === 'video' ? <Film className="w-4 h-4" /> : <Camera className="w-4 h-4" />}
+                {/* Type Badge */}
+                <div className="absolute top-4 right-4 bg-slate-900/50 backdrop-blur-md p-2 text-white">
+                  {item.type === 'video' ? <Film className="w-4 h-4" /> : <Camera className="w-4 h-4" />}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* 4. Load More / View More */}
         <div className="mt-20 text-center">
@@ -153,7 +193,7 @@ const MediaGallery = () => {
         </div>
       </main>
 
-      {/* 5. Highlight Section (Matches About Us CTA) */}
+      {/* 5. Highlight Section */}
       <section className="mt-24 px-6">
         <div className="max-w-5xl mx-auto bg-amber-600 p-10 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
           <div className="text-white text-center md:text-left">
@@ -177,4 +217,4 @@ const MediaGallery = () => {
   );
 };
 
-export default MediaGallery;
+export default MediaGallery;
