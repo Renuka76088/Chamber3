@@ -122,13 +122,13 @@ const MembershipPage = () => {
   ];
 
   const benefits = [
-    { title: "Textile Trade Support to our valued Members", icon: <Briefcase className="w-5 h-5 text-amber-500" /> },
-    { title: "Textile Finance and Investment Support to our valued Members", icon: <Gem className="w-5 h-5 text-amber-500" /> },
-    { title: "Industrial Consultation for establishment of Textile Industries and Plants", icon: <Factory className="w-5 h-5 text-amber-500" /> },
-    { title: "Manufacturing Support to the Textile Manufacturers", icon: <CheckCircle2 className="w-5 h-5 text-amber-500" /> },
-    { title: "Trade Support to the Textile Suppliers & Retailers", icon: <Users className="w-5 h-5 text-amber-500" /> },
-    { title: "Trade Consultation for Textile Raw & Finished Products ", icon: <FileText className="w-5 h-5 text-amber-500" /> },
-    { title: "Trade Consultation for Textile Machineries and Spares ", icon: <FileText className="w-5 h-5 text-amber-500" /> },
+    { title: "Textile Trade Support to our valued Members", icon: <Briefcase className="w-5 h-5 " /> },
+    { title: "Textile Finance and Investment Support to our valued Members", icon: <Gem className="w-5 h-5 " /> },
+    { title: "Industrial Consultation for establishment of Textile Industries and Plants", icon: <Factory className="w-5 h-5 " /> },
+    { title: "Manufacturing Support to the Textile Manufacturers", icon: <CheckCircle2 className="w-5 h-5 " /> },
+    { title: "Trade Support to the Textile Suppliers & Retailers", icon: <Users className="w-5 h-5 " /> },
+    { title: "Trade Consultation for Textile Raw & Finished Products", icon: <FileText className="w-5 h-5 " /> },
+    { title: "Trade Consultation for Textile Machineries and Spares", icon: <FileText className="w-5 h-5 " /> },
   ];
 
   if (isSubmitted) {
@@ -180,20 +180,22 @@ const MembershipPage = () => {
         {/* Left Side: Info Panel */}
         <div className="lg:col-span-4 space-y-6">
           <div className="bg-white p-6 shadow-md border-l-4 border-slate-900">
-            <h2 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-amber-600" /> Eligibility
+            <h2 className="text-sm font-black uppercase tracking-widest text-slate-800 mb-4 flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4" />Applicability & Eligibility
             </h2>
             <p className="text-slate-700 text-xs leading-relaxed font-bold uppercase tracking-tight">
-              Registered Textile Manufacturers, Suppliers, Traders, Retailers and professionals associated with the Textile Sector are eligible to apply.
-            </p>
+              The Registered Textile Manufacturers, Suppliers, Traders, Retailers and all other
+              professionals who are directly or indirectly associated with the Textile Sector are
+              eligible to apply for the Membership. </p>
           </div>
 
           <div className="bg-slate-900 p-6 rounded-sm shadow-xl">
-            <h3 className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-6 border-b border-slate-800 pb-2">Exclusive Benefits</h3>
+            <h3 className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-6 border-b border-slate-800 pb-2">Benefit to our Chamber Members.
+            </h3>
             <div className="grid grid-cols-1 gap-4">
               {benefits.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 group">
-                  <div className="p-2 bg-slate-800 rounded group-hover:bg-amber-500 transition-colors">
+                  <div className="p-2 bg-slate-800 rounded text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors">
                     {item.icon}
                   </div>
                   <span className="text-slate-300 text-[10px] font-bold uppercase tracking-wide group-hover:text-white transition-colors">{item.title}</span>
@@ -201,12 +203,45 @@ const MembershipPage = () => {
               ))}
             </div>
           </div>
+
+
+
         </div>
 
         {/* Right Side: Form */}
         <div className="lg:col-span-8">
           <div className="bg-white shadow-2xl border border-slate-200 overflow-hidden">
+            <section className="py-16 px-6 bg-white">
+              <div className="max-w-6xl mx-auto grid md:grid-cols-1 gap-8">
 
+                {/* Subscription & Membership */}
+                <div className="border border-slate-200 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-all">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-amber-500 pl-3">
+                    Subscription & Membership Fee
+                  </h3>
+
+                  <p className="text-slate-600 text-sm md:text-base mb-4">
+                    Contact us for the subscription and membership fee.
+                  </p>
+
+                  <p className="text-slate-600 text-sm md:text-base">
+                    Prescribed Application Form for our Chamber Membership can be obtained either in-person or through India Post or by Regd. Courier by paying its non-refundable prescribed fee.
+                  </p>
+                </div>
+
+                {/* Terms & Conditions */}
+                <div className="border border-slate-200 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-all">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-amber-500 pl-3">
+                    Terms & Condition
+                  </h3>
+
+                  <p className="text-slate-600 text-sm md:text-base">
+                    Contact us for the details.
+                  </p>
+                </div>
+
+              </div>
+            </section>
             {/* Form Step Status */}
             <div className={`p-4 text-center ${isValidated ? 'bg-green-600' : 'bg-amber-600'} text-white transition-colors duration-500`}>
               <p className="text-[10px] font-black uppercase tracking-[0.4em] flex items-center justify-center gap-2">
@@ -422,8 +457,10 @@ const MembershipPage = () => {
                       <div className="relative z-10 flex items-start gap-4">
                         <input type="checkbox" className="mt-1 w-5 h-5 accent-amber-500 cursor-pointer" required />
                         <div className="text-[10px] text-slate-400 font-medium leading-relaxed italic">
-                          <strong className="text-amber-500 uppercase not-italic block mb-2 tracking-[0.2em] font-black">Declaration & Undertaking</strong>
-                          “I have read the Terms & Conditions of subscription for membership. All documents uploaded are true to the best of my knowledge.”
+                          <strong className="text-amber-500 uppercase not-italic block mb-2 tracking-[0.2em] font-black">Undertaking</strong>
+                          “I have read the Terms & Conditions of subscription for the membership in the
+                          Chamber of Textile. All the information provided by me and the documents uploaded
+                          thereof are true and authentic to the best of my knowledge and belief”
                         </div>
                       </div>
                       <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>

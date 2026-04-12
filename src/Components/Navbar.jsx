@@ -11,13 +11,16 @@ const Navbar = () => {
       <header className="md:flex w-full bg-[#0d1b2a] backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
 
         {/* LEFT SIDE: Logo Section */}
-        <div className="flex items-center hidden md:flex gap-4">
-          <Link to='/' className="flex items-center gap-4 hover:opacity-95 transition-all group">
+        <div className="flex items-center hidden md:flex gap-2">
+          <Link to='/' className="flex items-center gap-2 hover:opacity-95 transition-all group">
             {/* Logo Icon */}
-            <div className="flex items-center justify-center h-12 w-12 bg-[#FF6A3D] rounded-[12px] shadow-md group-hover:scale-105 transition-transform">
-              <span className="text-white text-3xl font-black font-sans italic">P</span>
+            <div className="flex items-center justify-center h-16 w-16 rounded-[12px] shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+              <img
+                src="/10.png"
+                alt="Logo"
+                className="h-full w-full object-contain scale-110"
+              />
             </div>
-            
             {/* Logo Text */}
             <div className="flex flex-col gap-0">
               <div className="flex items-baseline gap-2 font-sans">
@@ -59,7 +62,7 @@ const Navbar = () => {
           title="Chat on WhatsApp"
         >
           <FaWhatsapp size={24} fill="currentColor" />
-          
+
           <span className="absolute right-16 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-800">
             Direct WhatsApp
           </span>

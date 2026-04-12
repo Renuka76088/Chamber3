@@ -83,15 +83,13 @@ const MediaGallery = () => {
   }, []);
 
   // Use backend data if available, otherwise use mock data
-  const mediaItems = backendMedia.length > 0
-    ? backendMedia.map(item => ({
-      id: item._id,
-      type: item.type || 'image',
-      category: item.category,
-      title: item.title,
-      url: `http://localhost:5000/${item.image}`
-    }))
-    : mockMediaItems;
+  const mediaItems = backendMedia.map(item => ({
+    id: item._id,
+    type: item.type || 'image',
+    category: item.category,
+    title: item.title,
+    url: `http://localhost:5000/${item.image}`
+  }));
 
   const filteredMedia = activeFilter === 'All'
     ? mediaItems
@@ -107,9 +105,9 @@ const MediaGallery = () => {
             <h1 className="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tight">
               Media <span className="text-amber-500">Gallery</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 border-l-4 border-amber-600 pl-6 max-w-2xl mx-auto md:mx-0">
+            {/* <p className="text-lg md:text-xl text-slate-400 border-l-4 border-amber-600 pl-6 max-w-2xl mx-auto md:mx-0">
               "A visual journey of the Parekh Chamber Of Textile. Glimpse our rich heritage, advanced technology, and key events."
-            </p>
+            </p> */}
           </div>
           <div className="flex gap-4">
             <div className="bg-slate-800 p-6 border border-slate-700 text-center">
@@ -121,7 +119,7 @@ const MediaGallery = () => {
       </section>
 
       {/* 2. Filter Bar */}
-      <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 py-6 px-6">
+      {/* <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((cat) => (
@@ -137,37 +135,64 @@ const MediaGallery = () => {
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest">
-            <Filter className="w-4 h-4" /> {backendMedia.length > 0 ? 'Live Content Available' : 'Showing Default Gallery'}
-          </div>
+
         </div>
-      </div>
+      </div> */}
 
       {/* 3. Media Grid */}
-      <main className="max-w-7xl mx-auto mt-12 px-6">
+      <main className="max-w-7xl mx-auto mt-5 px-6">
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2 className="w-12 h-12 text-amber-500 animate-spin mb-4" />
-            <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-xs">Aesthetically loading media...</p>
+            <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-xs">
+              Aesthetically loading media...
+            </p>
           </div>
+        ) : mediaItems.length === 0 ? (
+
+          // 🔥 EMPTY STATE UI
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+
+            <div className="bg-slate-100 p-6 rounded-full mb-6">
+              <ImageIcon className="w-10 h-10 text-amber-500" />
+            </div>
+
+            <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+              No Media Available
+            </h3>
+
+            <p className="text-slate-500 text-sm md:text-base max-w-md mb-6">
+              At present, No event photos to be uploaded
+            </p>
+
+            <div className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">
+              Please check back later
+            </div>
+
+          </div>
+
         ) : (
+
+          // 🔥 NORMAL GRID
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredMedia.map((item) => (
               <div key={item.id} className="group relative overflow-hidden bg-slate-100 aspect-[4/3] cursor-pointer shadow-lg">
 
-                {/* Media Content */}
                 <img
                   src={item.url}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                 />
 
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                   <div className="flex justify-between items-end">
                     <div className="space-y-1">
-                      <span className="text-amber-500 text-[10px] font-black uppercase tracking-widest">{item.category}</span>
-                      <h3 className="text-white text-xl font-bold">{item.title}</h3>
+                      <span className="text-amber-500 text-[10px] font-black uppercase tracking-widest">
+                        {item.category}
+                      </span>
+                      <h3 className="text-white text-xl font-bold">
+                        {item.title}
+                      </h3>
                     </div>
                     <div className="bg-white p-3 rounded-full text-slate-900 hover:bg-amber-500 hover:text-white transition-colors">
                       {item.type === 'video' ? <PlayCircle className="w-6 h-6" /> : <Maximize2 className="w-6 h-6" />}
@@ -175,21 +200,14 @@ const MediaGallery = () => {
                   </div>
                 </div>
 
-                {/* Type Badge */}
                 <div className="absolute top-4 right-4 bg-slate-900/50 backdrop-blur-md p-2 text-white">
                   {item.type === 'video' ? <Film className="w-4 h-4" /> : <Camera className="w-4 h-4" />}
                 </div>
               </div>
             ))}
           </div>
-        )}
 
-        {/* 4. Load More / View More */}
-        <div className="mt-20 text-center">
-          <button className="border-2 border-slate-900 px-12 py-5 font-bold uppercase text-xs tracking-[0.3em] hover:bg-slate-900 hover:text-white transition-all flex items-center gap-4 mx-auto">
-            Load More Media <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
+        )}
       </main>
 
 

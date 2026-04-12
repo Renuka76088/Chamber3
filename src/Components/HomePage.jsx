@@ -1,7 +1,43 @@
 import React from 'react';
 import { Globe, Users, Award, Shield, ArrowRight, Phone } from 'lucide-react';
+import {
+
+
+  Briefcase, Factory, Handshake, Settings, ShoppingBag, Wrench, Banknote
+} from 'lucide-react';
 
 const HomePage = () => {
+
+  const services = [
+    {
+      icon: <Handshake className="w-10 h-10 text-amber-600" />,
+      title: "Textile Trade Support to our valued Members"
+    },
+    {
+      icon: <Banknote className="w-10 h-10 text-amber-600" />,
+      title: "Textile Finance and Investment Support to our valued Members"
+    },
+    {
+      icon: <Factory className="w-10 h-10 text-amber-600" />,
+      title: "Industrial Consultation for establishment of Textile Industries and Plants"
+    },
+    {
+      icon: <Settings className="w-10 h-10 text-amber-600" />,
+      title: "Manufacturing Support to the Textile Manufacturers"
+    },
+    {
+      icon: <ShoppingBag className="w-10 h-10 text-amber-600" />,
+      title: "Trade Support to the Textile Suppliers & Retailers"
+    },
+    {
+      icon: <Briefcase className="w-10 h-10 text-amber-600" />,
+      title: "Trade Consultation for Textile Raw & Finished Products"
+    },
+    {
+      icon: <Wrench className="w-10 h-10 text-amber-600" />,
+      title: "Trade Consultation for Textile Machineries and Spares"
+    }
+  ];
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
 
@@ -65,30 +101,34 @@ const HomePage = () => {
       {/* 3. CORE SERVICES (Compact Grid) */}
       <section className="py-16 px-6 bg-slate-50">
         <div className="container mx-auto max-w-6xl">
+
           <div className="mb-10 border-b-2 border-slate-200 pb-4">
-            <h2 className="text-3xl font-bold text-slate-900">Our Strategic Services</h2>
-            <p className="text-slate-600 mt-1">Direct support for manufacturers and textile businesses.</p>
+            <h2 className="text-3xl font-bold text-slate-900">
+              Our Strategic Services
+            </h2>
+            <p className="text-slate-600 mt-1">
+              Direct support for manufacturers and textile businesses.
+            </p>
           </div>
 
+          {/* Dynamic Services */}
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 border border-slate-200 shadow-sm hover:border-amber-500 transition-all">
-              <Globe className="w-8 h-8 text-amber-600 mb-4" />
-              <h3 className="text-xl font-bold mb-2">Global Export Support</h3>
-              <p className="text-slate-600 text-sm">Simplifying international trade documentation and connecting local units to global buyers.</p>
-            </div>
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 border border-slate-200 shadow-sm hover:border-amber-500 transition-all group"
+              >
+                <div className="mb-4 group-hover:scale-110 transition-transform">
+                  {service.icon}
+                </div>
 
-            <div className="bg-white p-6 border border-slate-200 shadow-sm hover:border-amber-500 transition-all">
-              <Users className="w-8 h-8 text-amber-600 mb-4" />
-              <h3 className="text-xl font-bold mb-2">B2B Networking</h3>
-              <p className="text-slate-600 text-sm">Exclusive access to vendor meets, trade fairs, and government industry conferences.</p>
-            </div>
-
-            <div className="bg-white p-6 border border-slate-200 shadow-sm hover:border-amber-500 transition-all">
-              <Shield className="w-8 h-8 text-amber-600 mb-4" />
-              <h3 className="text-xl font-bold mb-2">Quality Assurance</h3>
-              <p className="text-slate-600 text-sm">Providing industry-standard certifications and quality control workshops for factories.</p>
-            </div>
+                <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                  {service.title}
+                </h3>
+              </div>
+            ))}
           </div>
+
         </div>
       </section>
 
@@ -125,7 +165,7 @@ const HomePage = () => {
 
       {/* 5. SIMPLE FOOTER */}
       <footer className="py-8 bg-slate-900 text-white text-center text-sm">
-        <p>© 2026 Textile Chamber. All Rights Reserved.</p>
+        <p>© 2026 PAREKH CHAMBER OF TEXTILE. All Rights Reserved.</p>
       </footer>
     </div>
   );

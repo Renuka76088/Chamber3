@@ -131,7 +131,7 @@ const Chatbot = () => {
                     <div className="p-2 bg-slate-100 text-slate-900"><Mail size={14} /></div>
                     <div>
                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">General Email</p>
-                      <p className="text-xs font-bold">contact@parekhtextile.com</p>
+                      <p className="text-xs font-bold">customer-care@parekhchamber.com</p>
                     </div>
                   </div>
                 </div>

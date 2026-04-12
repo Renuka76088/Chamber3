@@ -1,11 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import logo from "/10.png"; // 👉 apne path ke according adjust kar lena
 
 export default function Loader() {
   return (
     <motion.div
       initial={{ y: 0 }}
-      exit={{ y: "-100%" }} // Page upar slide hoga
+      exit={{ y: "-100%" }}
       transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
       className="fixed inset-0 bg-[#0d1b2a] flex items-center justify-center z-[9999] overflow-hidden"
     >
@@ -14,28 +15,32 @@ export default function Loader() {
 
       <div className="text-center relative z-10 px-6">
 
-        {/* 1. ICON BOX (Navbar Style) */}
+        {/* 1. ICON BOX (Image instead of P) */}
         <motion.div
           initial={{ scale: 0, rotate: -10 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-          className="h-20 w-20 bg-[#FF6A3D] rounded-[18px] mx-auto mb-8 flex items-center justify-center shadow-[0_0_40px_rgba(255,106,61,0.3)]"
+          className="h-16 w-16 md:h-20 md:w-20 mx-auto  flex items-center justify-center rounded-[18px] overflow-hidden shadow-[0_0_25px_rgba(0,0,0,0.25)]"
         >
-          <span className="text-white text-5xl font-black italic select-none">P</span>
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-full w-full object-cover"
+          />
         </motion.div>
 
-        {/* 2. TEXT BRANDING (Sharp & Bold) */}
+        {/* 2. TEXT BRANDING */}
         <div className="space-y-1">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-3 font-sans"
+            className="flex flex-col md:flex-row items-center justify-center gap-3 font-sans text-center"
           >
-            <span className="text-white text-3xl md:text-5xl font-black tracking-tighter">
+            <span className="text-white text-2xl md:text-5xl font-black tracking-tighter">
               PAREKH
             </span>
-            <span className="text-[#FF6A3D] text-3xl md:text-5xl font-black tracking-tighter">
+            <span className="text-[#FF6A3D] text-2xl md:text-5xl font-black tracking-tighter">
               CHAMBER OF TEXTILE
             </span>
           </motion.div>
@@ -44,14 +49,14 @@ export default function Loader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             transition={{ delay: 0.5 }}
-            className="text-white/60 text-xs md:text-sm font-bold tracking-[0.4em] uppercase mt-4"
+            className="text-white/60 text-[10px] md:text-sm font-bold tracking-[0.4em] uppercase mt-4"
           >
             Bengaluru • KA • India
           </motion.div>
         </div>
 
-        {/* 3. PROGRESS TRACK (Orange Accent) */}
-        <div className="w-64 h-[2px] bg-white/10 mx-auto mt-12 rounded-full overflow-hidden relative">
+        {/* 3. PROGRESS TRACK */}
+        <div className="w-48 md:w-64 h-[2px] bg-white/10 mx-auto mt-10 md:mt-12 rounded-full overflow-hidden relative">
           <motion.div
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
@@ -59,8 +64,6 @@ export default function Loader() {
             className="absolute inset-0 w-full h-full bg-[#FF6A3D]"
           />
         </div>
-
-
       </div>
 
       {/* 4. BOTTOM ACCENT LINE */}
