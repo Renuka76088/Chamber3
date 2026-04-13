@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { careerApi } from "../utils/api";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Clock, IndianRupee, Mail, AlertCircle, Info, ChevronRight } from "lucide-react";
 
@@ -11,7 +11,7 @@ const Career = () => {
   useEffect(() => {
     const fetchVacancies = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/careers?siteId=${siteId}`);
+        const response = await careerApi.getJobs(siteId);
         if (response.data.success) {
           setVacancies(response.data.data);
         }

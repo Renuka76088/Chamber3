@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { mediaApi, IMAGE_BASE_URL } from '../utils/api';
 import {
   Image as ImageIcon,
   PlayCircle,
@@ -68,7 +68,7 @@ const MediaGallery = () => {
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/media-events?siteId=${siteId}`);
+        const response = await mediaApi.getMedia(siteId);
         if (response.data.success) {
           setBackendMedia(response.data.data);
         }
@@ -88,7 +88,7 @@ const MediaGallery = () => {
     type: item.type || 'image',
     category: item.category,
     title: item.title,
-    url: `http://localhost:5000/${item.image}`
+    url: `${IMAGE_BASE_URL}/${item.image}`
   }));
 
   const filteredMedia = activeFilter === 'All'

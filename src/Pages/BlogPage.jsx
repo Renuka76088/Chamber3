@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { blogApi, IMAGE_BASE_URL } from '../utils/api';
 import { Clock, User, ArrowRight, Search, Tag, TrendingUp, Calendar, BookOpen, Quote, } from 'lucide-react';
 
 const BlogPage = () => {
@@ -10,7 +10,7 @@ const BlogPage = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/blogs?siteId=${siteId}`);
+        const response = await blogApi.getBlogs(siteId);
         if (response.data.success) {
           setBlogs(response.data.data);
         }
@@ -67,7 +67,7 @@ const BlogPage = () => {
                   <article key={post._id || index} className="flex flex-col bg-slate-50 border border-slate-200 group hover:shadow-xl transition-all h-full">
                     <div className="relative h-52 overflow-hidden">
                       <img
-                        src={post.thumbnail ? `http://localhost:5000/${post.thumbnail}` : "https://img.freepik.com/premium-photo/colorful-rolled-fabrics-displayed-market-sunset_868797-52239.jpg"}
+                        src={post.thumbnail ? `${IMAGE_BASE_URL}/${post.thumbnail}` : "https://img.freepik.com/premium-photo/colorful-rolled-fabrics-displayed-market-sunset_868797-52239.jpg"}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -133,7 +133,7 @@ const BlogPage = () => {
 
                   <div className="space-y-1">
                     <p className="text-white font-bold text-xl uppercase tracking-widest">HC Parekh</p>
-                    <p className="text-amber-500 font-medium text-sm">Textile Manufacturers & Entrepreneur</p>
+                    <p className="text-amber-500 font-medium text-sm">Textile Manufacturer & Entrepreneur</p>
                     <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mt-2">India</p>
                   </div>
 
