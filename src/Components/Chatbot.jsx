@@ -10,7 +10,7 @@ const Chatbot = () => {
   const options = [
     { id: 'appointment', label: 'Book Appointment', icon: <Calendar size={16} /> },
     { id: 'contact', label: 'Contact Support', icon: <Phone size={16} /> },
-    { id: 'etrade', label: 'Etrade Inquiry', icon: <ExternalLink size={16} /> }
+    { id: 'etrade', label: 'e-Trade Inquiry', icon: <ExternalLink size={16} /> }
   ];
 
   const handleOptionClick = (id) => {
@@ -75,7 +75,7 @@ const Chatbot = () => {
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-slate-400 group-hover:text-amber-600 transition-colors">{opt.icon}</span>
-                        <span className="text-xs font-black uppercase tracking-widest text-slate-900">{opt.label}</span>
+                        <span className="text-xs font-black  tracking-widest text-slate-900">{opt.label}</span>
                       </div>
                       <ChevronRight size={14} className="text-slate-300 group-hover:text-amber-600 transition-all transform group-hover:translate-x-1" />
                     </button>
@@ -142,14 +142,14 @@ const Chatbot = () => {
             {view === 'etrade' && (
               <div className="space-y-6 animate-in fade-in duration-300">
                 <div className="bg-slate-900 text-white p-4 border-l-4 border-amber-500 shadow-xl">
-                  <h4 className="text-[10px] font-black uppercase text-amber-500 mb-1">Etrade Inquiry</h4>
+                  <h4 className="text-[10px] font-black text-amber-500 mb-1">e-Trade Inquiry</h4>
                   <p className="text-xs font-bold text-slate-300 leading-relaxed">
                     Dedicated support for our digital trading platform services.
                   </p>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-slate-50 p-4 border border-slate-100">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Etrade Support Email</p>
+                    <p className="text-[10px] font-black text-slate-400  tracking-widest mb-1">e-Trade Support Email</p>
                     <p className="text-xs font-bold text-amber-600">trade-enquiry@parekhchamber.com</p>
                   </div>
                   <div className="bg-slate-50 p-4 border border-slate-100">
