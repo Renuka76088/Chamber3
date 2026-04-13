@@ -178,137 +178,143 @@ const AppointmentPage = () => {
 
         {/* Right Side: Appointment Form */}
         <div className="lg:col-span-7">
-          <form onSubmit={handleSubmit} className="bg-white border border-slate-200 shadow-2xl p-8 md:p-12 space-y-8">
-            <h2 className="text-3xl font-black text-slate-900 border-b pb-4">Visitor <span className="text-amber-600">Details</span></h2>
+        <form onSubmit={handleSubmit} className="bg-white border border-slate-200 shadow-2xl p-6 md:p-12 space-y-8">
+  <h2 className="text-3xl font-black text-slate-900 border-b pb-4">
+    Visitor <span className="text-amber-600">Details</span>
+  </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Name of the Visitor */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                  <User className="w-4 h-4 text-amber-600" /> Name of the Visitor
-                </label>
-                <input
-                  type="text"
-                  name="visitorName"
-                  value={formData.visitorName}
-                  onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
-                  placeholder="Enter Full Name"
-                  required
-                />
-              </div>
+  {/* Grid Wrapper: Mobile pe 1 column, Desktop pe 2 */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+    
+    {/* Name of the Visitor */}
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+        <User className="w-4 h-4 text-amber-600" /> Name of the Visitor
+      </label>
+      <input
+        type="text"
+        name="visitorName"
+        value={formData.visitorName}
+        onChange={handleInputChange}
+        className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+        placeholder="Enter Full Name"
+        required
+      />
+    </div>
 
-              {/* Name of the Business */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-amber-600" /> Name of the Business
-                </label>
-                <input
-                  type="text"
-                  name="businessName"
-                  value={formData.businessName}
-                  onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
-                  placeholder="Company Name"
-                  required
-                />
-              </div>
+    {/* Name of the Business */}
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+        <Building2 className="w-4 h-4 text-amber-600" /> Name of the Business
+      </label>
+      <input
+        type="text"
+        name="businessName"
+        value={formData.businessName}
+        onChange={handleInputChange}
+        className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+        placeholder="Company Name"
+        required
+      />
+    </div>
 
-              {/* Mobile No. */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-amber-600" /> Mobile No.
-                </label>
-                <input
-                  type="tel"
-                  name="mobileNo"
-                  value={formData.mobileNo}
-                  onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
-                  placeholder="+91"
-                  required
-                />
-              </div>
+    {/* Mobile No. */}
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+        <Phone className="w-4 h-4 text-amber-600" /> Mobile No.
+      </label>
+      <input
+        type="tel"
+        name="mobileNo"
+        value={formData.mobileNo}
+        onChange={handleInputChange}
+        className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+        placeholder="+91"
+        required
+      />
+    </div>
 
-              {/* Email Id */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-amber-600" /> Email ID
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
-                  placeholder="example@mail.com"
-                  required
-                />
-              </div>
+    {/* Email Id */}
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+        <Mail className="w-4 h-4 text-amber-600" /> Email ID
+      </label>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleInputChange}
+        className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+        placeholder="example@mail.com"
+        required
+      />
+    </div>
 
-              {/* Visitor’s Address */}
-              <div className="col-span-2 space-y-2">
-                <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-amber-600" /> Visitor’s Address with Pin code
-                </label>
-                <input
-                  type="text"
-                  name="visitorAddress"
-                  value={formData.visitorAddress}
-                  onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
-                  placeholder="Full Address & PIN"
-                  required
-                />
-              </div>
+    {/* Visitor’s Address - md:col-span-2 lagaya hai taaki mobile pe full width rahe */}
+    <div className="md:col-span-2 space-y-2">
+      <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+        <MapPin className="w-4 h-4 text-amber-600" /> Visitor’s Address with Pin code
+      </label>
+      <input
+        type="text"
+        name="visitorAddress"
+        value={formData.visitorAddress}
+        onChange={handleInputChange}
+        className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none transition-all"
+        placeholder="Full Address & PIN"
+        required
+      />
+    </div>
 
-              {/* Identity Options */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-amber-600" /> Identity Document
-                </label>
-                <select 
-                  name="proofType"
-                  value={formData.proofType}
-                  onChange={handleInputChange}
-                  className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none bg-transparent cursor-pointer"
-                >
-                  <option>Aadhaar Card</option>
-                  <option>ECI Card</option>
-                  <option>DL</option>
-                  <option>GST Certificate</option>
-                </select>
-              </div>
+    {/* Identity Options */}
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+        <FileText className="w-4 h-4 text-amber-600" /> Identity Document
+      </label>
+      <select 
+        name="proofType"
+        value={formData.proofType}
+        onChange={handleInputChange}
+        className="w-full border-b-2 border-slate-100 py-3 text-lg focus:border-amber-600 outline-none bg-transparent cursor-pointer"
+      >
+        <option>Aadhaar Card</option>
+        <option>ECI Card</option>
+        <option>DL</option>
+        <option>GST Certificate</option>
+      </select>
+    </div>
 
-              {/* Upload Proof */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                  <Upload className="w-4 h-4 text-amber-600" /> Upload Proof
-                </label>
-                <div className="relative">
-                  <input type="file" className="hidden" id="proof-upload" onChange={handleFileChange} />
-                  <label htmlFor="proof-upload" className="flex items-center justify-between w-full border-b-2 border-slate-100 py-3 text-sm text-slate-400 cursor-pointer hover:border-amber-600 transition-all">
-                    {file ? file.name : "Residential / Business Proof"} <Upload className="w-4 h-4" />
-                  </label>
-                </div>
-              </div>
-            </div>
+    {/* Upload Proof */}
+    <div className="space-y-2">
+      <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+        <Upload className="w-4 h-4 text-amber-600" /> Upload Proof
+      </label>
+      <div className="relative">
+        <input type="file" className="hidden" id="proof-upload" onChange={handleFileChange} />
+        <label htmlFor="proof-upload" className="flex items-center justify-between w-full border-b-2 border-slate-100 py-3 text-sm text-slate-400 cursor-pointer hover:border-amber-600 transition-all">
+          <span className="truncate mr-2">{file ? file.name : "Residential / Business Proof"}</span>
+          <Upload className="w-4 h-4 flex-shrink-0" />
+        </label>
+      </div>
+    </div>
+  </div>
 
-            {/* Describe the reason for Visit */}
-            <div className="space-y-2 pt-4">
-              <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4 text-amber-600" /> Reason for Visit
-              </label>
-              <textarea
-                name="reasonForVisit"
-                value={formData.reasonForVisit}
-                onChange={handleInputChange}
-                className="w-full bg-slate-50 border-2 border-slate-100 p-4 text-lg focus:border-amber-600 outline-none min-h-[120px]"
-                placeholder="Briefly describe the purpose of your visit..."
-                required
-              />
-            </div>
+  {/* Reason for Visit */}
+  <div className="space-y-2 pt-4">
+    <label className="text-xs font-bold uppercase text-slate-400 flex items-center gap-2">
+      <MessageSquare className="w-4 h-4 text-amber-600" /> Reason for Visit
+    </label>
+    <textarea
+      name="reasonForVisit"
+      value={formData.reasonForVisit}
+      onChange={handleInputChange}
+      className="w-full bg-slate-50 border-2 border-slate-100 p-4 text-lg focus:border-amber-600 outline-none min-h-[120px]"
+      placeholder="Briefly describe the purpose of your visit..."
+      required
+    />
+  </div>
 
+  
             {/* Action Buttons */}
             <div className="flex flex-col md:flex-row gap-4 pt-6">
               <button 
@@ -340,7 +346,8 @@ const AppointmentPage = () => {
             <p className="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-6 flex items-center justify-center gap-2">
               <ShieldCheck className="w-3 h-3 text-green-500" /> Data Protected by PCT Security
             </p>
-          </form>
+
+</form>
         </div>
       </main>
 

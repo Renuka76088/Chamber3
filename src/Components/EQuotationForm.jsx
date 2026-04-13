@@ -165,7 +165,7 @@ const EQuotationForm = () => {
                   />
                 </div>
 
-                <div>
+                <div className="col-span-2">
                   <label className="block text-[10px] font-bold uppercase text-slate-500 mb-1">GST No.</label>
                   <input 
                     type="text" 
@@ -177,7 +177,7 @@ const EQuotationForm = () => {
                   />
                 </div>
 
-                <div>
+                <div className="col-span-2">
                   <label className="block text-[10px] font-bold uppercase text-slate-500 mb-1">Mobile No.</label>
                   <input 
                     type="tel" 

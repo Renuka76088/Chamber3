@@ -164,45 +164,48 @@ const TradeEnquiryForm = () => {
                   </div>
 
                   {/* GST No. */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase mb-2 flex items-center gap-1">GST No. <span className="text-slate-400 font-normal">(Optional)</span></label>
-                    <input
-                      type="text"
-                      name="gstNo"
-                      value={formData.gstNo}
-                      onChange={handleInputChange}
-                      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
-                      placeholder="22AAAAA0000A1Z5"
-                    />
-                  </div>
+               <div className="col-span-2 md:col-span-1">
+    <label className="block text-xs font-bold uppercase mb-2 flex items-center gap-1">
+      GST No. <span className="text-slate-400 font-normal">(Optional)</span>
+    </label>
+    <input
+      type="text"
+      name="gstNo"
+      value={formData.gstNo}
+      onChange={handleInputChange}
+      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
+      placeholder="22AAAAA0000A1Z5"
+    />
+  </div>
 
-                  {/* Mobile No. */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase mb-2">Mobile No.</label>
-                    <input
-                      type="tel"
-                      name="mobileNo"
-                      value={formData.mobileNo}
-                      onChange={handleInputChange}
-                      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
-                      placeholder="+91 00000-00000"
-                      required
-                    />
-                  </div>
+  {/* Mobile No. - इसमें भी col-span-2 md:col-span-1 ऐड किया है */}
+  <div className="col-span-2 md:col-span-1">
+    <label className="block text-xs font-bold uppercase mb-2">Mobile No.</label>
+    <input
+      type="tel"
+      name="mobileNo"
+      value={formData.mobileNo}
+      onChange={handleInputChange}
+      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
+      placeholder="+91 00000-00000"
+      required
+    />
+  </div>
 
-                  {/* Email Id */}
-                  <div className="col-span-2">
-                    <label className="block text-xs font-bold uppercase mb-2">Email Id</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
-                      placeholder="contact@business.com"
-                      required
-                    />
-                  </div>
+  {/* Email Id - ये पहले से col-span-2 है, इसे ऐसे ही रहने दें */}
+  <div className="col-span-2">
+    <label className="block text-xs font-bold uppercase mb-2">Email Id</label>
+    <input
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={handleInputChange}
+      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
+      placeholder="contact@business.com"
+      required
+    />
+  </div>
+
                 </div>
               </div>
 

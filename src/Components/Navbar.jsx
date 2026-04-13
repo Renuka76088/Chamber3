@@ -55,7 +55,7 @@ const Navbar = () => {
       {/* Floating WhatsApp Button - Repositioned to avoid overlap with new Chatbot */}
       <div className="fixed bottom-32 right-8 z-[150] flex flex-col items-end gap-4">
         <a
-          href="https://wa.me/919827098270"
+          href="https://wa.me/916353778329"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center group relative border-2 border-white/20"

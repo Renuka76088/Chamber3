@@ -155,7 +155,7 @@ const EAuctionForm = () => {
                   />
                 </div>
 
-                <div>
+                <div  className="col-span-2">
                   <label className="block text-[10px] font-black uppercase tracking-widest mb-2 text-slate-400">GST No. (Optional)</label>
                   <input
                     type="text"
@@ -167,7 +167,7 @@ const EAuctionForm = () => {
                   />
                 </div>
 
-                <div>
+                <div  className="col-span-2">
                   <label className="block text-[10px] font-black uppercase tracking-widest mb-2 text-slate-400">Mobile No.</label>
                   <input
                     type="tel"
