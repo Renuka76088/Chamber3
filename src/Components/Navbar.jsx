@@ -43,7 +43,7 @@ const Navbar = () => {
           <button className="group relative overflow-hidden bg-[#fff] text-[#0d1b2a] px-7 py-2.5 rounded-full text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300 active:scale-95">
             <span className="relative z-10 flex items-center gap-2">
               <Link to="/membership-enquiry" className="flex items-center gap-2">
-                Get Membership Inquiry
+                Get Membership Enquiry
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </span>
