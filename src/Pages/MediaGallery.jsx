@@ -88,7 +88,7 @@ const MediaGallery = () => {
     type: item.type || 'image',
     category: item.category,
     title: item.title,
-    url: `${IMAGE_BASE_URL}/${item.image}`
+    url: item.image?.startsWith("http") ? item.image : `${IMAGE_BASE_URL}/${item.image}`
   }));
 
   const filteredMedia = activeFilter === 'All'

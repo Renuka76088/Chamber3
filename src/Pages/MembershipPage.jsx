@@ -10,10 +10,6 @@ import {
   Upload,
   Eye,
   Send,
-  Building2,
-  Phone,
-  Mail,
-  Globe,
   Loader2,
   Lock,
   Unlock,
@@ -80,7 +76,7 @@ const MembershipPage = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (!isValidated) {
       setErrorMsg("Please validate your official credentials first.");
       return;
@@ -133,19 +129,19 @@ const MembershipPage = () => {
 
   if (isSubmitted) {
     return (
-      <div className="bg-slate-50 min-h-screen flex items-center justify-center p-6">
-        <div className="bg-white p-12 text-center shadow-2xl border border-amber-100 max-w-xl">
-          <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="bg-slate-50 min-h-screen flex items-center justify-center p-4">
+        <div className="bg-white p-8 md:p-12 text-center shadow-2xl border border-amber-100 max-w-xl w-full">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 size={40} />
           </div>
-          <h2 className="text-3xl font-black uppercase tracking-tighter text-slate-900 mb-4">Application Submitted!</h2>
+          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-slate-900 mb-4">Application Submitted!</h2>
           <p className="text-slate-500 font-medium leading-relaxed mb-8">
             Your membership request for <strong>{formData.businessTitle}</strong> has been successfully recorded.
             Our authorized officials will review your documents and contact you shortly.
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="bg-slate-900 text-white px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-amber-600 transition-all"
+            className="bg-slate-900 text-white px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-amber-600 transition-all w-full md:w-auto"
           >
             Return to Home
           </button>
@@ -155,10 +151,10 @@ const MembershipPage = () => {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen font-sans text-slate-900">
+    <div className="bg-slate-50 min-h-screen font-sans text-slate-900 overflow-x-hidden">
 
       {/* Mini Header */}
-      <section className="bg-slate-900 text-white py-12 px-6 border-b-4 border-amber-500">
+      <section className="bg-slate-900 text-white py-12 px-4 md:px-6 border-b-4 border-amber-500">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
@@ -175,10 +171,10 @@ const MembershipPage = () => {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto py-12 px-6 grid lg:grid-cols-12 gap-8">
+      <main className="max-w-7xl mx-auto py-8 md:py-12 px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
 
         {/* Left Side: Info Panel */}
-        <div className="lg:col-span-4 space-y-6">
+        <div className="lg:col-span-4 space-y-6 order-2 lg:order-1">
           <div className="bg-white p-6 shadow-md border-l-4 border-slate-900">
             <h2 className="text-sm font-black uppercase tracking-widest text-slate-800 mb-4 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />Applicability & Eligibility
@@ -203,20 +199,17 @@ const MembershipPage = () => {
               ))}
             </div>
           </div>
-
-
-
         </div>
 
         {/* Right Side: Form */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-8 order-1 lg:order-2">
           <div className="bg-white shadow-2xl border border-slate-200 overflow-hidden">
-            <section className="py-16 px-6 bg-white">
-              <div className="max-w-6xl mx-auto grid md:grid-cols-1 gap-8">
+            <section className="py-8 md:py-16 px-4 md:px-8 bg-white">
+              <div className="max-w-6xl mx-auto grid grid-cols-1 gap-8">
 
                 {/* Subscription & Membership */}
                 <div className="border border-slate-200 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-all">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-amber-500 pl-3">
+                  <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-amber-500 pl-3">
                     Subscription & Membership Fee
                   </h3>
 
@@ -231,7 +224,7 @@ const MembershipPage = () => {
 
                 {/* Terms & Conditions */}
                 <div className="border border-slate-200 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-all">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-amber-500 pl-3">
+                  <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 border-l-4 border-amber-500 pl-3">
                     Terms & Condition
                   </h3>
 
@@ -244,7 +237,7 @@ const MembershipPage = () => {
             </section>
             {/* Form Step Status */}
             <div className={`p-4 text-center ${isValidated ? 'bg-green-600' : 'bg-amber-600'} text-white transition-colors duration-500`}>
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] flex items-center justify-center gap-2">
+              <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] flex items-center justify-center gap-2">
                 {isValidated ? (
                   <><Unlock className="w-3 h-3" /> Credentials Verified • Full Access Granted</>
                 ) : (
@@ -253,45 +246,45 @@ const MembershipPage = () => {
               </p>
             </div>
 
-            <div className="p-8 md:p-12">
+            <div className="p-6 md:p-12">
               {errorMsg && (
-                <div className="mb-8 p-4 bg-red-50 text-red-600 text-xs font-bold uppercase tracking-widest border-l-4 border-red-500 flex items-center gap-3">
-                  <AlertCircle className="w-5 h-5" />
+                <div className="mb-8 p-4 bg-red-50 text-red-600 text-[10px] font-bold uppercase tracking-widest border-l-4 border-red-500 flex items-center gap-3">
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" />
                   {errorMsg}
                 </div>
               )}
 
               {/* STEP 1: OFFICIAL VALIDATION */}
               {!isValidated ? (
-                <div className="space-y-10 animate-in fade-in duration-500">
+                <div className="space-y-8 md:space-y-10 animate-in fade-in duration-500">
                   <div className="text-center max-w-md mx-auto">
-                    <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Lock className="text-slate-400 w-8 h-8" />
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Lock className="text-slate-400 w-6 h-6 md:w-8 md:h-8" />
                     </div>
-                    <h2 className="text-2xl font-black uppercase tracking-tighter">Official Access</h2>
-                    <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mt-1">Please enter your authorized credentials</p>
+                    <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter">Official Access</h2>
+                    <p className="text-slate-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">Please enter your authorized credentials</p>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Authorized Official Name</label>
+                      <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Authorized Official Name</label>
                       <input
                         type="text"
                         name="authorizedOfficialName"
                         value={formData.authorizedOfficialName}
                         onChange={handleInputChange}
-                        className="w-full border-b-4 border-slate-100 py-3 px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm uppercase"
+                        className="w-full border-b-4 border-slate-100 py-3 px-2 md:px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm uppercase"
                         placeholder="AS RECORDED"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Official Code No.</label>
+                      <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Official Code No.</label>
                       <input
                         type="text"
                         name="officialCodeNo"
                         value={formData.officialCodeNo}
                         onChange={handleInputChange}
-                        className="w-full border-b-4 border-slate-100 py-3 px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm uppercase"
+                        className="w-full border-b-4 border-slate-100 py-3 px-2 md:px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm uppercase"
                         placeholder="CH-XXXX-2026"
                       />
                     </div>
@@ -301,7 +294,7 @@ const MembershipPage = () => {
                     type="button"
                     onClick={handleValidate}
                     disabled={validating}
-                    className="w-full bg-slate-900 text-white py-5 font-black uppercase text-xs tracking-[0.4em] hover:bg-amber-600 transition-all shadow-xl flex items-center justify-center gap-3"
+                    className="w-full bg-slate-900 text-white py-4 md:py-5 font-black uppercase text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.4em] hover:bg-amber-600 transition-all shadow-xl flex items-center justify-center gap-3"
                   >
                     {validating ? <Loader2 className="w-5 h-5 animate-spin" /> : <ShieldCheck className="w-5 h-5" />}
                     {validating ? "Verifying..." : "Validate & Unlock Form"}
@@ -309,10 +302,10 @@ const MembershipPage = () => {
                 </div>
               ) : (
                 /* STEP 2: FULL MEMBERSHIP FORM */
-                <form onSubmit={handleSubmit} className="space-y-12 animate-in zoom-in-95 duration-500">
+                <form onSubmit={handleSubmit} className="space-y-10 md:space-y-12 animate-in zoom-in-95 duration-500">
 
-                  <div className="flex justify-between items-center border-b pb-4">
-                    <h3 className="text-xl font-black uppercase tracking-tighter flex items-center gap-2">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 gap-4">
+                    <h3 className="text-lg md:text-xl font-black uppercase tracking-tighter flex items-center gap-2">
                       <FileText className="text-amber-600" /> Prescribed Application
                     </h3>
                     <div className="text-[9px] font-black bg-green-100 text-green-700 px-3 py-1 uppercase tracking-widest flex items-center gap-1">
@@ -321,10 +314,10 @@ const MembershipPage = () => {
                   </div>
 
                   {/* Applicant Details */}
-                  <div className="space-y-8">
-                    <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-6 md:space-y-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Name of Applicant</label>
+                        <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Name of Applicant</label>
                         <input
                           type="text"
                           name="applicantName"
@@ -336,7 +329,7 @@ const MembershipPage = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Title of Business</label>
+                        <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Title of Business</label>
                         <input
                           type="text"
                           name="businessTitle"
@@ -350,7 +343,7 @@ const MembershipPage = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Address of the Business</label>
+                      <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Address of the Business</label>
                       <textarea
                         rows="3"
                         name="businessAddress"
@@ -362,9 +355,9 @@ const MembershipPage = () => {
                       ></textarea>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Mob No.</label>
+                        <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Mob No.</label>
                         <input
                           type="tel"
                           name="mobileNo"
@@ -376,7 +369,7 @@ const MembershipPage = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email ID</label>
+                        <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Email ID</label>
                         <input
                           type="email"
                           name="emailId"
@@ -388,7 +381,7 @@ const MembershipPage = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">URL (if any)</label>
+                        <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">URL (if any)</label>
                         <input
                           type="url"
                           name="websiteUrl"
@@ -400,12 +393,12 @@ const MembershipPage = () => {
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-10 pt-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 pt-4">
                       <div className="space-y-3">
-                        <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Nature of Business</label>
-                        <div className="flex flex-wrap gap-3">
+                        <label className="text-[9px] md:text-[10px] font-black uppercase text-slate-400 tracking-widest">Nature of Business</label>
+                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 md:gap-3">
                           {['Retailer', 'Wholesaler', 'Manufacturer', 'Other'].map((n) => (
-                            <label key={n} className={`flex items-center gap-3 px-4 py-3 text-[10px] font-black cursor-pointer transition-all border-2 ${formData.natureOfBusiness === n ? 'border-amber-600 bg-amber-50' : 'border-slate-100 bg-white hover:border-slate-300'}`}>
+                            <label key={n} className={`flex items-center justify-center min-w-[100px] px-3 py-3 text-[9px] md:text-[10px] font-black cursor-pointer transition-all border-2 ${formData.natureOfBusiness === n ? 'border-amber-600 bg-amber-50' : 'border-slate-100 bg-white hover:border-slate-300'}`}>
                               <input
                                 type="radio"
                                 name="natureOfBusiness"
@@ -420,7 +413,7 @@ const MembershipPage = () => {
                         </div>
                       </div>
                       <div className="space-y-3">
-                        <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Category</label>
+                        <label className="text-[9px] md:text-[10px] font-black uppercase text-slate-400 tracking-widest">Category</label>
                         <select
                           name="categoryOfBusiness"
                           value={formData.categoryOfBusiness}
@@ -440,23 +433,23 @@ const MembershipPage = () => {
                   {/* Documents */}
                   <div className="space-y-6 pt-10 border-t">
                     <div className="space-y-3">
-                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Legal Document (GST/MSME/Trade License)</label>
+                      <label className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">Legal Document (GST/MSME/Trade License)</label>
                       <div className="flex items-center justify-center w-full">
-                        <label className="flex flex-col items-center justify-center w-full h-40 border-4 border-slate-100 border-dashed rounded-sm cursor-pointer bg-slate-50 hover:bg-slate-100 hover:border-amber-300 transition-all">
-                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <Upload className="w-10 h-10 mb-3 text-slate-300" />
-                            <p className="mb-2 text-xs text-slate-600 font-black uppercase tracking-widest">{file ? file.name : 'Choose File'}</p>
-                            <p className="text-[10px] text-slate-400 font-bold tracking-tighter">MAX SIZE: 5MB (PDF, PNG, JPG)</p>
+                        <label className="flex flex-col items-center justify-center w-full h-32 md:h-40 border-4 border-slate-100 border-dashed rounded-sm cursor-pointer bg-slate-50 hover:bg-slate-100 hover:border-amber-300 transition-all">
+                          <div className="flex flex-col items-center justify-center pt-5 pb-6 text-center px-4">
+                            <Upload className="w-8 h-8 md:w-10 md:h-10 mb-3 text-slate-300" />
+                            <p className="mb-2 text-[10px] md:text-xs text-slate-600 font-black uppercase tracking-widest">{file ? file.name : 'Choose File'}</p>
+                            <p className="text-[9px] md:text-[10px] text-slate-400 font-bold tracking-tighter uppercase">MAX SIZE: 5MB (PDF, PNG, JPG)</p>
                           </div>
                           <input type="file" className="hidden" onChange={handleFileChange} />
                         </label>
                       </div>
                     </div>
 
-                    <div className="bg-slate-900 p-8 shadow-2xl relative overflow-hidden">
-                      <div className="relative z-10 flex items-start gap-4">
-                        <input type="checkbox" className="mt-1 w-5 h-5 accent-amber-500 cursor-pointer" required />
-                        <div className="text-[10px] text-slate-400 font-medium leading-relaxed italic">
+                    <div className="bg-slate-900 p-6 md:p-8 shadow-2xl relative overflow-hidden">
+                      <div className="relative z-10 flex items-start gap-3 md:gap-4">
+                        <input type="checkbox" className="mt-1 w-4 h-4 md:w-5 md:h-5 flex-shrink-0 accent-amber-500 cursor-pointer" required />
+                        <div className="text-[9px] md:text-[10px] text-slate-400 font-medium leading-relaxed italic">
                           <strong className="text-amber-500 uppercase not-italic block mb-2 tracking-[0.2em] font-black">Undertaking</strong>
                           “I have read the Terms & Conditions of subscription for the membership in the
                           Chamber of Textile. All the information provided by me and the documents uploaded
@@ -468,18 +461,18 @@ const MembershipPage = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-col md:flex-row gap-4 pt-6">
+                  <div className="flex flex-col sm:flex-row gap-4 pt-6">
                     <button
                       type="button"
                       onClick={() => setShowPreview(true)}
-                      className="flex-1 bg-slate-50 text-slate-500 py-5 font-black uppercase text-xs tracking-[0.3em] hover:bg-slate-100 transition-all flex items-center justify-center gap-2"
+                      className="flex-1 bg-slate-50 text-slate-500 py-4 md:py-5 font-black uppercase text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] hover:bg-slate-100 transition-all flex items-center justify-center gap-2"
                     >
                       <Eye className="w-4 h-4" /> Preview
                     </button>
                     <button
                       type="submit"
                       disabled={loading}
-                      className="flex-[2] bg-amber-600 text-white py-5 font-black uppercase text-xs tracking-[0.4em] hover:bg-amber-500 shadow-2xl transition-all flex items-center justify-center gap-3 disabled:opacity-70"
+                      className="flex-[2] bg-amber-600 text-white py-4 md:py-5 font-black uppercase text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.4em] hover:bg-amber-500 shadow-2xl transition-all flex items-center justify-center gap-3 disabled:opacity-70"
                     >
                       {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                       Submit Application
@@ -503,8 +496,8 @@ const MembershipPage = () => {
         </div>
       </main>
 
-      <footer className="py-12 border-t border-slate-200 text-center">
-        <p className="text-[10px] text-slate-400 uppercase tracking-[0.6em] font-black">
+      <footer className="py-8 md:py-12 border-t border-slate-200 text-center px-4">
+        <p className="text-[9px] md:text-[10px] text-slate-400 uppercase tracking-[0.3em] md:tracking-[0.6em] font-black">
           OFFICIAL PORTAL — PAREKH CHAMBER OF TEXTILE — 2026.
         </p>
       </footer>

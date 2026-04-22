@@ -67,7 +67,7 @@ const BlogPage = () => {
                   <article key={post._id || index} className="flex flex-col bg-slate-50 border border-slate-200 group hover:shadow-xl transition-all h-full">
                     <div className="relative h-52 overflow-hidden">
                       <img
-                        src={post.thumbnail ? `${IMAGE_BASE_URL}/${post.thumbnail}` : "https://img.freepik.com/premium-photo/colorful-rolled-fabrics-displayed-market-sunset_868797-52239.jpg"}
+                        src={post.thumbnail ? (post.thumbnail.startsWith("http") ? post.thumbnail : `${IMAGE_BASE_URL}/${post.thumbnail}`) : "https://img.freepik.com/premium-photo/colorful-rolled-fabrics-displayed-market-sunset_868797-52239.jpg"}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

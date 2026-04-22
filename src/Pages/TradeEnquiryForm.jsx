@@ -164,47 +164,47 @@ const TradeEnquiryForm = () => {
                   </div>
 
                   {/* GST No. */}
-               <div className="col-span-2 md:col-span-1">
-    <label className="block text-xs font-bold uppercase mb-2 flex items-center gap-1">
-      GST No. <span className="text-slate-400 font-normal">(Optional)</span>
-    </label>
-    <input
-      type="text"
-      name="gstNo"
-      value={formData.gstNo}
-      onChange={handleInputChange}
-      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
-      placeholder="22AAAAA0000A1Z5"
-    />
-  </div>
+                  <div className="col-span-2 md:col-span-1">
+                    <label className="block text-xs font-bold uppercase mb-2 flex items-center gap-1">
+                      GST No. <span className="text-slate-400 font-normal">(Optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="gstNo"
+                      value={formData.gstNo}
+                      onChange={handleInputChange}
+                      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
+                      placeholder="22AAAAA0000A1Z5"
+                    />
+                  </div>
 
-  {/* Mobile No. - इसमें भी col-span-2 md:col-span-1 ऐड किया है */}
-  <div className="col-span-2 md:col-span-1">
-    <label className="block text-xs font-bold uppercase mb-2">Mobile No.</label>
-    <input
-      type="tel"
-      name="mobileNo"
-      value={formData.mobileNo}
-      onChange={handleInputChange}
-      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
-      placeholder="+91 00000-00000"
-      required
-    />
-  </div>
+                  {/* Mobile No. - इसमें भी col-span-2 md:col-span-1 ऐड किया है */}
+                  <div className="col-span-2 md:col-span-1">
+                    <label className="block text-xs font-bold uppercase mb-2">Mobile No.</label>
+                    <input
+                      type="tel"
+                      name="mobileNo"
+                      value={formData.mobileNo}
+                      onChange={handleInputChange}
+                      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
+                      placeholder="+91 00000-00000"
+                      required
+                    />
+                  </div>
 
-  {/* Email Id - ये पहले से col-span-2 है, इसे ऐसे ही रहने दें */}
-  <div className="col-span-2">
-    <label className="block text-xs font-bold uppercase mb-2">Email Id</label>
-    <input
-      type="email"
-      name="email"
-      value={formData.email}
-      onChange={handleInputChange}
-      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
-      placeholder="contact@business.com"
-      required
-    />
-  </div>
+                  {/* Email Id - ये पहले से col-span-2 है, इसे ऐसे ही रहने दें */}
+                  <div className="col-span-2">
+                    <label className="block text-xs font-bold uppercase mb-2">Email Id</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full border border-slate-200 p-3 rounded-sm focus:ring-1 focus:ring-amber-500 outline-none"
+                      placeholder="contact@business.com"
+                      required
+                    />
+                  </div>
 
                 </div>
               </div>
@@ -216,7 +216,7 @@ const TradeEnquiryForm = () => {
                 </h3>
                 <div className="w-full">
                   <label className="block text-xs font-bold uppercase mb-3">Please Select Purpose of Enquiry</label>
-                  <select 
+                  <select
                     name="enquiryType"
                     value={formData.enquiryType}
                     onChange={handleInputChange}
@@ -263,8 +263,8 @@ const TradeEnquiryForm = () => {
 
               {/* 6. Action Buttons */}
               <div className="flex flex-col md:flex-row gap-4 pt-6">
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => setShowPreview(true)}
                   className="flex-1 flex items-center justify-center gap-2 border-2 border-slate-900 px-8 py-4 font-bold uppercase text-xs tracking-widest hover:bg-slate-50 transition-all"
                 >
@@ -280,14 +280,14 @@ const TradeEnquiryForm = () => {
                 </button>
               </div>
 
-              <PreviewModal 
+              <PreviewModal
                 isOpen={showPreview}
                 onClose={() => setShowPreview(false)}
                 data={formData}
                 fields={previewFields}
                 onConfirm={handleSubmit}
                 loading={loading}
-                title="Trade Enquiry e-Form Review"
+                title="Trade Enquiry Review"
               />
 
             </form>
