@@ -25,7 +25,7 @@ const TenderContract = () => {
           </h1>
 
           <p className="mt-6 text-slate-500 font-medium tracking-widest text-[10px]">
-            Parekh e-Trade Market • 2026
+            Parekh e-Trade Market (Textile) • 2026
           </p>
         </div>
       </motion.div>
