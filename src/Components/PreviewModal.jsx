@@ -7,21 +7,21 @@ const PreviewModal = ({ isOpen, onClose, data, fields, onConfirm, loading, title
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" 
+      <div
+        className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
-      
+
       {/* Modal Container */}
       <div className="relative bg-white w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col animate-in zoom-in-95 duration-200">
-        
+
         {/* Header */}
         <div className="bg-slate-900 text-white px-8 py-6 flex justify-between items-center border-b-4 border-amber-500">
           <div>
             <h3 className="text-xl font-black uppercase tracking-tighter">Review Information</h3>
-            <p className="text-slate-400 text-[10px] uppercase tracking-widest mt-1">{title || 'Please verify your details before final submission'}</p>
+            <p className="text-slate-400 text-[10px] tracking-widest mt-1">{title || 'Please verify your details before final submission'}</p>
           </div>
-          <button 
+          <button
             onClick={onClose}
             className="p-2 hover:bg-slate-800 transition-colors rounded-full"
           >
@@ -45,13 +45,13 @@ const PreviewModal = ({ isOpen, onClose, data, fields, onConfirm, loading, title
 
         {/* Footer */}
         <div className="p-8 bg-white border-t border-slate-100 flex flex-col md:flex-row gap-4">
-          <button 
+          <button
             onClick={onClose}
             className="flex-1 border-2 border-slate-900 py-4 font-black uppercase text-xs tracking-widest hover:bg-slate-50 transition-all text-slate-900"
           >
             Edit Details
           </button>
-          <button 
+          <button
             onClick={onConfirm}
             disabled={loading}
             className="flex-[2] bg-amber-600 text-white py-4 font-black uppercase text-xs tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-amber-500 shadow-xl transition-all disabled:opacity-70"
