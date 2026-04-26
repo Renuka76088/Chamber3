@@ -30,6 +30,8 @@ import NoticeBoard from './Pages/NoticeBoard'
 import MediaGallery from './Pages/MediaGallery'
 import Associates from './Pages/Associates'
 
+import ScrollToTop from './utils/ScrollToTop'
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -44,6 +46,7 @@ function App() {
         {loading && <Loader />}
       </AnimatePresence>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {/* Main Layout Wrapper */}
           <Route element={<SidebarLayout />}>

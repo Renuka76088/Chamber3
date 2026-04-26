@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { 
   Menu, X, Home, Info, Phone, Briefcase, 
   Settings, FileText, BarChart3, Gavel, 
@@ -32,6 +32,13 @@ const menuConfig = [
 const SidebarLayout = () => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const mainContentRef = useRef(null);
+
+  useEffect(() => {
+    if (mainContentRef.current) {
+      mainContentRef.current.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
 
   return (
     <div className="flex flex-col h-screen bg-white overflow-hidden font-sans">
@@ -113,7 +120,10 @@ const SidebarLayout = () => {
 </aside>
 
         {/* RIGHT CONTENT AREA */}
-        <main className="flex-1 h-full overflow-y-auto no-scrollbar bg-white scroll-smooth relative">
+        <main 
+          ref={mainContentRef}
+          className="flex-1 h-full overflow-y-auto no-scrollbar bg-white scroll-smooth relative"
+        >
           <Outlet />
         </main>
       </div>
