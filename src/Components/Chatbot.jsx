@@ -10,7 +10,7 @@ const Chatbot = () => {
   const options = [
     { id: 'appointment', label: 'Book Appointment', icon: <Calendar size={16} /> },
     { id: 'contact', label: 'Contact Support', icon: <Phone size={16} /> },
-    { id: 'etrade', label: 'e-Trade Inquiry', icon: <ExternalLink size={16} /> }
+    { id: 'etrade', label: 'e-Trade Enquiry', icon: <ExternalLink size={16} /> }
   ];
 
   const handleOptionClick = (id) => {
@@ -142,7 +142,7 @@ const Chatbot = () => {
             {view === 'etrade' && (
               <div className="space-y-6 animate-in fade-in duration-300">
                 <div className="bg-slate-900 text-white p-4 border-l-4 border-amber-500 shadow-xl">
-                  <h4 className="text-[10px] font-black text-amber-500 mb-1">e-Trade Inquiry</h4>
+                  <h4 className="text-[10px] font-black text-amber-500 mb-1">e-Trade Enquiry</h4>
                   <p className="text-xs font-bold text-slate-300 leading-relaxed">
                     Dedicated support for our digital trading platform services.
                   </p>
