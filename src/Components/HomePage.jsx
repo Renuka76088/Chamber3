@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Globe, Users, Award, Shield, ArrowRight, Phone, Briefcase, Factory, Handshake, Settings, ShoppingBag, Wrench, Banknote } from 'lucide-react';
 
 const HomePage = () => {
+  const navigate = useNavigate();
 
   const services = [
     {
@@ -52,7 +54,10 @@ const HomePage = () => {
               manufacturers, and designers since 2007.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-              <button className="bg-white text-slate-900 px-6 md:px-8 py-3 md:py-4 font-bold uppercase text-xs md:text-sm hover:bg-amber-500 hover:text-white transition-all shadow-md">
+              <button 
+                onClick={() => navigate('/membership-enquiry')}
+                className="bg-white text-slate-900 px-6 md:px-8 py-3 md:py-4 font-bold uppercase text-xs md:text-sm hover:bg-amber-500 hover:text-white transition-all shadow-md"
+              >
                 Join Member Portal
               </button>
               <button className="border-2 border-white/50 text-white px-6 md:px-8 py-3 md:py-4 font-bold uppercase text-xs md:text-sm hover:bg-white/10 transition-all">
