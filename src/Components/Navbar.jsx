@@ -8,10 +8,10 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="md:flex w-full bg-[#0d1b2a] backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
+      <header className="lg:flex w-full bg-[#0d1b2a] backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-8 py-4 items-center justify-between transition-all">
 
         {/* LEFT SIDE: Logo Section */}
-        <div className="flex items-center hidden md:flex gap-2">
+        <div className="flex items-center hidden lg:flex gap-2">
           <Link to='/' className="flex items-center gap-2 hover:opacity-95 transition-all group">
             {/* Logo Icon */}
             <div className="flex items-center justify-center h-16 w-16 rounded-[12px] shadow-md group-hover:scale-105 transition-transform overflow-hidden">

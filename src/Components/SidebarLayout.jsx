@@ -44,9 +44,9 @@ const SidebarLayout = () => {
     <div className="flex flex-col h-screen bg-white overflow-hidden font-sans">
       <Navbar />
       
-      <div className="flex flex-1 flex-col md:flex-row overflow-hidden">
+      <div className="flex flex-1 flex-col lg:flex-row overflow-hidden">
         {/* MOBILE TRIGGER */}
-        <div className="md:hidden bg-white p-4 flex justify-between items-center z-50 shadow-xl border-b border-slate-100">
+        <div className="lg:hidden bg-white p-4 flex justify-between items-center z-50 shadow-xl border-b border-slate-100">
             <div className="flex items-center">
              <Link to='/' className="flex items-center gap-3 hover:opacity-95 transition-all group">
   {/* Logo Icon - Image Based */}
@@ -82,12 +82,11 @@ const SidebarLayout = () => {
         </div>
 
         {/* SIDEBAR CONTAINER */}
-      {/* SIDEBAR CONTAINER */}
 <aside className={`
-  ${isSidebarOpen ? "fixed inset-0 z-[60] bg-white flex" : "hidden md:flex"} 
-  md:w-85 lg:w-[400px] md:relative flex-col border-r border-slate-200 bg-slate-50
+  ${isSidebarOpen ? "fixed inset-0 z-[60] bg-white flex" : "hidden lg:flex"} 
+  lg:w-85 xl:w-[400px] lg:relative flex-col border-r border-slate-200 bg-slate-50
 `}>
-  <div className="flex justify-between items-center p-8 border-b md:hidden bg-slate-900 text-white text-2xl font-black italic shrink-0">
+  <div className="flex justify-between items-center p-8 border-b lg:hidden bg-slate-900 text-white text-2xl font-black italic shrink-0">
     NAVIGATE <button onClick={() => setIsSidebarOpen(false)} className="p-3 bg-slate-800 rounded-full"><X className="w-8 h-8"/></button>
   </div>
 
