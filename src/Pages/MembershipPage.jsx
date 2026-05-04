@@ -60,7 +60,8 @@ const MembershipPage = () => {
     try {
       const res = await authorizedPersonApi.validate({
         name: formData.authorizedOfficialName,
-        code: formData.officialCodeNo
+        code: formData.officialCodeNo,
+        siteId: 'ParekhChamberofTextile01'
       });
 
       if (res.data.success) {
@@ -273,7 +274,7 @@ const MembershipPage = () => {
                         name="authorizedOfficialName"
                         value={formData.authorizedOfficialName}
                         onChange={handleInputChange}
-                        className="w-full border-b-4 border-slate-100 py-3 px-2 md:px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm uppercase"
+                        className="w-full border-b-4 border-slate-100 py-3 px-2 md:px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm"
                         placeholder="AS RECORDED"
                       />
                     </div>
@@ -284,7 +285,7 @@ const MembershipPage = () => {
                         name="officialCodeNo"
                         value={formData.officialCodeNo}
                         onChange={handleInputChange}
-                        className="w-full border-b-4 border-slate-100 py-3 px-2 md:px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm uppercase"
+                        className="w-full border-b-4 border-slate-100 py-3 px-2 md:px-4 outline-none focus:border-amber-500 transition-all font-bold text-sm"
                         placeholder="CH-XXXX-2026"
                       />
                     </div>
@@ -336,7 +337,7 @@ const MembershipPage = () => {
                           value={formData.businessTitle}
                           onChange={handleInputChange}
                           placeholder="FIRM / COMPANY NAME"
-                          className="w-full bg-slate-50 p-4 font-bold text-sm border-0 focus:ring-4 focus:ring-amber-500/20 outline-none uppercase transition-all"
+                          className="w-full bg-slate-50 p-4 font-bold text-sm border-0 focus:ring-4 focus:ring-amber-500/20 outline-none transition-all"
                           required
                         />
                       </div>
@@ -350,7 +351,7 @@ const MembershipPage = () => {
                         value={formData.businessAddress}
                         onChange={handleInputChange}
                         placeholder="FULL OFFICE ADDRESS WITH PIN CODE"
-                        className="w-full bg-slate-50 p-4 font-bold text-sm border-0 focus:ring-4 focus:ring-amber-500/20 outline-none resize-none uppercase transition-all"
+                        className="w-full bg-slate-50 p-4 font-bold text-sm border-0 focus:ring-4 focus:ring-amber-500/20 outline-none resize-none transition-all"
                         required
                       ></textarea>
                     </div>
