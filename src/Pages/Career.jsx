@@ -31,16 +31,16 @@ const Career = () => {
       <div className="bg-slate-950 text-white py-16 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#fe9a00] rounded-full blur-[100px] opacity-20 -mr-32 -mt-32"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#fe9a00] rounded-full blur-[100px] opacity-10 -ml-32 -mb-32"></div>
-        
+
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-[#fe9a00] font-black uppercase tracking-[0.3em] text-xs mb-4 block"
           >
             Join Our Ecosystem
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -48,7 +48,7 @@ const Career = () => {
           >
             Career <span className="text-[#fe9a00]">Opportunities</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -68,7 +68,7 @@ const Career = () => {
         ) : vacancies.length > 0 ? (
           <div className="grid grid-cols-1 gap-10">
             {vacancies.map((job, index) => (
-              <motion.div 
+              <motion.div
                 key={job._id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -135,11 +135,42 @@ const Career = () => {
                     </div>
 
 
-                    <a 
-                      href={`mailto:${job.contactEmail || job.email}?subject=${encodeURIComponent(`Application for ${job.title}`)}`}
-                      className="w-full mt-12 bg-slate-950 text-white py-5 font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-4 hover:bg-[#fe9a00] transition-all rounded-2xl shadow-xl active:scale-95 text-center"
+                    <a
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${job.contactEmail || job.email
+                        }&su=${encodeURIComponent(`Application for ${job.title}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="
+    w-full
+    mt-12
+    bg-slate-950
+    text-white
+    py-5
+    px-6
+    font-black
+    text-xs
+    uppercase
+    tracking-[0.2em]
+    flex
+    items-center
+    justify-center
+    gap-4
+    rounded-2xl
+    shadow-xl
+    transition-all
+    duration-300
+    hover:bg-[#fe9a00]
+    hover:shadow-2xl
+    hover:-translate-y-1
+    active:scale-95
+    cursor-pointer
+    select-none
+    no-underline
+  "
                     >
-                      Apply Now <ChevronRight className="w-4 h-4" />
+                      <span>Apply Now</span>
+                      <ChevronRight className="w-4 h-4" />
                     </a>
 
                   </div>
@@ -188,7 +219,7 @@ const Career = () => {
               </h2>
               <div className="w-16 h-2 bg-[#fe9a00] mb-8 rounded-full"></div>
               <p className="text-xl md:text-2xl font-bold text-slate-400 uppercase tracking-widest mb-12 leading-relaxed">
-                We are not actively hiring <br/> at this moment.
+                We are not actively hiring <br /> at this moment.
               </p>
               <div className="bg-slate-950 text-white p-10 w-full rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
                 <div className="text-center md:text-left">
