@@ -24,64 +24,179 @@ const Career = () => {
     fetchVacancies();
   }, []);
 
+
   return (
-    <div className="bg-[#f8fafc] min-h-screen font-sans text-slate-900 pb-20">
+    <div className="bg-[#f0f4f8] min-h-screen font-sans text-slate-900 pb-24">
+      {/* Hero Section / Header */}
+      <div className="bg-slate-950 text-white py-16 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#fe9a00] rounded-full blur-[100px] opacity-20 -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#fe9a00] rounded-full blur-[100px] opacity-10 -ml-32 -mb-32"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10 text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-[#fe9a00] font-black uppercase tracking-[0.3em] text-xs mb-4 block"
+          >
+            Join Our Ecosystem
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-black tracking-tight mb-6"
+          >
+            Career <span className="text-[#fe9a00]">Opportunities</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-2xl mx-auto text-slate-400 text-lg font-medium"
+          >
+            Explore roles across our textile network and help us shape the future of the industry.
+          </motion.p>
+        </div>
+      </div>
 
-
-
-      <main className="max-w-7xl mx-auto mt-10 px-6 relative z-20">
+      <main className="max-w-7xl mx-auto -mt-8 px-6 relative z-20">
         {loading ? (
-          <div className="bg-white p-20 flex flex-col items-center justify-center shadow-xl border border-slate-100 rounded-2xl">
-            <div className="w-12 h-12 border-4 border-[#fe9a00] border-t-transparent rounded-full animate-spin mb-4"></div>
-            <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Scanning...</p>
+          <div className="bg-white p-20 flex flex-col items-center justify-center shadow-2xl border border-slate-100 rounded-[2.5rem]">
+            <div className="w-12 h-12 border-4 border-[#fe9a00] border-t-transparent rounded-full animate-spin mb-6"></div>
+            <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Accessing Talent Portal...</p>
           </div>
         ) : vacancies.length > 0 ? (
-          <div className="grid md:grid-cols-2 gap-8">
-            {vacancies.map((job) => (
-              <div key={job._id} className="bg-white p-8 border border-slate-200 hover:border-[#fe9a00] transition-all hover:shadow-2xl group rounded-2xl">
-                <div className="flex justify-between mb-6">
-                  <div className="bg-slate-950 p-4 text-white group-hover:bg-[#fe9a00] transition-colors rounded-xl">
-                    <Briefcase className="w-6 h-6" />
+          <div className="grid grid-cols-1 gap-10">
+            {vacancies.map((job, index) => (
+              <motion.div 
+                key={job._id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 rounded-[2.5rem] border border-slate-100 group"
+              >
+                <div className="flex flex-col lg:flex-row">
+                  {/* Left Sidebar Info */}
+                  <div className="lg:w-1/3 bg-slate-50 p-10 border-b lg:border-b-0 lg:border-r border-slate-100">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="bg-slate-950 p-4 text-white rounded-2xl group-hover:bg-[#fe9a00] transition-colors shadow-lg">
+                        <Briefcase className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <span className="bg-[#fe9a00]/10 text-[#fe9a00] px-5 py-3 text-[18px] font-black uppercase tracking-[0.1em] rounded-xl border border-[#fe9a00]/20 inline-block shadow-sm">
+                          {job.title}
+                        </span>
+
+
+                      </div>
+
+                    </div>
+
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                          <MapPin className="w-5 h-5 text-[#fe9a00]" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Location</p>
+                          <p className="text-sm font-bold text-slate-700">{job.location}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                          <Clock className="w-5 h-5 text-[#fe9a00]" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Experience</p>
+                          <p className="text-sm font-bold text-slate-700">{job.experience || "Not Specified"}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                          <IndianRupee className="w-5 h-5 text-[#fe9a00]" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Compensation</p>
+                          <p className="text-sm font-bold text-slate-700">{job.salary || "Competitive"}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                          <Mail className="w-5 h-5 text-[#fe9a00]" />
+                        </div>
+                        <div className="overflow-hidden">
+                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Contact Email</p>
+                          <p className="text-[11px] font-bold text-slate-700 truncate">{job.contactEmail || job.email}</p>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <a 
+                      href={`mailto:${job.contactEmail || job.email}?subject=${encodeURIComponent(`Application for ${job.title}`)}`}
+                      className="w-full mt-12 bg-slate-950 text-white py-5 font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-4 hover:bg-[#fe9a00] transition-all rounded-2xl shadow-xl active:scale-95 text-center"
+                    >
+                      Apply Now <ChevronRight className="w-4 h-4" />
+                    </a>
+
                   </div>
-                  <span className="bg-slate-100 text-slate-600 px-4 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full self-start">
-                    {job.type || "Full-time"}
-                  </span>
+
+                  {/* Right Content Area */}
+                  <div className="lg:w-2/3 p-10 lg:p-14">
+                    <div className="space-y-12">
+                      <div>
+                        <div className="flex items-center gap-2 mb-6">
+                          <Info className="w-5 h-5 text-[#fe9a00]" />
+                          <h4 className="text-[12px] font-black uppercase tracking-widest text-[#fe9a00]">Role Overview</h4>
+                        </div>
+                        <p className="text-slate-600 leading-relaxed text-lg font-medium whitespace-pre-line">
+                          {job.description}
+                        </p>
+                      </div>
+
+                      {job.experience && (
+                        <div>
+                          <div className="flex items-center gap-2 mb-6">
+                            <AlertCircle className="w-5 h-5 text-[#fe9a00]" />
+                            <h4 className="text-[12px] font-black uppercase tracking-widest text-[#fe9a00]">Minimum Requirements</h4>
+                          </div>
+                          <p className="text-slate-600 leading-relaxed text-sm font-bold whitespace-pre-line">
+                            {job.experience}
+                          </p>
+                        </div>
+                      )}
+
+                    </div>
+                  </div>
+
                 </div>
-                <h3 className="text-2xl font-black mb-4 uppercase tracking-tight group-hover:text-[#fe9a00] transition-colors">{job.title}</h3>
-                <p className="text-slate-600 mb-8 line-clamp-3 text-sm">{job.description}</p>
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest"><MapPin className="w-3 h-3 text-[#fe9a00]" /> {job.location}</div>
-                  <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest"><Clock className="w-3 h-3 text-[#fe9a00]" /> {job.experience}</div>
-                  <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest"><IndianRupee className="w-3 h-3 text-[#fe9a00]" /> {job.salary}</div>
-                  <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest"><Mail className="w-3 h-3 text-[#fe9a00]" /> {job.email}</div>
-                </div>
-                <button className="w-full border-2 border-slate-950 py-4 font-black text-xs uppercase tracking-widest flex items-center justify-center gap-4 hover:bg-slate-950 hover:text-white transition-all rounded-xl">
-                  Apply Now <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
+              </motion.div>
             ))}
           </div>
         ) : (
           /* NO VACANCY UI */
-          <div className="max-w-4xl mx-auto bg-white shadow-2xl overflow-hidden border border-slate-100 rounded-[3rem] group">
+          <div className="max-w-4xl mx-auto bg-white shadow-2xl overflow-hidden border border-slate-100 rounded-[3rem]">
             <div className="p-12 md:p-20 flex flex-col items-center text-center">
-              <div className="w-20 h-20 bg-slate-50 border border-slate-100 rounded-3xl flex items-center justify-center mb-10 shadow-inner">
-                <AlertCircle className="w-10 h-10 text-slate-300" />
+              <div className="w-24 h-24 bg-slate-50 border border-slate-100 rounded-[2rem] flex items-center justify-center mb-10 shadow-inner">
+                <AlertCircle className="w-12 h-12 text-slate-300" />
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-4">
-                Career <span className="text-[#fe9a00]">Page</span>
+                Current <span className="text-[#fe9a00]">Status</span>
               </h2>
-              <div className="w-16 h-1.5 bg-[#fe9a00] mb-8 rounded-full"></div>
-              <p className="text-xl md:text-2xl font-bold text-slate-400 uppercase tracking-widest mb-12">
-                ( At present, No Vacancy )
+              <div className="w-16 h-2 bg-[#fe9a00] mb-8 rounded-full"></div>
+              <p className="text-xl md:text-2xl font-bold text-slate-400 uppercase tracking-widest mb-12 leading-relaxed">
+                We are not actively hiring <br/> at this moment.
               </p>
-              <div className="bg-slate-950 text-white p-8 md:p-10 w-full rounded-[2rem] flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="bg-slate-950 text-white p-10 w-full rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
                 <div className="text-center md:text-left">
-                  <h4 className="text-[#fe9a00] font-bold uppercase tracking-widest text-xs mb-1">Passive Hiring</h4>
-                  <p className="text-xs text-slate-400 italic">Submit your CV for future openings</p>
+                  <h4 className="text-[#fe9a00] font-black uppercase tracking-widest text-xs mb-2">Passive Recruitment</h4>
+                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Share your portfolio for future openings</p>
                 </div>
-                <a href="mailto:careers@chamberoftextile.com" className="bg-[#fe9a00] text-white px-10 py-4 font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-slate-950 transition-all rounded-xl">
-                  Submit CV
+                <a href="mailto:careers@parekhchamber.com" className="bg-[#fe9a00] text-white px-12 py-5 font-black uppercase text-xs tracking-widest hover:bg-white hover:text-slate-950 transition-all rounded-2xl shadow-lg active:scale-95">
+                  Submit Resume
                 </a>
               </div>
             </div>
@@ -91,5 +206,6 @@ const Career = () => {
     </div>
   );
 };
+
 
 export default Career;

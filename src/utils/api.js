@@ -1,7 +1,14 @@
 import axios from 'axios';
 
-export const API_BASE_URL = 'https://api.parekhchamber.com/api';
-export const IMAGE_BASE_URL = 'https://api.parekhchamber.com';
+export const API_BASE_URL = window.location.hostname === 'localhost'
+  ? 'http://localhost:2000/api'
+  : 'https://api.parekhchamber.com/api';
+
+export const IMAGE_BASE_URL = window.location.hostname === 'localhost'
+  ? 'http://localhost:2000'
+  : 'https://api.parekhchamber.com';
+
+
 
 const api = axios.create({
   baseURL: API_BASE_URL,
