@@ -208,30 +208,26 @@ const Career = () => {
             ))}
           </div>
         ) : (
-          /* NO VACANCY UI */
-          <div className="max-w-4xl mx-auto bg-white shadow-2xl overflow-hidden border border-slate-100 rounded-[3rem]">
-            <div className="p-12 md:p-20 flex flex-col items-center text-center">
-              <div className="w-24 h-24 bg-slate-50 border border-slate-100 rounded-[2rem] flex items-center justify-center mb-10 shadow-inner">
-                <AlertCircle className="w-12 h-12 text-slate-300" />
+          /* NO VACANCY UI - Simplified */
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="max-w-2xl mx-auto bg-white/80 backdrop-blur-sm shadow-xl border border-slate-100 rounded-[2.5rem] overflow-hidden"
+          >
+            <div className="p-12 flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-center mb-8 shadow-inner">
+                <AlertCircle className="w-8 h-8 text-[#fe9a00]" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-4">
-                Current <span className="text-[#fe9a00]">Status</span>
+              <h2 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter mb-4">
+                Career <span className="text-[#fe9a00]">Portal</span>
               </h2>
-              <div className="w-16 h-2 bg-[#fe9a00] mb-8 rounded-full"></div>
-              <p className="text-xl md:text-2xl font-bold text-slate-400 uppercase tracking-widest mb-12 leading-relaxed">
-                We are not actively hiring <br /> at this moment.
+              <div className="w-12 h-1.5 bg-[#fe9a00] mb-8 rounded-full"></div>
+              <p className="text-lg md:text-xl font-bold text-slate-400 uppercase tracking-widest leading-relaxed">
+                ( At present, No Vacancy )
               </p>
-              <div className="bg-slate-950 text-white p-10 w-full rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
-                <div className="text-center md:text-left">
-                  <h4 className="text-[#fe9a00] font-black uppercase tracking-widest text-xs mb-2">Passive Recruitment</h4>
-                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Share your portfolio for future openings</p>
-                </div>
-                <a href="mailto:careers@parekhchamber.com" className="bg-[#fe9a00] text-white px-12 py-5 font-black uppercase text-xs tracking-widest hover:bg-white hover:text-slate-950 transition-all rounded-2xl shadow-lg active:scale-95">
-                  Submit Resume
-                </a>
-              </div>
             </div>
-          </div>
+          </motion.div>
+
         )}
       </main>
     </div>
