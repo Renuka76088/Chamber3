@@ -60,4 +60,8 @@ export const authorizedPersonApi = {
   validate: (data) => api.post('/authorized-person/validate', data),
 };
 
+export const chamberServiceApi = {
+  getServices: (siteId) => api.get(`/chamber-services?siteId=${siteId}`),
+};
+
 export default api;
