@@ -8,6 +8,18 @@ const Career = () => {
   const [loading, setLoading] = useState(true);
   const siteId = "ParekhChamberofTextile01";
 
+  // Helper to strip HTML tags for short summaries
+  const stripHtmlTags = (html) => {
+    if (!html) return "";
+    return html.replace(/<[^>]*>?/gm, "").replace(/&nbsp;/g, " ").trim();
+  };
+
+  // Helper to fix word-breaking issues in HTML content
+  const fixWordBreaks = (html) => {
+    if (!html) return "";
+    return html.replace(/&nbsp;/g, " ");
+  };
+
   useEffect(() => {
     const fetchVacancies = async () => {
       try {
@@ -83,7 +95,7 @@ const Career = () => {
                         <Briefcase className="w-6 h-6" />
                       </div>
                       <div>
-                        <span className="bg-[#fe9a00]/10 text-[#fe9a00] px-5 py-3 text-[18px] font-black uppercase tracking-[0.1em] rounded-xl border border-[#fe9a00]/20 inline-block shadow-sm">
+                        <span className="bg-[#fe9a00]/10 text-[#fe9a00] px-5 py-3 text-[18px] font-semibold uppercase tracking-[0.1em] rounded-xl border border-[#fe9a00]/20 inline-block shadow-sm">
                           {job.title}
                         </span>
 
@@ -93,43 +105,47 @@ const Career = () => {
                     </div>
 
                     <div className="space-y-6">
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100 mt-1 flex-shrink-0">
                           <MapPin className="w-5 h-5 text-[#fe9a00]" />
                         </div>
                         <div>
-                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Location</p>
-                          <p className="text-sm font-bold text-slate-700">{job.location}</p>
+                          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Location</p>
+                          <p className="text-sm text-slate-700 font-medium">{job.location}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100 mt-1 flex-shrink-0">
                           <Clock className="w-5 h-5 text-[#fe9a00]" />
                         </div>
                         <div>
-                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Experience</p>
-                          <p className="text-sm font-bold text-slate-700">{job.experience || "Not Specified"}</p>
+                          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Experience</p>
+                          <p className="text-sm text-slate-700 font-medium break-normal">
+                            {stripHtmlTags(job.experience) || "Not Specified"}
+                          </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100 mt-1 flex-shrink-0">
                           <IndianRupee className="w-5 h-5 text-[#fe9a00]" />
                         </div>
                         <div>
-                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Compensation</p>
-                          <p className="text-sm font-bold text-slate-700">{job.salary || "Competitive"}</p>
+                          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Compensation</p>
+                          <p className="text-sm text-slate-700 font-medium">{job.salary || "Competitive"}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100 mt-1 flex-shrink-0">
                           <Mail className="w-5 h-5 text-[#fe9a00]" />
                         </div>
-                        <div className="overflow-hidden">
-                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Contact Email</p>
-                          <p className="text-[11px] font-bold text-slate-700 truncate">{job.contactEmail || job.email}</p>
+                        <div className="overflow-hidden w-full">
+                          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Contact Email</p>
+                          <p className="text-sm text-slate-700 font-medium break-all line-clamp-1 hover:line-clamp-none transition-all cursor-default">
+                            {job.contactEmail || job.email}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -183,9 +199,10 @@ const Career = () => {
                           <Info className="w-5 h-5 text-[#fe9a00]" />
                           <h4 className="text-[12px] font-black uppercase tracking-widest text-[#fe9a00]">Role Overview</h4>
                         </div>
-                        <p className="text-slate-600 leading-relaxed text-lg font-medium whitespace-pre-line">
-                          {job.description}
-                        </p>
+                        <div 
+                          className="text-slate-600 leading-relaxed text-base break-normal overflow-hidden rich-text-content"
+                          dangerouslySetInnerHTML={{ __html: fixWordBreaks(job.description) }}
+                        />
                       </div>
 
                       {job.experience && (
@@ -194,9 +211,10 @@ const Career = () => {
                             <AlertCircle className="w-5 h-5 text-[#fe9a00]" />
                             <h4 className="text-[12px] font-black uppercase tracking-widest text-[#fe9a00]">Minimum Requirements</h4>
                           </div>
-                          <p className="text-slate-600 leading-relaxed text-sm font-bold whitespace-pre-line">
-                            {job.experience}
-                          </p>
+                          <div 
+                            className="text-slate-600 leading-relaxed text-base break-normal overflow-hidden rich-text-content"
+                            dangerouslySetInnerHTML={{ __html: fixWordBreaks(job.experience) }}
+                          />
                         </div>
                       )}
 
@@ -209,7 +227,7 @@ const Career = () => {
           </div>
         ) : (
           /* NO VACANCY UI - Simplified */
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="max-w-2xl mx-auto bg-white/80 backdrop-blur-sm shadow-xl border border-slate-100 rounded-[2.5rem] overflow-hidden"

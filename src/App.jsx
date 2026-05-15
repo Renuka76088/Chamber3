@@ -26,6 +26,7 @@ import TenderContract from './Pages/TenderContract'
 import Career from './Pages/Career'
 import CircularsPage from './Pages/CircularsPage'
 import BlogPage from './Pages/BlogPage'
+import BlogDetail from './Pages/BlogDetail'
 import NoticeBoard from './Pages/NoticeBoard'
 import MediaGallery from './Pages/MediaGallery'
 import Associates from './Pages/Associates'
@@ -63,6 +64,7 @@ function App() {
             <Route path='/career' element={<Career />} />
             <Route path='/circular' element={<CircularsPage />} />
             <Route path='/blog' element={<BlogPage />} />
+            <Route path='/blog/:id' element={<BlogDetail />} />
             <Route path='/visit-appointment' element={<AppointmentPage />} />
             <Route path='/notice-board' element={<NoticeBoard />} />
             <Route path='/media-gallery' element={<MediaGallery />} />

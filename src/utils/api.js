@@ -21,7 +21,12 @@ export const tradeEnquiryApi = {
 };
 
 export const blogApi = {
-  getBlogs: (siteId) => api.get(`/blogs?siteId=${siteId}`),
+  getBlogs: (siteId) => api.get(`/blogs?siteId=${siteId}&status=published`),
+  getById: (id) => api.get(`/blogs/${id}`),
+};
+
+export const blogHeaderApi = {
+  getHeader: (siteId) => api.get(`/blog-header/${siteId}`),
 };
 
 export const careerApi = {
@@ -62,6 +67,19 @@ export const authorizedPersonApi = {
 
 export const chamberServiceApi = {
   getServices: (siteId) => api.get(`/chamber-services?siteId=${siteId}`),
+};
+
+export const managementApi = {
+  getContent: (siteId) => api.get(`/management/content?siteId=${siteId}`),
+  getMembers: (siteId) => api.get(`/management/members?siteId=${siteId}`),
+};
+
+export const membershipContentApi = {
+  getContent: (siteId) => api.get(`/membership-content?siteId=${siteId}`),
+};
+
+export const circularApi = {
+  getCirculars: (siteId) => api.get(`/circulars?siteId=${siteId}`),
 };
 
 export default api;
