@@ -86,29 +86,26 @@ const ChamberServices = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="group p-6 md:p-8 bg-white border border-slate-200 hover:border-amber-500 transition-all duration-300 hover:shadow-xl relative overflow-hidden flex flex-col h-full"
-                >
-                  <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300 origin-left">
-                    {/* Responsive icon size */}
-                    <div className="p-3 bg-slate-50 inline-block rounded-sm">
-                      {(() => {
-                        const IconComponent = getIcon(service.icon);
-                        return <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-amber-600" />;
-                      })()}
+              {services.map((service, index) => {
+                const IconComponent = getIcon(service.icon);
+                return (
+                  <div
+                    key={index}
+                    className="group p-6 md:p-8 bg-white border border-slate-200 hover:border-amber-500 transition-all duration-300 hover:shadow-xl relative overflow-hidden flex flex-col items-center md:items-start text-center md:text-left h-full"
+                  >
+                    <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300 bg-slate-50 p-3 rounded-sm">
+                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-amber-600" />
                     </div>
+
+                    <h3 className="text-lg md:text-xl font-bold leading-tight mb-4 group-hover:text-amber-700 transition-colors">
+                      {service.title}
+                    </h3>
+
+                    {/* Corner Accent - Animated border */}
+                    <div className="absolute top-0 right-0 w-1 md:w-2 h-0 bg-amber-500 group-hover:h-full transition-all duration-300"></div>
                   </div>
-
-                  <h3 className="text-lg md:text-xl font-bold leading-tight mb-4 group-hover:text-amber-700 transition-colors">
-                    {service.title}
-                  </h3>
-
-                  {/* Corner Accent - Animated border */}
-                  <div className="absolute top-0 right-0 w-1 md:w-2 h-0 bg-amber-500 group-hover:h-full transition-all duration-300"></div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>

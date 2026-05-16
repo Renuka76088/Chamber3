@@ -1,77 +1,103 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Globe, Users, Award, Shield, ArrowRight, Phone, Briefcase, Factory, Handshake, Settings, ShoppingBag, Wrench, Banknote } from 'lucide-react';
+import { Globe, Users, Award, Shield, ArrowRight, Phone, Briefcase, Factory, Handshake, Settings, ShoppingBag, Wrench, Banknote, Sparkles, Scale, Lightbulb, FileText, ShieldCheck, Presentation, Cpu, FlaskConical, GraduationCap, Rocket, Puzzle, Layers } from 'lucide-react';
+import { chamberServiceApi } from '../utils/api';
 
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const services = [
-    {
-      icon: <Handshake className="w-10 h-10 text-amber-600" />,
-      title: "Textile Trade Support to our valued Members"
-    },
-    {
-      icon: <Banknote className="w-10 h-10 text-amber-600" />,
-      title: "Textile Finance and Investment Support to our valued Members"
-    },
-    {
-      icon: <Factory className="w-10 h-10 text-amber-600" />,
-      title: "Industrial Consultation for establishment of Textile Industries and Plants"
-    },
-    {
-      icon: <Settings className="w-10 h-10 text-amber-600" />,
-      title: "Manufacturing Support to the Textile Manufacturers"
-    },
-    {
-      icon: <ShoppingBag className="w-10 h-10 text-amber-600" />,
-      title: "Trade Support to the Textile Suppliers & Retailers"
-    },
-    {
-      icon: <Briefcase className="w-10 h-10 text-amber-600" />,
-      title: "Trade Consultation for Textile Raw & Finished Products"
-    },
-    {
-      icon: <Wrench className="w-10 h-10 text-amber-600" />,
-      title: "Trade Consultation for Textile Machineries and Spares"
-    }
-  ];
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const iconMap = {
+    'HandThumbUpIcon': Handshake,
+    'CurrencyDollarIcon': Banknote,
+    'BuildingOfficeIcon': Factory,
+    'Cog6ToothIcon': Settings,
+    'ShoppingBagIcon': ShoppingBag,
+    'BriefcaseIcon': Briefcase,
+    'WrenchScrewdriverIcon': Wrench,
+    'SparklesIcon': Sparkles,
+    'ScaleIcon': Scale,
+    'GlobeAltIcon': Globe,
+    'UserGroupIcon': Users,
+    'LightBulbIcon': Lightbulb,
+    'DocumentTextIcon': FileText,
+    'ShieldCheckIcon': ShieldCheck,
+    'PresentationChartLineIcon': Presentation,
+    'CpuChipIcon': Cpu,
+    'BeakerIcon': FlaskConical,
+    'AcademicCapIcon': GraduationCap,
+    'RocketLaunchIcon': Rocket,
+    'PuzzlePieceIcon': Puzzle,
+    'Square3Stack3DIcon': Layers,
+  };
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const res = await chamberServiceApi.getServices('ParekhChamberofTextile01');
+        if (res.data.success) {
+          // Limit to 6 services for home page to keep it clean
+          setServices(res.data.data.slice(0, 6));
+        }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
+
+  const getIcon = (iconName) => {
+    return iconMap[iconName] || Briefcase;
+  };
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans overflow-x-hidden">
 
       {/* 1. COMPACT HERO SECTION */}
-      <section className="relative bg-slate-900 py-12 md:py-16 px-4 md:px-6">
+      <section className="relative bg-slate-900 py-10 md:py-12 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="text-white space-y-6 text-center md:text-left order-2 md:order-1">
-            <div className="inline-block px-3 py-1 bg-amber-600 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest">
+          <div className="text-white space-y-8 text-center md:text-left order-2 md:order-1">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-600/10 border border-amber-600/20 text-amber-500 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] rounded-sm">
+              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span>
               Official PAREKH CHAMBER OF TEXTILE
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight">
+            
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-serif font-semibold leading-[1.1] tracking-tight">
               Interweaving Tradition <br className="hidden md:block" /> & Global Trade
             </h1>
-            <p className="text-base md:text-lg text-slate-300 max-w-lg leading-relaxed border-l-4 border-amber-600 pl-4 mx-auto md:mx-0 text-left">
-              Leading the global textile evolution by connecting artisans,
-              manufacturers, and designers since 2007.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-              <button 
+            
+            <div className="max-w-lg border-l-2 border-amber-600/50 pl-6 mx-auto md:mx-0">
+              <p className="text-base md:text-lg text-slate-400 leading-relaxed text-left font-light italic">
+                "Leading the global textile evolution by connecting artisans,
+                manufacturers, and designers since 2007."
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-5 pt-4 justify-center md:justify-start">
+              <button
                 onClick={() => navigate('/membership-enquiry')}
-                className="bg-white text-slate-900 px-6 md:px-8 py-3 md:py-4 font-bold uppercase text-xs md:text-sm hover:bg-amber-500 hover:text-white transition-all shadow-md"
+                className="bg-white text-slate-950 px-8 py-4 font-bold uppercase text-[11px] tracking-[0.15em] hover:bg-amber-600 hover:text-white transition-all duration-500 shadow-2xl hover:-translate-y-1"
               >
                 Join Member Portal
               </button>
-              <button className="border-2 border-white/50 text-white px-6 md:px-8 py-3 md:py-4 font-bold uppercase text-xs md:text-sm hover:bg-white/10 transition-all">
+              <button className="border border-white/20 text-white px-8 py-4 font-bold uppercase text-[11px] tracking-[0.15em] hover:bg-white hover:text-slate-950 transition-all duration-500 hover:-translate-y-1">
                 Download Brochure
               </button>
             </div>
           </div>
 
           <div className="order-1 md:order-2">
-            <img
-              src="https://img.freepik.com/premium-photo/colorful-fabric-rainbow-is-popular-choice_1106493-249311.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80"
-              className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover rounded-lg border-4 md:border-8 border-slate-800 shadow-2xl"
-              alt="Textile Industry"
-            />
+            <div className="w-full h-[250px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-lg border-[10px] border-slate-800 shadow-2xl">
+              <img
+                src="https://img.freepik.com/premium-photo/colorful-fabric-rainbow-is-popular-choice_1106493-249311.jpg?ga=GA1.1.124606815.1772781809&semt=ais_hybrid&w=740&q=80"
+                className="w-full h-full object-cover"
+                alt="Textile Industry"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -93,21 +119,40 @@ const HomePage = () => {
           </div>
 
           {/* Dynamic Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white p-5 md:p-6 border border-slate-200 shadow-sm hover:border-amber-500 transition-all group flex flex-col items-center md:items-start text-center md:text-left"
-              >
-                <div className="mb-4 group-hover:scale-110 transition-transform">
-                  {React.cloneElement(service.icon, { className: "w-8 h-8 md:w-10 md:h-10 text-amber-600" })}
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {loading ? (
+              [...Array(6)].map((_, i) => (
+                <div key={i} className="h-40 bg-slate-100 animate-pulse rounded-sm"></div>
+              ))
+            ) : (
+              services.map((service, index) => {
+                const IconComponent = getIcon(service.icon);
+                return (
+                  <div
+                    key={index}
+                    className="bg-white p-6 md:p-8 border border-slate-200 shadow-sm hover:border-amber-500 hover:shadow-md transition-all group flex flex-col items-center md:items-start text-center md:text-left h-full"
+                  >
+                    <div className="mb-6 group-hover:scale-110 transition-transform bg-slate-50 p-3 rounded-sm">
+                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-amber-600" />
+                    </div>
 
-                <h3 className="text-base md:text-lg font-bold text-slate-900 leading-snug">
-                  {service.title}
-                </h3>
-              </div>
-            ))}
+                    <h3 className="text-base md:text-lg font-bold text-slate-900 leading-snug">
+                      {service.title}
+                    </h3>
+                  </div>
+                );
+              })
+            )}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => navigate('/services')}
+              className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 font-bold uppercase text-[11px] tracking-[0.15em] hover:bg-amber-600 transition-all duration-300 shadow-lg"
+            >
+              View All Services
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
 
         </div>

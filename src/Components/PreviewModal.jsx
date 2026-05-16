@@ -16,14 +16,14 @@ const PreviewModal = ({ isOpen, onClose, data, fields, onConfirm, loading, title
       <div className="relative bg-white w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col animate-in zoom-in-95 duration-200">
 
         {/* Header */}
-        <div className="bg-slate-900 text-white px-8 py-6 flex justify-between items-center border-b-4 border-amber-500">
-          <div>
-            <h3 className="text-xl font-black uppercase tracking-tighter">Review Information</h3>
-            <p className="text-slate-400 text-[10px] tracking-widest mt-1">{title || 'Please verify your details before final submission'}</p>
+        <div className="bg-slate-900 text-white px-6 md:px-8 py-5 md:py-6 flex flex-wrap justify-between items-center gap-4 border-b-4 border-amber-500">
+          <div className="flex-1">
+            <h3 className="text-lg md:text-xl font-black uppercase tracking-tighter leading-none">Review Information</h3>
+            <p className="text-slate-400 text-[9px] md:text-[10px] tracking-widest mt-1.5 leading-relaxed">{title || 'Please verify your details before final submission'}</p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-800 transition-colors rounded-full"
+            className="p-2 hover:bg-slate-800 transition-colors rounded-full shrink-0"
           >
             <X size={20} />
           </button>

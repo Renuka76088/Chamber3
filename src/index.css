@@ -1,1 +1,85 @@
 @import "tailwindcss";
+
+/* Target specific containers to avoid side effects in other modules */
+.prose, 
+.prose *, 
+.blog-content-container, 
+.blog-content-container *, 
+.rich-text-content, 
+.rich-text-content * {
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  hyphens: none !important;
+  text-align: left !important;
+  white-space: normal !important;
+  text-justify: none !important;
+  font-weight: normal !important;
+}
+
+.rich-text-content strong, 
+.rich-text-content b {
+  font-weight: bold !important;
+}
+
+.rich-text-content ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.rich-text-content ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.rich-text-content li {
+  margin-bottom: 0.5rem !important;
+  display: list-item !important;
+}
+
+.rich-text-content p {
+  margin-bottom: 1rem !important;
+}
+
+.rich-text-content h1, .blog-content-container h1 {
+  font-size: 2.25rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 1.5rem !important;
+  color: #0f172a !important;
+}
+
+.rich-text-content h2, .blog-content-container h2 {
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.25rem !important;
+  color: #1e293b !important;
+}
+
+.rich-text-content h3, .blog-content-container h3 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  color: #334155 !important;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility to ensure normal breaking */
+.break-normal-custom {
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

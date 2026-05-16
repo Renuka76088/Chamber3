@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   Users,
   CheckCircle2,
@@ -12,24 +13,9 @@ import {
   Loader2,
   Lock,
   Unlock,
-  AlertCircle,
-  Settings,
-  ShoppingBag,
-  Wrench,
-  Banknote,
-  Sparkles,
-  Scale,
-  Globe,
-  Lightbulb,
-  Presentation,
-  Cpu,
-  FlaskConical,
-  GraduationCap,
-  Rocket,
-  Puzzle,
-  Layers
+  AlertCircle
 } from 'lucide-react';
-import { membershipApi, authorizedPersonApi, chamberServiceApi, membershipContentApi } from '../utils/api';
+import { membershipApi, authorizedPersonApi } from '../utils/api';
 import PreviewModal from '../Components/PreviewModal';
 
 const MembershipPage = () => {
@@ -48,73 +34,10 @@ const MembershipPage = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [contentLoading, setContentLoading] = useState(true);
   const [validating, setValidating] = useState(false);
   const [isValidated, setIsValidated] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  
-  const [dynamicContent, setDynamicContent] = useState({ feeContent: '', termsContent: '' });
-  const [benefits, setBenefits] = useState([]);
-
-  const iconMap = {
-    'HandThumbUpIcon': CheckCircle2,
-    'CurrencyDollarIcon': Banknote,
-    'BuildingOfficeIcon': Factory,
-    'Cog6ToothIcon': Settings,
-    'ShoppingBagIcon': ShoppingBag,
-    'BriefcaseIcon': Briefcase,
-    'WrenchScrewdriverIcon': Wrench,
-    'SparklesIcon': Sparkles,
-    'ScaleIcon': Scale,
-    'GlobeAltIcon': Globe,
-    'UserGroupIcon': Users,
-    'LightBulbIcon': Lightbulb,
-    'DocumentTextIcon': FileText,
-    'ShieldCheckIcon': ShieldCheck,
-    'PresentationChartLineIcon': Presentation,
-    'CpuChipIcon': Cpu,
-    'BeakerIcon': FlaskConical,
-    'AcademicCapIcon': GraduationCap,
-    'RocketLaunchIcon': Rocket,
-    'PuzzlePieceIcon': Puzzle,
-    'Square3Stack3DIcon': Layers,
-  };
-
-  const siteId = 'ParekhChamberofTextile01';
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [contentRes, servicesRes] = await Promise.all([
-          membershipContentApi.getContent(siteId),
-          chamberServiceApi.getServices(siteId)
-        ]);
-
-        if (contentRes.data.success) setDynamicContent(contentRes.data.data);
-        if (servicesRes.data.success) setBenefits(servicesRes.data.data);
-      } catch (error) {
-        console.error("Error fetching membership data:", error);
-      } finally {
-        setContentLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const getIcon = (iconName) => {
-    return iconMap[iconName] || Briefcase;
-  };
-
-  const renderRichText = (html) => {
-    if (!html) return null;
-    return (
-      <div 
-        className="text-slate-600 text-sm md:text-base break-words overflow-hidden"
-        dangerouslySetInnerHTML={{ __html: html.replace(/&nbsp;/g, ' ') }}
-      />
-    );
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -138,7 +61,7 @@ const MembershipPage = () => {
       const res = await authorizedPersonApi.validate({
         name: formData.authorizedOfficialName,
         code: formData.officialCodeNo,
-        siteId: siteId
+        siteId: 'ParekhChamberofTextile01'
       });
 
       if (res.data.success) {
@@ -167,7 +90,7 @@ const MembershipPage = () => {
       const data = new FormData();
       Object.keys(formData).forEach(key => data.append(key, formData[key]));
       if (file) data.append('document', file);
-      data.append('siteId', siteId);
+      data.append('siteId', 'ParekhChamberofTextile01');
 
       const res = await membershipApi.submit(data);
       if (res.data.success) {
@@ -193,6 +116,16 @@ const MembershipPage = () => {
     { key: 'websiteUrl', label: 'Website URL' },
     { key: 'natureOfBusiness', label: 'Nature of Business' },
     { key: 'categoryOfBusiness', label: 'Business Category' },
+  ];
+
+  const benefits = [
+    { title: "Textile Trade Support to our valued Members", icon: <Briefcase className="w-5 h-5 " /> },
+    { title: "Textile Finance and Investment Support to our valued Members", icon: <Gem className="w-5 h-5 " /> },
+    { title: "Industrial Consultation for establishment of Textile Industries and Plants", icon: <Factory className="w-5 h-5 " /> },
+    { title: "Manufacturing Support to the Textile Manufacturers", icon: <CheckCircle2 className="w-5 h-5 " /> },
+    { title: "Trade Support to the Textile Suppliers & Retailers", icon: <Users className="w-5 h-5 " /> },
+    { title: "Trade Consultation for Textile Raw & Finished Products", icon: <FileText className="w-5 h-5 " /> },
+    { title: "Trade Consultation for Textile Machineries and Spares", icon: <FileText className="w-5 h-5 " /> },
   ];
 
   if (isSubmitted) {
@@ -260,10 +193,7 @@ const MembershipPage = () => {
               {benefits.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 group">
                   <div className="p-2 bg-slate-800 rounded text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-                    {(() => {
-                      const IconComponent = getIcon(item.icon);
-                      return <IconComponent className="w-5 h-5" />;
-                    })()}
+                    {item.icon}
                   </div>
                   <span className="text-slate-300 text-[10px] font-bold uppercase tracking-wide group-hover:text-white transition-colors">{item.title}</span>
                 </div>
@@ -284,7 +214,13 @@ const MembershipPage = () => {
                     Subscription & Membership Fee
                   </h3>
 
-                  {renderRichText(dynamicContent.feeContent)}
+                  <p className="text-slate-600 text-sm md:text-base mb-4">
+                    Contact us for the subscription and membership fee.
+                  </p>
+
+                  <p className="text-slate-600 text-sm md:text-base">
+                    Prescribed Application Form for our Chamber Membership can be obtained either in-person or through India Post or by Regd. Courier by paying its non-refundable prescribed fee.
+                  </p>
                 </div>
 
                 {/* Terms & Conditions */}
@@ -293,7 +229,9 @@ const MembershipPage = () => {
                     Terms & Condition
                   </h3>
 
-                  {renderRichText(dynamicContent.termsContent)}
+                  <p className="text-slate-600 text-sm md:text-base">
+                    Contact us for the details.
+                  </p>
                 </div>
 
               </div>

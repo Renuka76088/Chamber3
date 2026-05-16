@@ -112,8 +112,8 @@ const BlogPage = () => {
                         {post.title}
                       </h3>
 
-                      <div className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-3 overflow-hidden">
-                        <div dangerouslySetInnerHTML={{ __html: post.content.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ') }} />
+                      <div className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 overflow-hidden break-words text-left">
+                        <div dangerouslySetInnerHTML={{ __html: post.content.replace(/<[^>]*>?/gm, '').replace(/&nbsp;|\u00A0/g, ' ').replace(/[\u200B-\u200D\uFEFF\u00AD]/g, '') }} />
                       </div>
 
                       <div className="pt-4 border-t border-slate-200 flex items-center justify-between">

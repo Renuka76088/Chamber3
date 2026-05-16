@@ -82,4 +82,20 @@ export const circularApi = {
   getCirculars: (siteId) => api.get(`/circulars?siteId=${siteId}`),
 };
 
+export const noticeApi = {
+  getNotices: (siteId) => api.get(`/notices?siteId=${siteId}`),
+};
+
+export const tenderApi = {
+  getTenders: (siteId) => api.get(`/tenders?siteId=${siteId}`),
+};
+
+export const eauctionApi = {
+  getAuctions: (siteId) => api.get(`/eauctions?siteId=${siteId}`),
+};
+
+export const equotationApi = {
+  getQuotations: (siteId) => api.get(`/equotations?siteId=${siteId}`),
+};
+
 export default api;

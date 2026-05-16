@@ -108,11 +108,13 @@ const BlogDetail = () => {
 
       {/* 3. Content Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 -mt-10 sm:-mt-16 relative z-10">
-        <div className="bg-white rounded-sm shadow-2xl p-6 sm:p-12 md:p-16 border border-slate-100">
-          <div className="prose prose-slate max-w-none prose-lg sm:prose-xl prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-strong:text-slate-900 prose-img:rounded-xl">
-             <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+        <div className="bg-white rounded-sm shadow-2xl p-5 sm:p-12 md:p-16 border border-slate-100">
+          <div 
+            className="blog-content-container prose prose-slate max-w-none prose-sm sm:prose-base md:prose-lg prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-strong:text-slate-900 prose-ul:list-disc prose-ul:pl-4 break-normal-custom text-left overflow-visible"
+          >
+             <div dangerouslySetInnerHTML={{ __html: blog.content?.replace(/&nbsp;|\u00A0/g, ' ').replace(/[\u200B-\u200D\uFEFF\u00AD]/g, '') }} />
           </div>
-          </div>
+        </div>
       </div>
     </div>
   );
