@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-import { FileText, Calendar, Clock, Inbox, ShieldCheck, Briefcase } from 'lucide-react';
+import { FileText, Clock, Inbox, ShieldCheck, Briefcase } from 'lucide-react';
 import { tenderApi } from '../utils/api';
 
 const TenderContract = () => {
@@ -125,12 +125,7 @@ const TenderContract = () => {
                   <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform shadow-sm">
                     <Briefcase className="w-6 h-6" />
                   </div>
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-[10px] font-black uppercase tracking-widest">
-                      {new Date(tender.date || tender.createdAt).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}
-                    </span>
-                  </div>
+
                 </div>
 
                 <h3 className="text-xl md:text-3xl font-black text-slate-900 mb-6 leading-tight group-hover:text-amber-600 transition-colors uppercase tracking-tight">
