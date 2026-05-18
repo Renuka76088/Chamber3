@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Gavel, Send, FileText, Building2, User, Phone, Mail, MapPin, Upload, Calculator, Loader2, CheckCircle2, AlertTriangle, Eye, Calendar, Inbox } from 'lucide-react';
-import { auctionApi, eauctionApi, IMAGE_BASE_URL } from '../utils/api';
+import { auctionApi, eauctionApi, eauctionHeaderApi, IMAGE_BASE_URL } from '../utils/api';
 import PreviewModal from '../Components/PreviewModal';
 import { motion } from 'framer-motion';
 
 const EAuctionForm = () => {
   const [auctions, setAuctions] = useState([]);
   const [loadingAuctions, setLoadingAuctions] = useState(true);
+  const [headerData, setHeaderData] = useState({
+    title: 'e-AUCTION',
+    description: 'DIGITAL LIQUIDATION AND TRANSPARENT AUCTION SYSTEM ACROSS OUR CORPORATE ECOSYSTEM.'
+  });
   const [formData, setFormData] = useState({
     participantName: '',
     legalBusinessName: '',
@@ -42,7 +46,23 @@ const EAuctionForm = () => {
         setLoadingAuctions(false);
       }
     };
+
+    const fetchHeader = async () => {
+      try {
+        const res = await eauctionHeaderApi.getHeader(siteId);
+        if (res.data.success && res.data.data) {
+          setHeaderData({
+            title: res.data.data.title || 'e-Auction',
+            description: res.data.data.description || 'Participate in official asset auctions with certified transparency and real-time tracking across our industrial ecosystem.'
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching header:", error);
+      }
+    };
+
     fetchAuctions();
+    fetchHeader();
   }, []);
 
   const handleInputChange = (e) => {
@@ -142,15 +162,15 @@ const EAuctionForm = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-black tracking-tighter leading-tight flex items-center gap-4"
           >
-            <Gavel className="text-amber-500 w-10 h-10 md:w-14 md:h-14" /> e-Auction
+            <Gavel className="text-amber-500 w-10 h-10 md:w-14 md:h-14" /> {headerData.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-slate-400 text-sm md:text-base font-bold uppercase tracking-widest mt-6 max-w-4xl leading-relaxed"
+            className="text-slate-400 text-sm md:text-base font-bold mt-6 max-w-4xl leading-relaxed"
           >
-            Participate in official asset auctions with certified transparency and real-time tracking across our industrial ecosystem.
+            {headerData.description}
           </motion.p>
         </div>
       </section>

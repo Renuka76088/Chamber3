@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FileSpreadsheet, Send, Calculator, ClipboardCheck, Building2, Upload, MessageSquare, Loader2, CheckCircle2, Eye, Calendar, Inbox, Clock } from 'lucide-react';
-import { quotationApi, equotationApi } from '../utils/api';
+import { quotationApi, equotationApi, equotationHeaderApi } from '../utils/api';
 import PreviewModal from '../Components/PreviewModal';
 import { motion } from 'framer-motion';
 
 const EQuotationForm = () => {
   const [quotations, setQuotations] = useState([]);
   const [loadingQuotations, setLoadingQuotations] = useState(true);
+  const [headerData, setHeaderData] = useState({
+    title: 'e-QUOTATION',
+    description: 'DIGITAL PRICE SUBMISSION AND PROPOSAL MANAGEMENT FOR APPROVED VENDORS AND TRADERS ACROSS OUR NETWORK.'
+  });
   const [formData, setFormData] = useState({
     traderName: '',
     businessName: '',
@@ -44,7 +48,23 @@ const EQuotationForm = () => {
         setLoadingQuotations(false);
       }
     };
+
+    const fetchHeader = async () => {
+      try {
+        const res = await equotationHeaderApi.getHeader(siteId);
+        if (res.data.success && res.data.data) {
+          setHeaderData({
+            title: res.data.data.title || 'e-Quotation',
+            description: res.data.data.description || 'Digital price submission and proposal management for approved vendors and traders across our network.'
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching header:", error);
+      }
+    };
+
     fetchQuotations();
+    fetchHeader();
   }, []);
 
   const handleInputChange = (e) => {
@@ -146,15 +166,15 @@ const EQuotationForm = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-black tracking-tighter leading-tight flex items-center gap-4"
           >
-            <FileSpreadsheet className="text-amber-500 w-10 h-10 md:w-14 md:h-14" /> e-Quotation
+            <FileSpreadsheet className="text-amber-500 w-10 h-10 md:w-14 md:h-14" /> {headerData.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-slate-400 text-sm md:text-base font-bold uppercase tracking-widest mt-6 max-w-4xl leading-relaxed"
+            className="text-slate-400 text-sm md:text-base font-bold mt-6 max-w-4xl leading-relaxed"
           >
-            Digital price submission and proposal management for approved vendors and traders across our network.
+            {headerData.description}
           </motion.p>
         </div>
       </section>

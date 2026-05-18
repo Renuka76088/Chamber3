@@ -29,6 +29,26 @@ export const blogHeaderApi = {
   getHeader: (siteId) => api.get(`/blog-header/${siteId}`),
 };
 
+export const equotationHeaderApi = {
+  getHeader: (siteId) => api.get(`/equotation-header/${siteId}`),
+};
+
+export const eauctionHeaderApi = {
+  getHeader: (siteId) => api.get(`/eauction-header/${siteId}`),
+};
+
+export const tenderHeaderApi = {
+  getHeader: (siteId) => api.get(`/tender-header/${siteId}`),
+};
+
+export const careerHeaderApi = {
+  getHeader: (siteId) => api.get(`/career-header/${siteId}`),
+};
+
+export const circularHeaderApi = {
+  getHeader: (siteId) => api.get(`/circular-header/${siteId}`),
+};
+
 export const careerApi = {
   getJobs: (siteId) => api.get(`/careers?siteId=${siteId}`),
 };

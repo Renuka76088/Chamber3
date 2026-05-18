@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { careerApi } from "../utils/api";
+import { careerApi, careerHeaderApi } from "../utils/api";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Clock, IndianRupee, Mail, AlertCircle, Info, ChevronRight } from "lucide-react";
 
 const Career = () => {
   const [vacancies, setVacancies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [headerData, setHeaderData] = useState({
+    title: 'Career Opportunities',
+    description: 'Explore roles across our textile network and help us shape the future of the industry.'
+  });
   const siteId = "ParekhChamberofTextile01";
 
   // Helper to strip HTML tags for short summaries
@@ -33,7 +37,23 @@ const Career = () => {
         setLoading(false);
       }
     };
+
+    const fetchHeader = async () => {
+      try {
+        const res = await careerHeaderApi.getHeader(siteId);
+        if (res.data.success && res.data.data) {
+          setHeaderData({
+            title: res.data.data.title || 'Career Opportunities',
+            description: res.data.data.description || 'Explore roles across our textile network and help us shape the future of the industry.'
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching header:", error);
+      }
+    };
+
     fetchVacancies();
+    fetchHeader();
   }, []);
 
 
@@ -58,7 +78,7 @@ const Career = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-black tracking-tight mb-6"
           >
-            Career <span className="text-[#fe9a00]">Opportunities</span>
+            {headerData.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +86,7 @@ const Career = () => {
             transition={{ delay: 0.2 }}
             className="max-w-2xl mx-auto text-slate-400 text-lg font-medium"
           >
-            Explore roles across our textile network and help us shape the future of the industry.
+            {headerData.description}
           </motion.p>
         </div>
       </div>

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { circularApi } from "../utils/api";
+import { circularApi, circularHeaderApi } from "../utils/api";
 import { FileText, Eye, Printer, AlertCircle, Calendar, ChevronRight } from "lucide-react";
 
 const CircularsPage = () => {
   const [circulars, setCirculars] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [headerData, setHeaderData] = useState({
+    title: 'Official Circulars',
+    description: 'Access critical industry updates, policy changes, and official notifications issued by the chamber.'
+  });
   const siteId = "ParekhChamberofTextile01";
 
   useEffect(() => {
@@ -21,7 +25,23 @@ const CircularsPage = () => {
         setLoading(false);
       }
     };
+
+    const fetchHeader = async () => {
+      try {
+        const res = await circularHeaderApi.getHeader(siteId);
+        if (res.data.success && res.data.data) {
+          setHeaderData({
+            title: res.data.data.title || 'Official Circulars',
+            description: res.data.data.description || 'Access critical industry updates, policy changes, and official notifications issued by the chamber.'
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching header:", error);
+      }
+    };
+
     fetchCirculars();
+    fetchHeader();
   }, []);
 
   return (
@@ -45,7 +65,7 @@ const CircularsPage = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-black tracking-tighter mb-8"
           >
-            Official <span className="text-[#fe9a00]">Circulars</span>
+            {headerData.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +73,7 @@ const CircularsPage = () => {
             transition={{ delay: 0.2 }}
             className="max-w-3xl mx-auto text-slate-400 text-lg md:text-xl font-medium leading-relaxed"
           >
-            Access critical industry updates, policy changes, and official notifications issued by the chamber.
+            {headerData.description}
           </motion.p>
         </div>
       </div>
