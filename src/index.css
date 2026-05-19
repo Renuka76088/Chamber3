@@ -83,3 +83,22 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Premium styled slim scrollbar for the sidebar */
+.custom-sidebar-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: #64748b; /* slate-500 */
+  border-radius: 9999px;
+}
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #334155; /* slate-700 */
+}
+.custom-sidebar-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #64748b transparent;
+}

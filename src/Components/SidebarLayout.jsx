@@ -82,16 +82,16 @@ const SidebarLayout = () => {
         </div>
 
         {/* SIDEBAR CONTAINER */}
-<aside className={`
-  ${isSidebarOpen ? "fixed inset-0 z-[60] bg-white flex" : "hidden lg:flex"} 
-  lg:w-85 xl:w-[400px] lg:relative flex-col border-r border-slate-200 bg-slate-50
-`}>
-  <div className="flex justify-between items-center p-8 border-b lg:hidden bg-slate-900 text-white text-2xl font-black italic shrink-0">
-    NAVIGATE <button onClick={() => setIsSidebarOpen(false)} className="p-3 bg-slate-800 rounded-full"><X className="w-8 h-8"/></button>
-  </div>
+        <aside className={`
+          ${isSidebarOpen ? "fixed inset-0 z-[60] bg-white flex" : "hidden lg:flex"} 
+          lg:w-85 xl:w-[400px] lg:relative flex-col border-r border-slate-200 bg-slate-50 lg:h-full overflow-hidden
+        `}>
+          <div className="flex justify-between items-center p-8 border-b lg:hidden bg-slate-900 text-white text-2xl font-black italic shrink-0">
+            NAVIGATE <button onClick={() => setIsSidebarOpen(false)} className="p-3 bg-slate-800 rounded-full"><X className="w-8 h-8"/></button>
+          </div>
 
-  {/* Scrollable area ko 'h-full' ki jagah 'flex-1' aur padding badha dein */}
-  <nav className="flex-1 overflow-y-auto overscroll-contain no-scrollbar py-4">
+          {/* Scrollable area ko 'h-full' ki jagah 'flex-1' aur padding badha dein */}
+          <nav className="flex-1 overflow-y-auto overscroll-contain custom-sidebar-scrollbar py-4">
     <ul className="space-y-0.5 pb-32"> {/* Yahan pb-32 kiya hai taaki last item ke niche space mile */}
       {menuConfig.map((item) => {
         const isActive = location.pathname === item.path;
