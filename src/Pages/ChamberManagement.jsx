@@ -80,10 +80,10 @@ const ChamberManagement = () => {
             {members.map((member) => (
               <div 
                 key={member._id} 
-                className="group relative bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100/80 shadow-md hover:shadow-[0_32px_64px_-15px_rgba(245,158,11,0.15)] hover:-translate-y-2 transition-all duration-500 flex flex-col h-full"
               >
-                {/* Image Container */}
-                <div className="aspect-[4/5] overflow-hidden bg-slate-100 relative">
+                {/* Image Container with Inset Frame */}
+                <div className="m-3.5 rounded-[1.75rem] overflow-hidden aspect-square bg-slate-50 relative shadow-inner">
                   {member.image ? (
                     <img 
                       src={member.image.startsWith('http') ? member.image : `${IMAGE_BASE_URL}${member.image}`} 
@@ -92,24 +92,28 @@ const ChamberManagement = () => {
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-300">
-                      <User className="w-20 h-20" />
+                      <User className="w-14 h-14 text-slate-300/80" />
                     </div>
                   )}
-                  )}
                 </div>
 
-                {/* Info */}
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm font-bold text-slate-500 uppercase tracking-widest mt-1">
-                    {member.role}
-                  </p>
+                {/* Info Block */}
+                <div className="px-5 pb-6 pt-1 text-center">
+                  <div>
+                    <h3 className="text-lg font-black text-slate-900 group-hover:text-amber-500 transition-colors leading-tight">
+                      {member.name}
+                    </h3>
+                    <div className="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-amber-50 rounded-full border border-amber-100/50">
+                      <span className="w-1 h-1 rounded-full bg-amber-500 animate-pulse"></span>
+                      <span className="text-[9px] font-black text-amber-700 uppercase tracking-widest">
+                        {member.role}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Accent Border */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-amber-500 transition-all duration-500 group-hover:w-full"></div>
+                {/* Accent Border Line */}
+                <div className="absolute bottom-0 left-0 w-0 h-1.5 bg-gradient-to-r from-amber-500 to-amber-600 transition-all duration-500 group-hover:w-full"></div>
               </div>
             ))}
           </div>
