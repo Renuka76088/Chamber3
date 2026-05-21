@@ -52,13 +52,13 @@ const CircularsPage = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#fe9a00] rounded-full blur-[120px] opacity-10 -ml-48 -mb-48"></div>
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <motion.span
+          {/* <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-[#fe9a00] font-black uppercase tracking-[0.4em] text-xs mb-6 block"
           >
             Communication Portal
-          </motion.span>
+          </motion.span> */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

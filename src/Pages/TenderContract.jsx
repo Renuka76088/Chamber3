@@ -126,7 +126,7 @@ const TenderContract = () => {
               At present, <br />
               <span className="text-amber-500">No EOI published</span>
             </h2>
-            <p className="text-slate-400 mt-4 text-xs font-bold uppercase tracking-[0.2em]">
+            <p className="text-slate-400 mt-4 text-xs font-bold tracking-[0.2em]">
               Parekh e-Trade Market • 2026
             </p>
           </motion.div>

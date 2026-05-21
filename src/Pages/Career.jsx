@@ -65,13 +65,13 @@ const Career = () => {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#fe9a00] rounded-full blur-[100px] opacity-10 -ml-32 -mb-32"></div>
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <motion.span
+          {/* <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-[#fe9a00] font-black uppercase tracking-[0.3em] text-xs mb-4 block"
           >
             Join Our Ecosystem
-          </motion.span>
+          </motion.span> */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ const Career = () => {
                           <Info className="w-5 h-5 text-[#fe9a00]" />
                           <h4 className="text-[12px] font-black uppercase tracking-widest text-[#fe9a00]">Role Overview</h4>
                         </div>
-                        <div 
+                        <div
                           className="text-slate-600 leading-relaxed text-base break-normal overflow-hidden rich-text-content"
                           dangerouslySetInnerHTML={{ __html: fixWordBreaks(job.description) }}
                         />
@@ -219,7 +219,7 @@ const Career = () => {
                             <AlertCircle className="w-5 h-5 text-[#fe9a00]" />
                             <h4 className="text-[12px] font-black uppercase tracking-widest text-[#fe9a00]">Minimum Requirements</h4>
                           </div>
-                          <div 
+                          <div
                             className="text-slate-600 leading-relaxed text-base break-normal overflow-hidden rich-text-content"
                             dangerouslySetInnerHTML={{ __html: fixWordBreaks(job.experience) }}
                           />
