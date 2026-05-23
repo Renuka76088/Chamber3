@@ -59,7 +59,7 @@ const ChamberManagement = () => {
           {/* Description */}
           <div className="w-20 h-1 bg-amber-500 mx-auto mb-8 rounded-full"></div>
           <div 
-            className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto font-medium break-words"
+            className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto font-medium break-words text-left [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2 [&_li]:ml-4"
             dangerouslySetInnerHTML={{ 
               __html: (content.description || "Parekh Chamber of Textile is administered and governed by the highly skilled, experienced and qualified members of the Management.")
                 .replace(/&nbsp;/g, ' ') 
