@@ -121,7 +121,7 @@ const SidebarLayout = () => {
         {/* RIGHT CONTENT AREA */}
         <main 
           ref={mainContentRef}
-          className="flex-1 h-full overflow-y-auto no-scrollbar bg-white scroll-smooth relative"
+          className="flex-1 h-full overflow-y-auto custom-sidebar-scrollbar bg-white scroll-smooth relative"
         >
           <Outlet />
         </main>
