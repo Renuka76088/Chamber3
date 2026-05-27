@@ -52,7 +52,7 @@ const ChamberManagement = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-6xl font-black mb-8 tracking-tight uppercase">
+          <h1 className="text-4xl md:text-6xl font-black mb-8 tracking-tight">
             {content.title || "Our Chamber Management"}
           </h1>
 

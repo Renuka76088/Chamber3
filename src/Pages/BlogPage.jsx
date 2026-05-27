@@ -48,7 +48,7 @@ const BlogPage = () => {
       <section className="bg-slate-900 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
           <div className="md:w-2/3">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
               {header?.title?.split(' ')[0] || 'CHAMBER'} <span className="text-amber-500">{header?.title?.split(' ').slice(1).join(' ') || 'INSIGHTS'}</span>
             </h1>
             <p className="text-lg text-slate-300 border-l-4 border-amber-500 pl-4 max-w-2xl">
@@ -57,13 +57,13 @@ const BlogPage = () => {
           </div>
           <div className="w-full md:w-1/3 flex flex-col items-center md:items-end text-center md:text-right gap-2">
             <div className="w-12 h-1 bg-amber-500 mb-2"></div>
-            <h2 className="text-xl font-black text-white uppercase tracking-tighter">
+            <h2 className="text-xl font-black text-white tracking-tighter">
               {header?.authorName || "HC PAREKH"}
             </h2>
-            <p className="text-amber-500 text-[10px] font-black uppercase tracking-[0.2em]">
+            <p className="text-amber-500 text-[10px] font-black tracking-[0.2em]">
               {header?.authorRole || "Textile Manufacturer & Entrepreneur"}
             </p>
-            <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">
+            <p className="text-slate-500 text-[10px] font-black tracking-[0.3em]">
               {header?.country || "INDIA"}
             </p>
             

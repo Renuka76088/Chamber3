@@ -88,7 +88,8 @@ const MediaGallery = () => {
     type: item.type || 'image',
     category: item.category,
     title: item.title,
-    url: item.image?.startsWith("http") ? item.image : `${IMAGE_BASE_URL}/${item.image}`
+    url: item.image?.startsWith("http") ? item.image : `${IMAGE_BASE_URL}/${item.image}`,
+    date: item.date || item.createdAt
   }));
 
   const filteredMedia = activeFilter === 'All'
@@ -187,8 +188,20 @@ const MediaGallery = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                   <div className="flex justify-between items-end">
                     <div className="space-y-1">
-                      <span className="text-amber-500 text-[10px] font-black uppercase tracking-widest">
-                        {item.category}
+                      <span className="text-amber-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
+                        <span>{item.category}</span>
+                        {item.date && (
+                          <>
+                            <span className="text-slate-400">•</span>
+                            <span className="text-slate-300">
+                              {new Date(item.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric'
+                              })}
+                            </span>
+                          </>
+                        )}
                       </span>
                       <h3 className="text-white text-xl font-bold">
                         {item.title}

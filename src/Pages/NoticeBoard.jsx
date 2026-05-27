@@ -42,7 +42,7 @@ const NoticeBoard = () => {
             <span className="bg-amber-100 text-amber-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">
               Communication Hub
             </span>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight uppercase">
+            <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
               Notice <span className="text-amber-500">Board</span>
             </h1>
             <p className="text-slate-500 mt-4 text-sm md:text-base font-medium">
