@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { circularApi, circularHeaderApi } from "../utils/api";
+import { circularApi, circularHeaderApi, IMAGE_BASE_URL } from "../utils/api";
 import { FileText, Eye, Printer, AlertCircle, Calendar, ChevronRight } from "lucide-react";
 
 const CircularsPage = () => {
@@ -11,6 +11,38 @@ const CircularsPage = () => {
     description: 'Access critical industry updates, policy changes, and official notifications issued by the chamber.'
   });
   const siteId = "ParekhChamberofTextile01";
+
+  const getFullUrl = (url) => {
+    if (!url) return '';
+    return url.startsWith('http') ? url : `${IMAGE_BASE_URL}/${url.replace(/\\/g, '/')}`;
+  };
+
+  const handlePrint = async (e, url) => {
+    e.preventDefault();
+    const fullUrl = getFullUrl(url);
+    
+    try {
+      const response = await fetch(fullUrl);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = blobUrl;
+      document.body.appendChild(iframe);
+      
+      iframe.onload = () => {
+        setTimeout(() => {
+          iframe.contentWindow.focus();
+          iframe.contentWindow.print();
+          setTimeout(() => document.body.removeChild(iframe), 1000);
+        }, 100);
+      };
+    } catch (error) {
+      console.error("Print failed via iframe:", error);
+      window.open(fullUrl, '_blank');
+    }
+  };
 
   useEffect(() => {
     const fetchCirculars = async () => {
@@ -126,7 +158,7 @@ const CircularsPage = () => {
                 {/* Actions Section */}
                 <div className="flex items-center gap-3 w-full md:w-auto pt-6 md:pt-0 border-t md:border-0 border-slate-50">
                   <a
-                    href={circular.pdfUrl}
+                    href={getFullUrl(circular.pdfUrl)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 md:flex-none bg-slate-100 hover:bg-[#fe9a00]/10 text-slate-600 hover:text-[#fe9a00] px-6 py-4 rounded-2xl transition-all font-black text-[11px] uppercase tracking-widest flex items-center justify-center gap-3"
@@ -134,15 +166,13 @@ const CircularsPage = () => {
                     <Eye className="w-4 h-4" />
                     <span>View</span>
                   </a>
-                  <a
-                    href={circular.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={(e) => handlePrint(e, circular.pdfUrl)}
                     className="flex-1 md:flex-none bg-slate-950 hover:bg-[#fe9a00] text-white px-6 py-4 rounded-2xl transition-all shadow-xl hover:shadow-[#fe9a00]/40 font-black text-[11px] uppercase tracking-widest flex items-center justify-center gap-3"
                   >
                     <Printer className="w-4 h-4" />
                     <span>Print</span>
-                  </a>
+                  </button>
                 </div>
               </motion.div>
             ))}
