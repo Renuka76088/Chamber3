@@ -110,12 +110,14 @@ const MediaGallery = () => {
               "A visual journey of the Parekh Chamber Of Textile. Glimpse our rich heritage, advanced technology, and key events."
             </p> */}
           </div>
-          <div className="flex gap-4">
-            <div className="bg-slate-800 p-6 border border-slate-700 text-center">
-              <span className="text-amber-500 text-3xl font-bold block">{backendMedia.length > 0 ? backendMedia.length : '1.2k+'}</span>
-              <span className="text-[10px] uppercase font-bold tracking-widest">{backendMedia.length > 0 ? 'Events Added' : 'Media Files'}</span>
+          {backendMedia.length > 0 && (
+            <div className="flex gap-4">
+              <div className="bg-slate-800 p-6 border border-slate-700 text-center">
+                <span className="text-amber-500 text-3xl font-bold block">{backendMedia.length}</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest">{backendMedia.length === 1 ? 'Media File' : 'Media Files'}</span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
