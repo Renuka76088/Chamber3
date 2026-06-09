@@ -118,7 +118,7 @@ const AppointmentPage = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
           <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 leading-none">
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">
               Visit with <br /><span className="text-amber-500">Appointment</span>
             </h1>
             <p className="text-slate-400 text-sm max-w-md font-medium uppercase tracking-[0.2em]">

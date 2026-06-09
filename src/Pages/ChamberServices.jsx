@@ -3,7 +3,7 @@ import {
   Search,
   ArrowRight,
   Briefcase, Factory, Handshake, Settings, ShoppingBag, Wrench, Banknote,
-  Sparkles, Scale, Globe, Users, Lightbulb, FileText, ShieldCheck, 
+  Sparkles, Scale, Globe, Users, Lightbulb, FileText, ShieldCheck,
   Presentation, Cpu, FlaskConical, GraduationCap, Rocket, Puzzle, Layers
 } from 'lucide-react';
 import { chamberServiceApi } from '../utils/api';
@@ -64,7 +64,7 @@ const ChamberServices = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="w-full md:w-3/4">
             {/* Font size responsive: text-3xl for phone, text-6xl for desktop */}
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 uppercase tracking-tight">
               Our Services
             </h1>
             <div className="h-1.5 w-20 bg-amber-500 rounded-full"></div>
